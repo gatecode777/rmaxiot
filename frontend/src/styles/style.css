@@ -1,0 +1,1940 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap');
+
+/* Global Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* why we are the right partner */
+.why-partner-new {
+    background-color: #5F7889;
+    /* Dark Navy */
+    color: #fff;
+    padding: 80px 3%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-main {
+    display: grid;
+    grid-template-columns: 1.3fr 1.2fr;
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+/* Left Section */
+.header-text h1 {
+    font-size: 25px;
+    margin-top: 45px;
+    font-weight: 600;
+}
+
+.header-text p {
+    font-size: 12px;
+    line-height: 1.2;
+    color: #f7f6f6;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+.image-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.img-box img {
+    width: 90%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.img-box {
+    display: flex;
+    align-items: stretch;
+    /* Isse line aur image ki height barabar rahegi */
+    gap: 10px;
+    /* Yellow line aur image ke beech ka gap */
+    margin-bottom: 25px;
+}
+
+/* Nayi Curved Yellow Bar Styling */
+.golden-bar {
+    width: 35px;
+    /* Line ki thickness */
+    background-color: #FFCC00;
+    /* Targeted Golden Yellow */
+    /* Bottom corner ko curve karne ke liye */
+    border-radius: 0 0 0 50px;
+    flex-shrink: 0;
+    /* Line dabni nahi chahiye */
+}
+
+.golden-bara {
+    width: 35px;
+    /* Line ki thickness */
+    background-color: #FFCC00;
+    /* Targeted Golden Yellow */
+    /* Bottom corner ko curve karne ke liye */
+    border-radius: 0px 0px 150px 0px;
+    flex-shrink: 0;
+    /* Line dabni nahi chahiye */
+}
+
+/* Image Curves */
+.curved-right img {
+    border-radius: 0 150px 0px 0;
+}
+
+.curved-left img {
+    border-radius: 150px 0 0 0px;
+}
+
+/* Right Section List Styling */
+.partner-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    /* Do blocks ke beech ka gap */
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    /* background-color: white; */
+
+}
+
+.list-item {
+    display: flex;
+    margin-bottom: 2px;
+    /* Minimal gap as per image */
+    height: 140px;
+
+}
+
+.number-box {
+    background-color: #FFCC00;
+    /* Golden Yellow */
+    color: #000;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.number-boxa {
+    background-color: #FFCC00;
+    /* Golden Yellow */
+    color: #000;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 50px 0 0 0px;
+}
+
+.content-box {
+
+    background-color: #526572;
+    padding: 10px 20px;
+    flex: 1;
+    border: 1px solid #2a3b4c;
+
+    /* background-color: rgb(236, 62, 62); */
+}
+
+.content-box p {
+    font-size: 12px;
+    position: relative;
+    padding-left: 3px;
+    bottom: 2px;
+}
+
+.content-box h3 {
+    color: #FFCC00;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.content-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content-box li {
+    font-size: 10px;
+    position: relative;
+    padding-left: 15px;
+    bottom: 3px;
+}
+
+.content-box li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #fff;
+}
+
+.highlight-text {
+    display: block;
+    margin-top: 0px;
+    font-size: 12px;
+    font-style: italic;
+    color: #ddd;
+}
+
+/* Mobile View */
+@media (max-width: 992px) {
+    .container-main {
+        grid-template-columns: 1fr;
+    }
+
+    .number-box {
+        width: 60px;
+        font-size: 24px;
+    }
+}
+
+
+/* CTA section */
+
+.cta-section {
+    background-color: #F5F5F5;
+    padding: 60px 0 0 0;
+    overflow: hidden;
+    width: 100%;
+    height: 450px;
+}
+
+.cta-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-call,
+.btn-whatsapp {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 35px;
+    border-radius: 50px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.btn-call {
+    background-color: #2c2c2c;
+    color: white;
+}
+
+.btn-whatsapp {
+    background-color: transparent;
+    color: #2c2c2c;
+    border: 1.5px solid #2c2c2c;
+}
+
+.btn-call:hover {
+    background-color: #444;
+}
+
+.btn-whatsapp:hover {
+    background-color: #2c2c2c;
+    color: #ffcc00;
+}
+
+.cta-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.cta-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cta-description {
+    font-family: 'Roboto Slab', serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    max-width: 650px;
+    color: #000000;
+}
+
+/* Roboto Slab Font import */
+
+.cta-heading {
+    font-family: 'Roboto Slab', serif;
+    font-size: 40px;
+    line-height: 1.0;
+    color: #444444;
+    letter-spacing: 0%;
+    margin-bottom: 20px;
+}
+
+/* Pehli line: Regular Weight */
+.light-text {
+    font-weight: 400;
+    color: #4D4B4B;
+}
+
+/* Doosri line: SemiBold Weight */
+.bold-text {
+    font-weight: 600;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .cta-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+
+    .cta-image {
+        margin-top: 40px;
+    }
+}
+
+/* testimonal section */
+
+.testimonial-section {
+    padding: 60px 5%;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.testimonial-header h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-family: sans-serif;
+}
+
+.slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Row alignment logic */
+.testimonial-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: hidden;
+    /* JavaScript se slide karne ke liye */
+    scroll-behavior: smooth;
+    padding: 10px;
+}
+
+/* Card Styling */
+.testimonial-card {
+    min-width: calc(33.33% - 20px);
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 1.5px solid #e0e0e0;
+}
+
+/* Last card ki separation line hatane ke liye taaki wo clean dikhe */
+.testimonial-card:last-child {
+    border-right: none;
+}
+
+/* Card Content ki height thodi badhane ke liye taaki alignment sahi rahe */
+.review {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.stars {
+    color: #ffcc00;
+    font-size: 14px;
+}
+
+.date {
+    color: #888;
+    font-size: 12px;
+}
+
+.review {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    height: 80px;
+    overflow: hidden;
+}
+
+/* User Profile Section */
+.user-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.user-meta img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-text {
+    font-size: 12px;
+}
+
+.user-text strong {
+    color: #000;
+}
+
+.user-text span {
+    color: #777;
+}
+
+/* Buttons Styling */
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #222;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+}
+
+.slide-btn:hover {
+    background-color: #2c2c2c;
+    color: #ffcc00;
+}
+
+.prev {
+    left: -20px;
+}
+
+.next {
+    right: -20px;
+}
+
+.view-more-box {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.view-more-btn {
+    background: #ffcc00;
+    border: none;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-more-btn:hover {
+    background-color: #2c2c2c;
+    color: #ffcc00;
+}
+
+
+/* Header CSS */
+
+/* Header specific styles */
+.main-header {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+/* Logo */
+.header__logo img {
+    height: 100px;
+    /* Aap apne hisab se adjust karein */
+}
+
+/* Search Bar */
+.header__search {
+    flex: 0 1 300px;
+}
+
+.search-wrapper {
+    background: #f4f4f4;
+    border-radius: 8px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper input {
+    border: none;
+    background: transparent;
+    margin-left: 10px;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* Navigation */
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+
+}
+
+.nav-link:hover {
+    /* color: #ff9900; Hover color */
+    text-decoration: underline;
+    color: #333;
+    transform: scale(1.6);
+    transition: color 0.3s;
+}
+
+/* Actions */
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.action-icon {
+    font-size: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.wishlist-icon {
+    color: #ff4d4d;
+    /* Red Heart */
+}
+
+.btn-login {
+    border: 1px solid #333;
+    padding: 8px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+
+/* Mobile & Tablet Responsive Styles */
+@media (max-width: 992px) {
+    .header-container {
+        flex-wrap: wrap;
+        /* Items ko niche lane ke liye */
+        padding: 10px 15px;
+    }
+
+    .header__search {
+        order: 3;
+        /* Search bar ko niche line mein lane ke liye */
+        flex: 1 0 100%;
+        margin-top: 15px;
+    }
+
+    .header__nav {
+        display: none;
+        /* Mobile par default menu hide rahega */
+    }
+
+    /* Mobile par navigation ko show karne ke liye (Jab JS se toggle ho) */
+    .header__nav.active {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .header__logo img {
+        height: 40px;
+        /* Choti screen par logo chota */
+    }
+}
+
+/* Small Mobile Phones */
+@media (max-width: 480px) {
+    .btn-login {
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+
+    .header__actions {
+        gap: 10px;
+    }
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+
+/* RESET BUTTON DEFAULT STYLE */
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+/* ICON IMAGE FIX */
+.action-icon img {
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+
+/* ALIGN ICONS */
+.action-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LOGIN BUTTON FIX */
+.btn-login {
+    background: transparent;
+}
+
+
+/* =============================================================== */
+
+
+
+.hero-hygiene {
+    padding: 80px 0;
+    background-color: #F5F5F5;
+    display: flex;
+    align-items: center;
+}
+
+.hero-hygiene__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.hero-hygiene__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-hygiene__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #222;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.hero-hygiene__description {
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 3px;
+    max-width: 500px;
+    width: 100%;
+    white-space: nowrap;
+}
+
+/* Button Styling */
+.hero-hygiene__btn {
+    background-color: #26b6b6;
+    color: #fff;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    flex-direction: row;
+}
+
+.hero-hygiene__btn:hover {
+    background-color: #1e8f8f;
+}
+
+/* Right Side: Image */
+.hero-hygiene__image-wrapper {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.hero-hygiene__img {
+    width: 200%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: 40px;
+}
+
+.hero-text-col {
+    flex: 0 4 95%;
+    margin-right: 200px;
+    left: 100px;
+}
+
+.hero-btn-col {
+    flex: 0 0 auto;
+    display: flex;
+}
+
+
+@media (max-width: 992px) {
+    .hero-hygiene__container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-hygiene__image-wrapper {
+        justify-content: center;
+        order: -1;
+        /* Image pehle dikhegi mobile par */
+        margin-bottom: 30px;
+    }
+
+    .hero-hygiene__title {
+        font-size: 32px;
+    }
+
+    .hero-hygiene__tag {
+        margin: 0 auto 15px;
+    }
+}
+
+/* ================================================================ */
+
+
+/* Card Design */
+.product-card {
+    /* background: #fff; */
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    /* Thoda zyada rounded */
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    border: 1px solid #e0e0e0;
+    /* Light grey border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    /* Soft shadow */
+    transition: transform 0.3s ease;
+    max-width: 300px;
+    /* Optional: adjust as per grid */
+    display: flex;
+    flex-direction: column;
+    /* Content ko upar se niche set karne ke liye */
+    height: 100%;
+}
+
+/* Gray Box for Image */
+.image-box {
+    /* background-color: #f8f8f8; Light gray background like target */
+    background: #fff;
+    border-radius: 12px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.image-box img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+/* Wishlist Icon inside Image Box */
+.wishlist {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 22px;
+    /* Thoda bada icon */
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.wishlist i:hover {
+    /* color: #ff0000; Red color on hover */
+    /* transform: scale(1.3); Zoom effect (30% bada ho jayega) */
+    color: #ff0000;
+    /* Pura icon red ho jayega */
+    transform: scale(1.3);
+    /* Zoom effect */
+    font-weight: 900;
+}
+
+/* Title Styling */
+.product-info .product-title {
+    font-size: 16px;
+    /* Target image mein bada hai */
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 15px;
+    line-height: 1;
+    padding: 0 10px;
+    min-height: 45px;
+}
+
+/* Color Dots */
+.color-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.dot {
+    width: 13px;
+    /* Size increased to match target */
+    height: 13px;
+    border-radius: 50%;
+}
+
+.blue {
+    background-color: #1e60d5;
+}
+
+/* Target blue color */
+.pink {
+    background-color: #e91e63;
+}
+
+/* Target pink color */
+
+/* Price Styling */
+.price {
+    font-size: 22px;
+    /* Big and Bold price */
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+/* Buy Button Styling */
+.buy-btn {
+    background: #1c191a;
+    /* Very dark gray/black */
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Button shadow */
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    background: #000;
+    transform: translateY(-2px);
+}
+
+
+
+.containerab {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 10px;
+    padding: 20px 100px;
+    background-color: white;
+
+}
+
+/* Tab Styles - Exact match to your image */
+.tabs-container {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    /* background-color: #ff0099; */
+}
+
+/* .tabs-content-wrap{ */
+/* margin-top: 100px;             extra top space remove */
+/* } */
+.tab {
+    font-size: 22px;
+    font-weight: 500;
+    color: #777;
+    /* Default gray color */
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
+    padding-bottom: 5px;
+    /* background-color: #ff0099; */
+}
+
+.tab.active {
+    color: #000;
+    /* Black for active */
+    font-weight: 700;
+    /* Bold as per image */
+    border-bottom: 2px solid #000;
+    /* Underline as per image */
+}
+
+/* Hide/Show Logic */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active-content {
+    display: block;
+}
+
+/* Grid Layout */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Card Design */
+
+
+.product-card.highlighted {
+    border: 3px solid #00a2ff;
+    /* Blue border like image */
+}
+
+
+.image-container {
+    height: 150px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.buy-btn {
+    background: #231f20;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.buy-btn:hover {
+    background: #000;
+}
+
+.buy-btn:hover {
+    background-color: #333;
+    padding-inline-start: 0cap;
+    margin-inline-start: 0cqmax;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* grid4 section */
+/* New Section Styling */
+.more-products {
+    width: 100%;
+    max-width: 100%;
+    margin: 50px 0;
+    padding: 0 15px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 Columns */
+    gap: 20px;
+}
+
+/* .item-card { */
+/* background: #fff; */
+/* border: 0.5px solid #353434; */
+/* box-shadow: 0 2px 4px rgba(0,0,0,0.05); */
+/* display: flex; */
+/* flex-direction: column; */
+/* } */
+.item-card {
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Optional: Jab mouse card par jaye toh wo thoda lift ho (Uthe hue dikhe) */
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.item-img-bg {
+    background-color: #d9d9d9;
+    /* Grey background for image as per reference */
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.item-img-bg img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.item-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.item-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.item-price {
+    font-size: 18px;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.item-desc {
+    font-size: 11px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: left;
+    flex-grow: 1;
+    /* Pushes button to bottom */
+}
+
+/* Shop Now Button styling */
+.shop-now-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    border: 1px solid #555;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.shop-now-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Responsive for Mobile/Tablet */
+@media (max-width: 1024px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ================================================================= */
+
+.footer {
+    background-color: #2b2b2b;
+    color: white;
+    padding-top: 60px;
+
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    align-items: flex-start;
+}
+
+.content-col {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.footer-col {
+    flex: 1;
+    padding: 0 15px;
+}
+
+/* 1) Logo Section Updates */
+.logo-section {
+    flex: 1;
+    /* Logo section ko thoda zyada space diya */
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Sab kuch horizontal center karne ke liye */
+    text-align: center;
+    margin-top: -60px;
+    padding-left: 0;
+}
+
+.logo img {
+    width: 220px;
+    /* Logo ka size bada kiya */
+    height: auto;
+    margin-bottom: 10px;
+    /* Image ke niche gap zero */
+    margin-left: -80px;
+
+}
+
+/* Social Links styling */
+.social-links {
+    width: 100%;
+    position: relative;
+    left: -10px;
+    /* Ye zyadatar cases mein perfect kaam karta hai */
+}
+
+.social-links p {
+    font-weight: bold;
+    margin-bottom: 13px;
+    /* Follow us text aur icons ka gap kam kiya */
+    font-size: 14px;
+    margin-top: -30px;
+    color: #fff;
+
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    /* Icons ko center lane ke liye */
+    gap: 5px;
+    /* Icons ke beech ka gap */
+}
+
+.icons a {
+    color: white;
+    font-size: 24px;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.icons a:hover {
+    color: #ffcc00;
+    transform: scale(1.3);
+}
+
+/* 2 & 3) Dividers: Height kam aur Left shift */
+.divider {
+    position: relative;
+    padding-left: 50px;
+}
+
+/* Yeh pseudo-element vertical line banayega */
+.divider::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    /* Line ko thoda left shift kiya */
+    top: 45px;
+    /* Top se thoda niche se start hogi */
+    height: 225px;
+    /* Line ki height kam kar di */
+    width: 1px;
+    background-color: #f4f3f3;
+}
+
+/* Content Styling */
+.footer-col h3 {
+    font-size: 18px;
+    margin-bottom: 35px;
+    /* Heading ke niche ka gap */
+    font-weight: 400;
+    line-height: 2;
+    color: white;
+    white-space: nowrap;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-top: 12px;
+    list-style: none;
+    position: relative;
+    padding-left: 10px;
+    font-size: 12px;
+    bottom: 20px;
+    white-space: nowrap;
+    margin-bottom: 28px;
+}
+
+.footer-col ul li:hover {
+    transform: scale(1.1);
+    /* Font ko 10% zoom karne ke liye */
+    color: #ffcc00;
+    /* Text ka color yellow karne ke liye */
+    cursor: pointer;
+    /* Cursor ko hand icon banane ke liye */
+}
+
+.footer-col ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: white;
+}
+
+.footer-col ul li a {
+    color: #efefef;
+    text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+    color: #ffcc00;
+}
+
+.no-heading {
+    margin-top: 70px;
+    /* 75px se badal kar 44px kiya */
+    flex: 2;
+
+}
+
+/* Yellow Bottom Bar */
+.footer-bottom {
+    background-color: #ffcc00;
+    color: #000;
+    padding: 15px 0;
+}
+
+.bottom-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.bottom-links a {
+    color: #000;
+    text-decoration: none;
+    margin-right: 35px;
+}
+
+.bottom-links a:hover {
+    text-decoration: underline;
+    /* Isse niche line aa jayegi */
+    color: #333;
+    /* Optional: halka sa color change karne ke liye */
+}
+
+.copyright {
+    text-align: right;
+}
+
+/* Responsive fixes */
+@media (max-width: 1024px) {
+    .container {
+        flex-wrap: wrap;
+    }
+
+    .footer-col {
+        min-width: 45%;
+        margin-bottom: 30px;
+    }
+
+    .divider::before {
+        display: none;
+        /* Mobile pe lines hata di taki clean dikhe */
+    }
+}
+
+
+/* ======================================================== */
+
+
+.image-grid-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 250px 250px;
+    gap: 1px;
+    background-color: #fff;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.grid-item:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+}
+
+.grid-item:nth-child(2) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.grid-item:nth-child(3) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.grid-item:nth-child(4) {
+    grid-column: 3 / 5;
+    grid-row: 1 / 3;
+}
+
+.grid-overlay {
+    position: absolute;
+    bottom: 50px;
+    left: 340px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 30px;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.grid-overlaya {
+    position: absolute;
+    bottom: 50px;
+    left: 220px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 40px;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.stat-number,
+.stat-numbera {
+    color: #ffde00 !important;
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1;
+    font-family: sans-serif;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+
+@media (max-width: 992px) {
+    .grid-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        width: 100%;
+        gap: 2px;
+    }
+
+    .grid-item {
+        height: 250px;
+        grid-column: auto !important;
+        grid-row: auto !important;
+    }
+
+    .grid-overlay {
+        padding-left: 20px;
+    }
+}
+
+
+
+
+
+/* ================================================================================= */
+
+
+.login-page-bg {
+    background: radial-gradient(circle, #174a89 0%, #061323 140%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-card {
+    background: transparent;
+    border: 2px solid #ffffff;
+    /* White border outline */
+    border-radius: 20px;
+    padding: 60px 40px 40px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+}
+
+/* Header Profile Icon */
+.profile-icon-circle {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #001e3c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-text {
+    color: #ffffff;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: #ffffff;
+}
+
+.forgot-link {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.forgot-link a {
+    color: #ffcc00;
+    /* Yellow highlight for link */
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/* Sign In Button: Exact Yellow */
+.signin-btn {
+    width: 100%;
+    background: #ffcc00;
+    color: #000;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+/* Create Account Button: Dark */
+.create-acc-btn {
+    width: 100%;
+    background: #0b1a2a;
+    color: #ffffff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.signin-btn:hover {
+    background: #e6b800;
+}
+
+.create-acc-btn:hover {
+    background: #152a41;
+}
+
+/* --- Signup --- */
+.page-wrapper {
+    background: radial-gradient(circle, #174a89 0%, #061323 100%);
+    /* Exact matching gradient */
+    min-height: calc(100vh - 80px);
+    /* Header height ko minus kiya */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* --- Registration Card --- */
+.register-card {
+    border: 2px solid #ffffff;
+    /* White outline border */
+    border-radius: 20px;
+    padding: 60px 40px 40px;
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    text-align: center;
+    background: transparent;
+}
+
+/* Profile User Icon */
+.user-icon-box {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    color: #061323;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* --- Form Inputs --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #ffffff;
+    font-size: 15px;
+    color: #333;
+}
+
+.forgot-pass {
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 25px;
+}
+
+.forgot-pass a {
+    color: #ffcc00;
+    /* Yellow link */
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/* --- Create Button --- */
+.create-btn {
+    width: 100%;
+    background: #ffcc00;
+    /* Target yellow color */
+    color: #000;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.create-btn:hover {
+    background: #e6b800;
+    transform: translateY(-2px);
+}
+
+
+
+
+/* ==================================================================== */
+
+
+/* ==================== HEADER USER MENU ==================== */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 9px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  color: #333;
+}
+
+.user-profile-btn:hover {
+  background: #f5f5f5;
+  border-color: #bbb;
+}
+
+.user-profile-btn i {
+  font-size: 28px;
+  color: #666;
+}
+
+.user-profile-btn span {
+  font-weight: 500;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn-logout {
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.btn-logout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* ==================== LOADING STATES ==================== */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 16px;
+}
+
+.loading-spinner i {
+  font-size: 48px;
+  color: #667eea;
+}
+
+.loading-spinner p {
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* ==================== NO PRODUCTS STATE ==================== */
+.no-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.no-products p {
+  font-size: 18px;
+  color: #999;
+  font-weight: 500;
+}
+
+/* ==================== RESPONSIVE HEADER ==================== */
+@media (max-width: 768px) {
+  .user-menu {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .user-profile-btn,
+  .btn-logout {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header__actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .action-icon {
+    padding: 8px;
+  }
+}
+
+/* ==================== PRODUCT CARD HOVER EFFECTS ==================== */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ==================== BUY NOW BUTTON ==================== */
+.buy-btn {
+  transition: all 0.3s ease;
+}
+
+.buy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== LOADING ANIMATION ==================== */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fa-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ==================== PRODUCT GRID RESPONSIVE ==================== */
+@media (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== WISHLIST ICON ANIMATION ==================== */
+.wishlist i {
+  transition: all 0.3s ease;
+}
+
+.wishlist:hover i {
+  color: #e74c3c;
+  transform: scale(1.2);
+}
+
+/* ==================== HEADER HIDE/SHOW CART ==================== */
+.header__actions .action-icon {
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.header__actions .action-icon:hover {
+  transform: scale(1.1);
+}

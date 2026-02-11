@@ -1,0 +1,93 @@
+/* Privacy Policy Page Styles */
+.privacy-main-container {
+    background-color: #ffffff;
+    min-height: 100vh;
+    padding: 50px 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.privacy-page-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.privacy-content-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.privacy-dates {
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+.privacy-section {
+    margin-bottom: 35px;
+}
+
+.privacy-heading {
+    font-size: 17px;
+    font-weight: 700;
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.privacy-sub-heading {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 20px 0 10px 0;
+    color: #000;
+    display: block;
+}
+
+.privacy-para {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+    text-align: justify;
+    color: #444;
+}
+
+.privacy-list, .privacy-numbered-list {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.privacy-list li, .privacy-numbered-list li {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.privacy-list li {
+    list-style-type: disc;
+}
+
+.privacy-contact-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-top: 15px;
+}
+
+.privacy-contact-box p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .privacy-page-title { font-size: 22px; }
+    .privacy-para { text-align: left; }
+    .privacy-main-container { padding: 30px 15px; }
+}

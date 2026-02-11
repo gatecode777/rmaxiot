@@ -1,0 +1,76 @@
+/* Shipping Policy Page Styles */
+.shipping-policy-container {
+    background-color: #ffffff;
+    min-height: 100vh;
+    padding: 50px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.shipping-main-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.shipping-content-card {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.shipping-sub-header {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    margin-bottom: 15px;
+}
+
+.shipping-section {
+    margin-bottom: 30px;
+}
+
+.shipping-heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    margin-bottom: 12px;
+}
+
+.shipping-para {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+.shipping-list {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.shipping-list li {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 6px;
+    list-style-type: disc;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .shipping-main-title {
+        font-size: 22px;
+    }
+    .shipping-para {
+        text-align: left;
+    }
+    .shipping-content-card {
+        padding: 10px;
+    }
+}

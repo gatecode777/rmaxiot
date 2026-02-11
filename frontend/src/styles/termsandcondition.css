@@ -1,0 +1,126 @@
+/* Terms & Conditions Page Styles */
+.tc-main-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.tc-page-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.tc-dates {
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.tc-dates p {
+    margin: 2px 0;
+}
+
+.tc-paragraph {
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: justify;
+    color: #444;
+}
+
+.tc-section {
+    margin-bottom: 30px;
+}
+
+.tc-heading {
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: underline;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.tc-sub-block {
+    margin-top: 20px;
+}
+
+.tc-sub-heading {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .tc-page-title { font-size: 20px; }
+    .tc-paragraph { text-align: left; }
+}
+
+
+/* Content Styling */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 15px;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .sub-section {
+            margin-bottom: 20px;
+        }
+
+        .sub-title {
+            font-size: 15px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        .tc-list {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .tc-list li {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+            list-style-type: disc;
+        }
+
+        .contact-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .contact-box p {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .tnc-card { padding: 20px; }
+            .section-title { font-size: 16px; }
+        }

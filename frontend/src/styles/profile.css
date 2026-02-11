@@ -1,0 +1,203 @@
+.account-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Page Header Styling */
+.page-title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.page-title-section h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.welcome-text {
+    font-size: 13px;
+    color: #666;
+}
+
+.logout-btn {
+    border: 1px solid #333;
+    background: white;
+    padding: 8px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Overview Section Styling */
+.overview-section {
+    background-color: #efefef;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.section-label {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.profile-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: row !important;
+    gap: 15px;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    background: #d9d9d9;
+    border-radius: 50%;
+}
+
+.details h2 { font-size: 16px; margin-bottom: 4px; }
+.details p { font-size: 12px; color: #666; line-height: 1.6; }
+
+.edit-btn {
+    background: #0d47a1;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Quick Links Grid */
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.q-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.q-icon {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Placeholder for Icons (Aap yahan apni image links daal sakte hain) */
+.order-icon { background-color: #fff4e5; border-radius: 6px; }
+.address-icon { background-color: #ffeef2; border-radius: 6px; }
+.wishlist-icon { background-color: #f0f4ff; border-radius: 6px; }
+.support-icon { background-color: #e8f5e9; border-radius: 6px; }
+
+.q-text h4 { font-size: 13px; margin-bottom: 2px; }
+.q-text p { font-size: 11px; color: #888; }
+
+/* Bottom Columns Styling */
+.bottom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid-column {
+    background: #efefef;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.column-title {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.list-container {
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.list-item-my {
+    padding: 12px 15px;
+    font-size: 13px;
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    color: #444;
+}
+
+.active-list {
+    background-color: #d1faff;
+    font-weight: 500;
+}
+
+.arrow { color: #999; font-size: 18px; line-height: 1; }
+
+.view-all {
+    text-align: right;
+    font-size: 13px;
+    text-decoration: none;
+    color: #0d47a1;
+    font-weight: 500;
+}
+
+.saved-items-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.item-placeholder {
+    flex: 1;
+    height: 100px;
+    background: white;
+    border-radius: 6px;
+}
+
+.blue-action-btn {
+    background: #0d47a1;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: auto;
+}
+
+.contact-btn {
+    margin-top: 25px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .quick-links-grid, .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
