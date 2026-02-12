@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { productAPI, cartAPI, wishlistAPI } from '../services/api';
 import { toast } from 'react-toastify';
 
@@ -358,8 +358,11 @@ const ProductDetail = () => {
                 Add to Cart
               </button>
               <button className="btn demo">
+                <Link to="/book-product-demo" style={{color: '#000', textDecoration: 'none'}}>
                 <i className="fa-solid fa-calendar-check"></i> Book Session For Demo
+                </Link>
               </button>
+              
             </div>
           </div>
         </div>

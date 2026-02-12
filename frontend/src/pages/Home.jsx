@@ -156,6 +156,29 @@ const Home = () => {
         setActiveTab(tabName);
     };
 
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (!window.Swiper) return;
+
+            new window.Swiper(".testimonial-swiper", {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                speed: 500,
+                navigation: {
+                    nextEl: ".testimonial-next",
+                    prevEl: ".testimonial-prev",
+                },
+                breakpoints: {
+                    768: { slidesPerView: 2 },
+                    1200: { slidesPerView: 3 },
+                },
+            });
+        }, 100);
+
+        return () => clearTimeout(timer);
+    }, []);
+
     const testimonials = [
         {
             name: "Jyoti Rajawat",
@@ -289,12 +312,12 @@ const Home = () => {
                                     {bestSellerProducts.map((product) => (
                                         <div className="product-card" key={product._id}>
                                             <div className="image-box">
-                                                <div 
+                                                <div
                                                     className="wishlist"
                                                     onClick={(e) => handleToggleWishlist(product._id, e)}
                                                     style={{ cursor: 'pointer', top: '15px', right: '15px' }}
                                                 >
-                                                    <i 
+                                                    <i
                                                         className={`fa-${wishlistItems.has(product._id) ? 'solid' : 'regular'} fa-heart`}
                                                         style={{
                                                             color: wishlistItems.has(product._id) ? '#ff4757' : 'inherit',
@@ -313,7 +336,7 @@ const Home = () => {
                                                 />
                                             </div>
                                             <div className="product-info">
-                                                <h3 
+                                                <h3
                                                     className="product-title"
                                                     onClick={() => navigate(`/products/${product.slug || product._id}`)}
                                                     style={{ cursor: 'pointer' }}
@@ -353,12 +376,12 @@ const Home = () => {
                                     {newArrivalProducts.map((product) => (
                                         <div className="product-card" key={product._id}>
                                             <div className="image-box">
-                                                <div 
+                                                <div
                                                     className="wishlist"
                                                     onClick={(e) => handleToggleWishlist(product._id, e)}
                                                     style={{ cursor: 'pointer' }}
                                                 >
-                                                    <i 
+                                                    <i
                                                         className={`fa-${wishlistItems.has(product._id) ? 'solid' : 'regular'} fa-heart`}
                                                         style={{
                                                             color: wishlistItems.has(product._id) ? '#ff4757' : 'inherit',
@@ -377,7 +400,7 @@ const Home = () => {
                                                 />
                                             </div>
                                             <div className="product-info">
-                                                <h3 
+                                                <h3
                                                     className="product-title"
                                                     onClick={() => navigate(`/products/${product.slug || product._id}`)}
                                                     style={{ cursor: 'pointer' }}

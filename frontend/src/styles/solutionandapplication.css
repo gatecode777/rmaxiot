@@ -1,0 +1,469 @@
+.solapp{
+    background-color: #e9f1f8; /* Same light blue background from image */
+    padding: 60px 20px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.main-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-section {
+    margin-bottom: 50px;
+}
+
+.header-section h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.header-section p {
+    font-size: 14px;
+    color: #444;
+}
+
+/* Grid Layout */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Card Styling */
+.sol-card {
+    border-radius: 15px;
+    overflow: hidden;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+/* .sol-card theme-orange{
+    background-color: #bd7a46;
+    width: 100%;
+} */
+
+.sol-header {
+    padding: 15px 10px;
+    text-align: center;
+    min-height: 140px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sol-body .sol-segment:nth-of-type(1) {
+    min-height: 110px; /* Isse Challenges waale teeno box ek barabar ho jayenge */
+    display: flex;
+    align-items: center;
+}
+.sol-body .sol-segment:nth-of-type(2) {
+    min-height: 130px; /* Isse Solutions waali patti teeno cards mein barabar dikhegi */
+    display: flex;
+    align-items: center;
+}
+.sol-body .sol-segment:nth-of-type(3) {
+    min-height: 140px; /* Isse Benefits waala box niche tak barabar rahega */
+    display: flex;
+    align-items: center;
+}
+
+.main-icon img {
+    width: 50px; /* Pehle 65px/80px tha */
+    margin-bottom: 10px;
+}
+
+.sol-header h2 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.header-divider {
+    width: 80%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 auto;
+}
+
+/* Card Body */
+.sol-body {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sol-segment {
+    display: flex;
+    padding: 12px 15px;
+    align-items: center;
+}
+
+.seg-left {
+    flex: 0.45;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.seg-left img {
+    width: 28px; /* Side icon size */
+}
+
+.seg-left span {
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.seg-right {
+    flex: 0.55;
+}
+
+.seg-right ul {
+    list-style: none;
+}
+
+.seg-right ul li {
+    font-size: 11px;
+    line-height: 1.3;
+    margin-bottom: 2px;
+    position: relative;
+    padding-left: 12px;
+}
+
+.seg-right ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+}
+
+.sol-body .sol-segment:last-child {
+    flex: 1;
+}
+
+/* Thick Dark Bar */
+.thick-bar {
+    height: 8px;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* THEMES COLORS (Exact match from image) */
+
+/* Blue Theme */
+.theme-blue .sol-header, 
+.theme-blue .thick-bar { background-color: #16335a; }
+.theme-blue .sol-body { background-color: #3b5270; }
+
+/* Orange Theme */
+.theme-orange .sol-header, 
+.theme-orange .thick-bar { background-color: #bd7a46; }
+.theme-orange .sol-body { background-color: #ce9468; }
+
+/* Navy Theme */
+.theme-navy .sol-header, 
+.theme-navy .thick-bar { background-color: #1a2b47; }
+.theme-navy .sol-body { background-color: #3d4b63; }
+
+/* Responsive Settings */
+@media (max-width: 1024px) {
+    .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .solutions-grid { grid-template-columns: 1fr; }
+    .seg-left { flex: 0.4; }
+    .seg-right { flex: 0.6; }
+}
+
+/* Section2 */
+/* Container Background - Halka blueish tint jaisa image mein hai */
+.benefits-wrapper {
+    background-color: #e9f1f8; 
+    padding: 60px 40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Section Title with Lines */
+.benefits-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.line {
+    flex-grow: 1;
+    height: 1.5px;
+    background-color: #333; /* Dark gray line */
+    border: none;
+}
+
+.benefits-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    white-space: nowrap;
+}
+
+/* Grid Layout for Cards */
+.benefits-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Cards ke beech ka gap */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual Card Styling */
+.benefit-card {
+    background-color: #16335a; /* Exact Navy Blue color from image */
+    flex: 1;
+    min-width: 180px;
+    padding: 35px 15px;
+    border-radius: 8px; /* Halka sa rounded corner */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect (Optional but good UX) */
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Icon Wrapper */
+.benefit-icon {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 20px;
+}
+
+.benefit-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Text Label Styling */
+.benefit-card p {
+    color: #ffffff; /* White text */
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Responsive for Mobile Devices */
+@media (max-width: 992px) {
+    .benefits-grid {
+        flex-wrap: wrap;
+    }
+    .benefit-card {
+        min-width: 45%; /* Mobile par 2 cards ek line mein */
+    }
+}
+
+@media (max-width: 600px) {
+    .benefits-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .line {
+        width: 100%;
+    }
+    .benefit-card {
+        min-width: 100%; /* Chote phone par 1 card ek line mein */
+    }
+}
+
+/* Section3 */
+/* Container Styling */
+.how-we-work-section {
+    background-color: #C57D47; /* Exact Orange color from the image */
+    padding: 60px 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Section Title Styling */
+.work-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+/* Grid Layout for Cards */
+.steps-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Mobile par automatic niche aane ke liye */
+}
+
+/* Individual Card Styling */
+.work-card {
+    background-color: #EBF5FF; /* Light sky blue tint from the image */
+    flex: 1;
+    min-width: 220px;
+    padding: 40px 20px;
+    border-radius: 15px; /* Smooth rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Step Number (Circle Badge) */
+.step-number {
+    background-color: #C57D47; /* Same orange as background */
+    color: #ffffff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Card Heading Text */
+.work-card h3 {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .work-card {
+        min-width: 45%; /* Tablets par 2 cards ek line mein */
+    }
+}
+
+@media (max-width: 600px) {
+    .work-card {
+        min-width: 100%; /* Mobile par 1 card ek line mein */
+    }
+    .how-we-work-section {
+        padding: 40px 15px;
+    }
+}
+
+/* Section4 */
+/* Container Background - Same as previous light blue tint */
+.consultation-wrapper {
+    background-color: #e9f1f8; 
+    padding: 60px 20px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+/* Header with Lines */
+.consult-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 40px auto;
+}
+
+.divider-line {
+    flex-grow: 1;
+    height: 1.5px;
+    background-color: #333;
+    border: none;
+}
+
+.consult-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    white-space: nowrap;
+}
+
+/* Buttons Container */
+.consult-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Common Button Styling */
+.btn-item {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 15px 40px;
+    border-radius: 10px;
+    min-width: 250px;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow as seen in image */
+    transition: all 0.3s ease;
+}
+
+.btn-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Colors (Exact Match) */
+.btn-dark-blue {
+    background-color: #16335a; /* Rmax Navy Blue */
+}
+
+.btn-bright-green {
+    background-color: #00c838; /* Bright Green */
+}
+
+.btn-vivid-orange {
+    background-color: #ffb11b; /* Golden Orange/Yellow */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .consult-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .divider-line {
+        width: 100%;
+    }
+    .consult-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .btn-item {
+        width: 100%;
+        max-width: 300px;
+    }
+}

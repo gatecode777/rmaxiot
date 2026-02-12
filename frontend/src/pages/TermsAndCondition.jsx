@@ -7,8 +7,8 @@ const TermsConditions = () => {
             <h1 className="tc-page-title">Terms & Conditions – Rmax Solutions</h1>
 
             <div className="tc-dates">
-                <p>Effective Date: [Add Date]</p>
-                <p>Last Updated: [Add Date]</p>
+                <p className="tc-paragraph">Effective Date: [Add Date]</p>
+                <p className="tc-paragraph">Last Updated: [Add Date]</p>
             </div>
 
             <p className="tc-paragraph">

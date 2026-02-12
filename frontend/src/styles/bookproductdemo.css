@@ -1,0 +1,245 @@
+.demo-page-wrapper {
+    max-width: 1100px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    background-color: #f5f8ff; /* Subtle light background */
+    padding: 40px 20px;
+}
+
+/* Header Styles */
+.demo-header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.demo-header p {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.product-dropdown {
+    width: 450px;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.meta-info {
+    font-size: 13px;
+    font-weight: 500;
+    text-align: right;
+    line-height: 1.8;
+}
+
+/* Main Grid Layout */
+.main-content-grid {
+    display: flex;
+    gap: 40px;
+}
+
+.options-column {
+    flex: 1;
+}
+
+.form-column-yellow {
+    flex: 1;
+    background-color: #fff4b1; /* Exact Pale Yellow from image */
+    padding: 30px;
+    border-radius: 4px;
+}
+
+/* Section Headings */
+.option-group h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+/* Checkbox Items */
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.check-item input {
+    accent-color: #003d7a;
+}
+
+.option-group {
+    margin-bottom: 30px;
+}
+
+/* Textarea styling */
+.textarea-label {
+    font-size: 11px;
+    color: #c57d47; /* Rust/Orange text color from image */
+    margin-bottom: 8px;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 1px solid #eee;
+    background-color: #fffdf5;
+    border-radius: 4px;
+    outline: none;
+    font-size: 13px;
+}
+
+/* Form Styling in Yellow Box */
+.form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.type-selection p, .time-selection p {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.type-grid label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.time-selection .check-item {
+    margin-bottom: 10px;
+}
+
+/* Submit Button */
+.submit-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.book-btn {
+    background-color: #003d7a; /* Exact Deep Blue from image */
+    color: white;
+    border: none;
+    padding: 14px 100px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.book-btn:hover {
+    background-color: #002a54;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .main-content-grid {
+        flex-direction: column;
+    }
+    .product-dropdown {
+        width: 100%;
+    }
+    .header-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .type-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Modal Overlay (Background dhundla karne ke liye) */
+.modal-overlay {
+    display: none; /* Shuruat mein chhupa rahega */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark background */
+    backdrop-filter: blur(5px); /* Background blur effect */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Card (White Box) */
+.modal-card {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Close Icon (X) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Success Checkmark */
+.success-icon {
+    width: 80px;
+    height: 80px;
+    border: 3px solid #000;
+    border-radius: 15px; /* Square with rounded corners as in image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+}
+
+.modal-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Animation */
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

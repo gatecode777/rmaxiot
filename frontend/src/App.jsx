@@ -18,6 +18,8 @@ import ShippingPolicy from './pages/ShippingPolicy';
 import ReturnsRefundsPolicy from './pages/ReturnsRefundsPolicy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import OurProducts from './pages/OurProducts';
+import BookProductDemo from './pages/bookProductDemo';
+import SolutionAndApplication from './pages/SolutionAndApplication';
 
 // Admin Pages
 import AdminLogin from './pages/admin/AdminLogin';
@@ -28,27 +30,6 @@ import ProductForm from './pages/admin/ProductForm';
 import AdminCategories from './pages/admin/AdminCategories';
 
 function App() {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!window.Swiper) return;
-
-      new window.Swiper(".testimonial-swiper", {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        speed: 500,
-        navigation: {
-          nextEl: ".testimonial-next",
-          prevEl: ".testimonial-prev",
-        },
-        breakpoints: {
-          768: { slidesPerView: 2 },
-          1200: { slidesPerView: 3 },
-        },
-      });
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <Routes>
@@ -120,6 +101,26 @@ function App() {
           <div className="app">
             <Header />
             <ContactUs />
+            <Footer />
+          </div>
+        }
+      />
+      <Route
+        path="/book-product-demo"
+        element={
+          <div className="app">
+            <Header />
+            <BookProductDemo />
+            <Footer />
+          </div>
+        }
+      />
+      <Route
+        path="/solution-and-application"
+        element={
+          <div className="app">
+            <Header />
+            <SolutionAndApplication />
             <Footer />
           </div>
         }
