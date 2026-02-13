@@ -1,16 +1,4 @@
 /* Global Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: #f0f7ff; /* Pure Light Blue Background like target */
-            padding: 0;
-            margin: 0;
-        }
 
         .containerwish {
             max-width: 1200px; /* Gap kam karne ke liye width badha di gayi hai */

@@ -1,0 +1,203 @@
+/* Prefix: rmx-rv- (Rmax Review Page) */
+
+.rmx-rv-main-wrapper {
+    background-color: #fff;
+    padding: 60px 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.rmx-rv-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+}
+
+/* Sidebar Styles */
+.rmx-rv-sidebar {
+    width: 350px;
+    flex-shrink: 0;
+}
+
+.rmx-rv-sort-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.rmx-rv-sort-section label {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.rmx-rv-select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 200px;
+    outline: none;
+    cursor: pointer;
+}
+
+.rmx-rv-stats-card {
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    margin-bottom: 40px;
+}
+
+.rmx-rv-stats-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.rmx-rv-stats-header i {
+    font-size: 20px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.rmx-rv-stats-header h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Progress Bars */
+.rmx-rv-progress-item, .rmx-rv-star-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.rmx-rv-label, .rmx-rv-star-row span {
+    width: 80px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.rmx-rv-bar-bg {
+    flex-grow: 1;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.rmx-rv-bar-fill {
+    height: 100%;
+    background-color: #0d1b2a; /* Dark Navy Color from Image */
+    border-radius: 10px;
+}
+
+.rmx-rv-percent {
+    width: 35px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.rmx-rv-breakdown {
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+}
+
+.rmx-rv-star-row i {
+    font-size: 10px;
+    color: #333;
+}
+
+/* Review Feed Styles */
+.rmx-rv-feed {
+    flex-grow: 1;
+}
+
+.rmx-rv-card {
+    margin-bottom: 50px;
+    border-bottom: none;
+}
+
+.rmx-rv-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.rmx-rv-stars i {
+    color: #ffcc00; /* Gold/Yellow Stars */
+    font-size: 18px;
+    margin-right: 2px;
+}
+
+.rmx-rv-date {
+    font-size: 12px;
+    color: #888;
+}
+
+.rmx-rv-text {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.rmx-rv-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rmx-rv-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.rmx-rv-user-info strong {
+    font-size: 14px;
+    color: #000;
+}
+
+.rmx-rv-user-info span {
+    font-size: 13px;
+    color: #666;
+}
+
+/* Pagination Styles (Image 2) */
+.rmx-rv-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.rmx-rv-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #0d1b2a;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.rmx-rv-dot:not(.rmx-rv-active) {
+    background-color: #0d1b2a;
+    opacity: 1;
+    border: 1px solid #0d1b2a;
+}
+
+/* Active dot has shadow/effect jaisa image mein hai */
+.rmx-rv-active {
+    background-color: #6c757d; /* Lighter/Active gray */
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .rmx-rv-container { flex-direction: column; gap: 40px; }
+    .rmx-rv-sidebar { width: 100%; }
+}

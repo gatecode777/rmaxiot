@@ -192,6 +192,8 @@ const AdminUsers = () => {
     }
   };
 
+  const apiUrl = import.meta.env.VITE_API_URL?.replace("/api", "") || "http://localhost:3000";
+
   if (loading && users.length === 0) {
     return (
       <AdminLayout>
@@ -306,7 +308,7 @@ const AdminUsers = () => {
                     <div className="user-info">
                       <div className="user-avatar">
                         {user.profile ? (
-                          <img src={user.profile} alt={user.firstName} />
+                          <img src={`${apiUrl}/uploads/profiles/${user.profile}`} alt={user.firstName} />
                         ) : (
                           <i className="fas fa-user"></i>
                         )}

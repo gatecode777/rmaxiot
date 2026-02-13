@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AdminLayout from '../../components/admin/AdminLayout';
 import { adminProductAPI } from '../../services/api';
 import '../../styles/admin/AdminProducts.css';
+import defaultProduct from '../../assets/default-product.png';
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
@@ -212,11 +213,11 @@ const AdminProducts = () => {
                       ? `${import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5000'}/uploads/products/${product.images[0]}`
                       : product.thumbnail
                         ? `${import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5000'}/uploads/products/${product.thumbnail}`
-                        : 'https://via.placeholder.com/300x300?text=No+Image'
+                        : defaultProduct
                   }
                   alt={product.name}
                   onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/300x300?text=No+Image';
+                    e.target.src = defaultProduct;
                   }}
                 />
 

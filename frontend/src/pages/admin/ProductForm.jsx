@@ -9,6 +9,8 @@ const ProductForm = () => {
   const navigate = useNavigate();
   const isEditMode = Boolean(id);
 
+  const MAX_IMAGES = 4;
+
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [activeTab, setActiveTab] = useState('basic');
@@ -114,7 +116,7 @@ const ProductForm = () => {
 
   const fetchCategories = async () => {
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
       const response = await fetch(`${apiUrl}/categories?isActive=true`);
       const data = await response.json();
 
@@ -248,6 +250,15 @@ const ProductForm = () => {
   const handleImageUpload = (e) => {
     const files = Array.from(e.target.files);
 
+    // Calculate total images after upload
+    const totalImages = existingImages.length + imageFiles.length + files.length;
+
+    // Validate total image count
+    if (totalImages > MAX_IMAGES) {
+      alert(`You can only upload a maximum of ${MAX_IMAGES} images. You currently have ${existingImages.length + imageFiles.length} images.`);
+      return;
+    }
+
     // Validate file types and sizes
     const validFiles = files.filter(file => {
       if (!file.type.startsWith('image/')) {
@@ -261,8 +272,19 @@ const ProductForm = () => {
       return true;
     });
 
-    setImageFiles([...imageFiles, ...validFiles]);
+    // Check again after filtering
+    const newTotalImages = existingImages.length + imageFiles.length + validFiles.length;
+    if (newTotalImages > MAX_IMAGES) {
+      const allowedFiles = MAX_IMAGES - (existingImages.length + imageFiles.length);
+      alert(`Only ${allowedFiles} more image(s) can be uploaded.`);
+      const limitedFiles = validFiles.slice(0, allowedFiles);
+      setImageFiles([...imageFiles, ...limitedFiles]);
+      const previews = limitedFiles.map(file => URL.createObjectURL(file));
+      setImagePreview([...imagePreview, ...previews]);
+      return;
+    }
 
+    setImageFiles([...imageFiles, ...validFiles]);
     const previews = validFiles.map(file => URL.createObjectURL(file));
     setImagePreview([...imagePreview, ...previews]);
   };
@@ -1052,27 +1074,82 @@ const ProductForm = () => {
             <div className="form-section">
               <h2>Product Images</h2>
 
-              <div className="image-upload-container">
-                <div className="upload-area">
-                  <input
-                    type="file"
-                    id="imageUpload"
-                    multiple
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    style={{ display: 'none' }}
-                  />
-                  <label htmlFor="imageUpload" className="upload-label">
-                    <i className="fas fa-cloud-upload-alt"></i>
-                    <p>Click to upload images</p>
-                    <small>Supports: JPG, PNG, WEBP (Max 5MB each, up to 10 images)</small>
-                  </label>
+              {/* Image limit info */}
+              <div style={{
+                background: '#e3f2fd',
+                border: '1px solid #2196f3',
+                borderRadius: '8px',
+                padding: '12px 16px',
+                marginBottom: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px'
+              }}>
+                <i className="fas fa-info-circle" style={{ color: '#2196f3', fontSize: '20px' }}></i>
+                <div>
+                  <strong>Image Requirements:</strong>
+                  <ul style={{ margin: '4px 0 0 0', paddingLeft: '20px' }}>
+                    <li>Maximum {MAX_IMAGES} images allowed</li>
+                    <li>First image will be used as thumbnail</li>
+                    <li>Each image max 5MB (JPG, PNG, WEBP)</li>
+                    <li>Current images: {existingImages.length + imageFiles.length}/{MAX_IMAGES}</li>
+                  </ul>
                 </div>
+              </div>
+
+              <div className="image-upload-container">
+                {/* Only show upload area if under limit */}
+                {(existingImages.length + imageFiles.length) < MAX_IMAGES && (
+                  <div className="upload-area">
+                    <input
+                      type="file"
+                      id="imageUpload"
+                      multiple
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      style={{ display: 'none' }}
+                    />
+                    <label htmlFor="imageUpload" className="upload-label">
+                      <i className="fas fa-cloud-upload-alt"></i>
+                      <p>Click to upload images</p>
+                      <small>
+                        {MAX_IMAGES - (existingImages.length + imageFiles.length)} more image(s) can be uploaded<br />
+                        Supports: JPG, PNG, WEBP (Max 5MB each)
+                      </small>
+                    </label>
+                  </div>
+                )}
+
+                {/* Show message if at limit */}
+                {(existingImages.length + imageFiles.length) >= MAX_IMAGES && (
+                  <div style={{
+                    background: '#fff3cd',
+                    border: '1px solid #ffc107',
+                    borderRadius: '8px',
+                    padding: '16px',
+                    textAlign: 'center',
+                    marginBottom: '20px'
+                  }}>
+                    <i className="fas fa-exclamation-triangle" style={{ color: '#ffc107', fontSize: '24px', marginBottom: '8px' }}></i>
+                    <p style={{ margin: 0, fontWeight: '600' }}>Maximum image limit reached ({MAX_IMAGES} images)</p>
+                    <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: '#666' }}>Delete existing images to upload new ones</p>
+                  </div>
+                )}
 
                 {/* Existing Images (in edit mode) */}
                 {isEditMode && existingImages.length > 0 && (
                   <div>
-                    <h3 style={{ marginTop: '24px', marginBottom: '12px' }}>Current Images</h3>
+                    <h3 style={{ marginTop: '24px', marginBottom: '12px' }}>
+                      Current Images
+                      <span style={{
+                        fontSize: '14px',
+                        fontWeight: 'normal',
+                        color: '#666',
+                        marginLeft: '12px'
+                      }}>
+                        ({existingImages.length}/{MAX_IMAGES})
+                      </span>
+                    </h3>
                     <div className="image-preview-grid">
                       {existingImages.map((filename, index) => (
                         <div key={`existing-${index}`} className="preview-item">
@@ -1088,7 +1165,9 @@ const ProductForm = () => {
                             <i className="fas fa-times"></i>
                           </button>
                           {index === 0 && (
-                            <span className="primary-badge">Primary</span>
+                            <span className="primary-badge">
+                              <i className="fas fa-star"></i> Thumbnail
+                            </span>
                           )}
                         </div>
                       ))}
@@ -1099,7 +1178,17 @@ const ProductForm = () => {
                 {/* New Images */}
                 {imagePreview.length > 0 && (
                   <div>
-                    <h3 style={{ marginTop: '24px', marginBottom: '12px' }}>New Images to Upload</h3>
+                    <h3 style={{ marginTop: '24px', marginBottom: '12px' }}>
+                      New Images to Upload
+                      <span style={{
+                        fontSize: '14px',
+                        fontWeight: 'normal',
+                        color: '#666',
+                        marginLeft: '12px'
+                      }}>
+                        ({imagePreview.length} new)
+                      </span>
+                    </h3>
                     <div className="image-preview-grid">
                       {imagePreview.map((preview, index) => (
                         <div key={`new-${index}`} className="preview-item">
@@ -1111,9 +1200,38 @@ const ProductForm = () => {
                           >
                             <i className="fas fa-times"></i>
                           </button>
+                          {!isEditMode && index === 0 && (
+                            <span className="primary-badge">
+                              <i className="fas fa-star"></i> Thumbnail
+                            </span>
+                          )}
+                          {isEditMode && existingImages.length === 0 && index === 0 && (
+                            <span className="primary-badge">
+                              <i className="fas fa-star"></i> Thumbnail
+                            </span>
+                          )}
                         </div>
                       ))}
                     </div>
+                  </div>
+                )}
+
+                {/* Thumbnail info */}
+                {(existingImages.length > 0 || imagePreview.length > 0) && (
+                  <div style={{
+                    marginTop: '20px',
+                    padding: '12px 16px',
+                    background: '#f5f5f5',
+                    borderRadius: '8px',
+                    borderLeft: '4px solid #667eea'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                      <i className="fas fa-star" style={{ color: '#667eea' }}></i>
+                      <strong>Thumbnail Image</strong>
+                    </div>
+                    <p style={{ margin: 0, fontSize: '14px', color: '#666' }}>
+                      The first image will automatically be used as the product thumbnail on listing pages.
+                    </p>
                   </div>
                 )}
               </div>

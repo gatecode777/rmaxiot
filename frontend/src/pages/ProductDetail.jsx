@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { productAPI, cartAPI, wishlistAPI } from '../services/api';
 import { toast } from 'react-toastify';
+import defaultProduct from '../assets/default-product.png';
 
 const ProductDetail = () => {
   const { slug } = useParams();
@@ -246,20 +247,23 @@ const ProductDetail = () => {
                 product.images.map((image, index) => (
                   <img
                     key={index}
-                    src={getImageUrl(image)}
+                    src={getImageUrl(image) || defaultProduct}
                     alt={`${product.name} ${index + 1}`}
                     className={selectedImage === index ? 'active' : ''}
                     onClick={() => setSelectedImage(index)}
                     onError={(e) => {
-                      e.target.src = 'https://via.placeholder.com/100x100?text=No+Image';
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = defaultProduct;
                     }}
                   />
                 ))
               ) : (
-                <img src="https://via.placeholder.com/100x100?text=No+Image" alt="No image" />
+                <img src={defaultProduct} alt="No image" />
               )}
             </div>
-            <div className="main-image"><button
+
+            <div className="main-image">
+              <button
                 className="btn wishlist-btn"
                 onClick={handleToggleWishlist}
                 style={{
@@ -275,15 +279,22 @@ const ProductDetail = () => {
               >
                 <i className={`fa${inWishlist ? 's' : 'r'} fa-heart`}></i>
               </button>
+
               <img
-                src={product.images?.[selectedImage] ? getImageUrl(product.images[selectedImage]) : 'https://via.placeholder.com/500x500?text=No+Image'}
+                src={
+                  product.images?.[selectedImage]
+                    ? getImageUrl(product.images[selectedImage])
+                    : defaultProduct
+                }
                 alt={product.name}
                 onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/500x500?text=No+Image';
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = defaultProduct;
                 }}
               />
             </div>
           </div>
+
 
           {/* Right Section: Details */}
           <div className="details-section">
@@ -350,7 +361,7 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <div className="action-buttons">
+            <div className="action-buttons-p">
               <button className="btn buy-now" onClick={handleBuyNow}>
                 Buy Now
               </button>
@@ -358,11 +369,11 @@ const ProductDetail = () => {
                 Add to Cart
               </button>
               <button className="btn demo">
-                <Link to="/book-product-demo" style={{color: '#000', textDecoration: 'none'}}>
-                <i className="fa-solid fa-calendar-check"></i> Book Session For Demo
+                <Link to="/book-product-demo" style={{ color: '#fff', textDecoration: 'none' }}>
+                  <i className="fa-solid fa-calendar-check"></i> Book Session For Demo
                 </Link>
               </button>
-              
+
             </div>
           </div>
         </div>

@@ -1,6 +1,10 @@
 /* Admin Dashboard Styles */
-.admin-dashboard {
+/* .admin-dashboard {
   max-width: 1400px;
+} */
+
+* {
+  box-sizing: border-box
 }
 
 .dashboard-header {

@@ -20,6 +20,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import OurProducts from './pages/OurProducts';
 import BookProductDemo from './pages/bookProductDemo';
 import SolutionAndApplication from './pages/SolutionAndApplication';
+import UserReviews from './pages/UserReviews';
 
 // Admin Pages
 import AdminLogin from './pages/admin/AdminLogin';
@@ -81,6 +82,16 @@ function App() {
           <div className="app">
             <Header />
             <OurProducts />
+            <Footer />
+          </div>
+        }
+      />
+      <Route
+        path="/user-reviews"
+        element={
+          <div className="app">
+            <Header />
+            <UserReviews />
             <Footer />
           </div>
         }

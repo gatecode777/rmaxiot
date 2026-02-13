@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { productAPI, wishlistAPI } from "../services/api";
 import "../styles/style.css";
 import "../styles/product.css";
+import defaultProduct from '../assets/default-product.png';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -123,7 +124,7 @@ const Home = () => {
             const apiUrl = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5000';
             return `${apiUrl}/uploads/products/${product.images[0]}`;
         }
-        return 'https://via.placeholder.com/300x300?text=Product';
+        return defaultProduct;
     };
 
     const formatPrice = (price) => {
@@ -326,14 +327,16 @@ const Home = () => {
                                                     ></i>
                                                 </div>
                                                 <img
-                                                    src={getImageUrl(product)}
+                                                    src={getImageUrl(product) || defaultProduct}
                                                     alt={product.name}
                                                     onClick={() => navigate(`/products/${product.slug || product._id}`)}
                                                     style={{ cursor: 'pointer' }}
                                                     onError={(e) => {
-                                                        e.target.src = 'https://via.placeholder.com/300x300?text=Product';
+                                                        e.currentTarget.onerror = null; // stop loop
+                                                        e.currentTarget.src = defaultProduct;
                                                     }}
                                                 />
+
                                             </div>
                                             <div className="product-info">
                                                 <h3
@@ -379,7 +382,7 @@ const Home = () => {
                                                 <div
                                                     className="wishlist"
                                                     onClick={(e) => handleToggleWishlist(product._id, e)}
-                                                    style={{ cursor: 'pointer' }}
+                                                    style={{ cursor: 'pointer', top: '15px', right: '15px' }}
                                                 >
                                                     <i
                                                         className={`fa-${wishlistItems.has(product._id) ? 'solid' : 'regular'} fa-heart`}
@@ -395,7 +398,7 @@ const Home = () => {
                                                     onClick={() => navigate(`/products/${product.slug || product._id}`)}
                                                     style={{ cursor: 'pointer' }}
                                                     onError={(e) => {
-                                                        e.target.src = 'https://via.placeholder.com/300x300?text=Product';
+                                                        e.target.src = defaultProduct;
                                                     }}
                                                 />
                                             </div>
@@ -578,7 +581,7 @@ const Home = () => {
                     <button className="slide-btn next testimonial-next">❯</button>
                 </div>
                 <div className="view-more-box">
-                    <button className="view-more-btn">View More Review</button>
+                    <button onClick={() => navigate('/user-reviews')} className="view-more-btn">View More Review</button>
                 </div>
             </section>
 

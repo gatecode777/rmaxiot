@@ -202,15 +202,91 @@ body {
     color: #ddd;
 }
 
-/* Mobile View */
-@media (max-width: 992px) {
+/* ==========================================
+   WHY PARTNER SECTION - RESPONSIVE CODE
+   ========================================== */
+
+/* 1. Tablet aur Small Laptops (1100px tak) */
+@media (max-width: 1100px) {
     .container-main {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Image upar aur list niche aa jayegi */
+        gap: 50px;
+        padding: 0 20px;
     }
 
-    .number-box {
-        width: 60px;
-        font-size: 24px;
+    .partner-visuals {
+        text-align: center;
+    }
+
+    .image-stack {
+        align-items: center; /* Images center mein rahengi */
+    }
+
+    .img-box img {
+        width: 100%; /* Choti screen par image container ki full width legi */
+        max-width: 500px; /* Lekin bahut zyada badi nahi hogi */
+        height: auto; /* Aspect ratio maintain rahega */
+    }
+}
+
+/* 2. Mobile Phones (768px and below) */
+@media (max-width: 768px) {
+    .why-partner-new {
+        padding: 50px 5%; /* Mobile par padding thodi kam */
+    }
+
+    .header-text h1 {
+        font-size: 22px; /* Heading thodi choti */
+    }
+
+    .header-text p {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    /* List Items Fix: Mobile par fixed height UX kharab karti hai */
+    .list-item {
+        height: auto !important; /* Content ke hisab se box bada hoga */
+        min-height: 140px;
+        margin-bottom: 15px; /* Do boxes ke beech gap */
+    }
+
+    .number-box, .number-boxa {
+        width: 60px; /* Mobile par number box thoda patla */
+        font-size: 28px;
+        flex-shrink: 0;
+    }
+
+    .content-box {
+        padding: 15px;
+    }
+
+    .content-box h3 {
+        font-size: 15px;
+    }
+
+    .content-box li {
+        font-size: 12px; /* List readable rahegi */
+        line-height: 1.4;
+    }
+
+    /* Image Curves adjustment */
+    .curved-right img { border-radius: 0 80px 0 0; }
+    .curved-left img { border-radius: 80px 0 0 0; }
+    
+    .golden-bar, .golden-bara {
+        width: 20px; /* Golden bar thodi patli mobile par */
+    }
+}
+
+/* 3. Very Small Phones (480px) */
+@media (max-width: 480px) {
+    .header-text h1 {
+        font-size: 20px;
+    }
+    
+    .content-box h3 {
+        font-size: 14px;
     }
 }
 
@@ -317,19 +393,91 @@ body {
     margin-top: 5px;
 }
 
-/* Mobile Responsive */
-@media (max-width: 992px) {
+/* ==========================================
+   CTA SECTION - RESPONSIVE CODE (End of File)
+   ========================================== */
+
+/* 1. For Large Tablets & Small Laptops (1024px tak) */
+@media (max-width: 1024px) {
+    .cta-heading {
+        font-size: 32px; /* Heading thodi choti taaki ek line mein fit ho */
+    }
+    
+    .cta-description {
+        font-size: 16px;
+        max-width: 100%; /* Text ko poori width di */
+    }
+}
+
+/* 2. For Tablets & Mobile (768px and below) */
+@media (max-width: 768px) {
+    .cta-section {
+        height: auto !important; /* Mobile par fixed height UX kharab karti hai, isliye auto kiya */
+        padding: 50px 20px 0 20px;
+    }
+
     .cta-container {
-        flex-direction: column;
+        flex-direction: column; /* Content ek ke niche ek */
         text-align: center;
+        padding: 0;
+    }
+
+    .cta-heading {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    /* HTML ke <br> tags ko mobile par hide karna padta hai taaki text natural dikhe */
+    .cta-heading br, 
+    .cta-description br {
+        display: none; 
+    }
+
+    .cta-description {
+        font-size: 15px;
+        margin-bottom: 25px;
+        padding: 0 10px;
     }
 
     .cta-buttons {
-        justify-content: center;
+        justify-content: center; /* Buttons center mein */
+        gap: 15px;
+        width: 100%;
+    }
+
+    .btn-call, .btn-whatsapp {
+        padding: 12px 25px; /* Mobile par button size adjust */
+        font-size: 14px;
+        flex: 1; /* Dono buttons barabar width ke honge */
+        max-width: 160px;
     }
 
     .cta-image {
         margin-top: 40px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .cta-image img {
+        max-width: 80%; /* Image mobile screen ke hisab se */
+        margin: 0 auto;
+    }
+}
+
+/* 3. Small Phones (480px and below) */
+@media (max-width: 480px) {
+    .cta-heading {
+        font-size: 24px;
+    }
+
+    .cta-buttons {
+        flex-direction: column; /* Bahut chote phones par buttons bhi ek ke niche ek */
+        align-items: center;
+    }
+
+    .btn-call, .btn-whatsapp {
+        width: 100%;
+        max-width: 280px;
     }
 }
 
@@ -492,43 +640,174 @@ body {
 }
 
 
+/* ==========================================
+   TESTIMONIAL SECTION - RESPONSIVE CODE
+   ========================================== */
+
+/* 1. For Tablets (Laptops se thoda chota - 1024px tak) */
+@media (max-width: 1024px) {
+    .testimonial-header h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    /* Tablet par 2 cards dikhane ke liye */
+    .testimonial-card {
+        min-width: calc(50% - 20px) !important;
+    }
+}
+
+/* 2. For Mobile (768px and below) */
+@media (max-width: 768px) {
+    .testimonial-section {
+        padding: 40px 15px; /* Side padding kam ki taaki slider ko jagah mile */
+    }
+
+    .testimonial-header h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    /* Mobile par 1 card dikhane ke liye */
+    .testimonial-card {
+        min-width: 100% !important;
+        border-right: none !important; /* Single card mein border ki zaroorat nahi */
+        padding: 15px;
+    }
+
+    /* Review text height fix: Mobile par text wrap hota hai toh height auto honi chahiye */
+    .review {
+        height: auto !important; 
+        min-height: 100px;
+        font-size: 14px;
+    }
+
+    /* Arrows positioning for Mobile */
+    /* Mobile par arrows ko thoda andar lana padta hai taaki screen se bahar na jayein */
+    .prev { left: -10px !important; }
+    .next { right: -10px !important; }
+
+    .slide-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        background: rgba(34, 34, 34, 0.8); /* Thoda transparent taaki content dikhe */
+    }
+
+    .user-text {
+        font-size: 11px;
+    }
+}
+
+/* 3. Small Phones (480px and below) */
+@media (max-width: 480px) {
+    .testimonial-header h2 {
+        font-size: 22px;
+    }
+
+    /* Buttons ko card ke upar se hatakar touch friendly banane ke liye position adjust */
+    .slide-btn {
+        top: auto;
+        bottom: -50px; /* Arrows ko slider ke niche shift kiya (Optional UX) */
+        transform: none;
+    }
+    
+    /* Agar aapko arrows card ke upar hi chahiye toh niche wala part delete kar sakte hain */
+    .prev { left: 30% !important; }
+    .next { right: 30% !important; }
+    
+    .slider-wrapper {
+        margin-bottom: 40px; /* Space for arrows at bottom */
+    }
+}
+@media (max-width: 768px) {
+    .slider-wrapper {
+        padding: 0 40px; /* Side mein space banayi taaki buttons card ke bahar na nikle */
+        position: relative;
+    }
+
+    .testimonial-container {
+        gap: 10px;
+        padding: 0;
+    }
+
+    .testimonial-card {
+        min-width: 100% !important;
+        border-right: none !important;
+    }
+
+    /* Buttons positioning for Mobile - Back to Center */
+    .slide-btn {
+        top: 50% !important; /* Wapis center mein */
+        bottom: auto !important; /* Purana bottom rule hata diya */
+        transform: translateY(-50%) !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        width: 35px;
+        height: 35px;
+    }
+
+    .prev { 
+        left: 0px !important; /* Card ke left edge par */
+    }
+
+    .next { 
+        right: 0px !important; /* Card ke right edge par */
+    }
+
+    /* Review text mobile par pura dikhe isliye height auto */
+    .review {
+        height: auto !important;
+        overflow: visible !important;
+        margin-bottom: 20px;
+    }
+}
+
+
 /* Header CSS */
 
 /* Header specific styles */
 .main-header {
     width: 100%;
     background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
+    padding: 10px 0;
 }
 
 .header-container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 /* Logo */
 .header__logo img {
-    height: 100px;
-    /* Aap apne hisab se adjust karein */
+    height: 60px;
+    /* Standard size */
+    width: auto;
+    display: block;
 }
 
 /* Search Bar */
 .header__search {
-    flex: 0 1 300px;
+    flex: 0 1 350px;
+    /* Takes space but doesn't overflow */
+    margin: 0 20px;
 }
 
 .search-wrapper {
     background: #f4f4f4;
-    border-radius: 8px;
-    padding: 8px 15px;
+    border-radius: 25px;
+    /* Rounded look better */
+    padding: 8px 18px;
     display: flex;
     align-items: center;
 }
@@ -542,55 +821,47 @@ body {
     font-size: 14px;
 }
 
-/* Navigation */
+/* Navigation (Desktop) */
 .nav-list {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 25px;
 }
 
 .nav-link {
     text-decoration: none;
     color: #333;
     font-weight: 600;
-    font-size: 14px;
-
+    font-size: 13px;
+    transition: 0.3s;
+    text-transform: uppercase;
 }
 
 .nav-link:hover {
-    /* color: #ff9900; Hover color */
+    /* color: #007bff;  */
     text-decoration: underline;
-    color: #333;
-    transform: scale(1.6);
-    transition: color 0.3s;
 }
 
 /* Actions */
 .header__actions {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
-.action-icon {
-    font-size: 20px;
-    text-decoration: none;
-    color: #333;
-}
-
-.wishlist-icon {
-    color: #ff4d4d;
-    /* Red Heart */
+.action-icon img {
+    display: block;
 }
 
 .btn-login {
-    border: 1px solid #333;
-    padding: 8px 25px;
-    border-radius: 10px;
+    border: 1.5px solid #333;
+    padding: 7px 20px;
+    border-radius: 8px;
     text-decoration: none;
     color: #333;
-    font-weight: 500;
-    transition: all 0.3s;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
 .btn-login:hover {
@@ -598,75 +869,194 @@ body {
     color: #fff;
 }
 
+.mobile-menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    margin-left: 10px;
+}
 
-/* Mobile & Tablet Responsive Styles */
-@media (max-width: 992px) {
-    .header-container {
-        flex-wrap: wrap;
-        /* Items ko niche lane ke liye */
-        padding: 10px 15px;
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* 1. Laptop (Large Screens) */
+@media (max-width: 1200px) {
+    .nav-list {
+        gap: 15px;
     }
 
     .header__search {
-        order: 3;
-        /* Search bar ko niche line mein lane ke liye */
-        flex: 1 0 100%;
-        margin-top: 15px;
+        flex: 0 1 250px;
     }
+}
 
+/* 2. Tablets (Nav menu hides here) */
+@media (max-width: 992px) {
     .header__nav {
-        display: none;
-        /* Mobile par default menu hide rahega */
+        position: fixed;
+        top: 80px;
+        /* Header height ke baad */
+        left: -100%;
+        /* Bahar rakha hai */
+        width: 80%;
+        height: 100vh;
+        background: #fff;
+        transition: 0.4s;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Mobile par navigation ko show karne ke liye (Jab JS se toggle ho) */
     .header__nav.active {
-        display: block;
-        position: absolute;
-        top: 100%;
         left: 0;
-        width: 100%;
-        background: #fff;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        z-index: 99;
+        /* Slide in effect */
     }
 
     .nav-list {
         flex-direction: column;
-        padding: 20px;
-        gap: 15px;
+        padding: 30px;
+        gap: 20px;
     }
 
-    .header__logo img {
-        height: 40px;
-        /* Choti screen par logo chota */
-    }
-}
-
-/* Small Mobile Phones */
-@media (max-width: 480px) {
-    .btn-login {
-        padding: 5px 15px;
-        font-size: 12px;
-    }
-
-    .header__actions {
-        gap: 10px;
-    }
-}
-
-.mobile-menu-btn {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-@media (max-width: 992px) {
     .mobile-menu-btn {
         display: block;
     }
+
+    .header__search {
+        display: none;
+        /* Mobile par search chota karna padega */
+    }
 }
 
+/* 3. Mobile Phones */
+@media (max-width: 600px) {
+    .header__logo img {
+        height: 45px;
+    }
+
+    .btn-login {
+        display: none;
+        /* Mobile par login icon ke andar dal sakte hain ya hide */
+    }
+
+    .header__actions {
+        gap: 12px;
+    }
+
+    /* Mobile par search bar bar ko dikhane ke liye aap ek chota icon bhi de sakte hain ya header ke niche */
+}
+
+
+/* Mobile Menu Styles (Media Query ke andar check karein) */
+@media (max-width: 992px) {
+    .header__nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        /* Default hidden */
+        width: 250px;
+        /* Menu ki width */
+        height: 100vh;
+        background: #ffffff;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease-in-out;
+        z-index: 9999;
+        /* Sabse upar dikhne ke liye */
+        display: block !important;
+        /* Display ko block rakhein taaki animation chale */
+    }
+
+    /* Jab JS se 'active' class add hogi tab ye dikhega */
+    .header__nav.active {
+        left: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        padding: 80px 20px 20px 20px;
+        /* Top padding menu icon se bachne ke liye */
+        gap: 20px;
+    }
+
+    .nav-link {
+        font-size: 18px;
+        display: block;
+        width: 100%;
+    }
+
+    /* Mobile menu ke open hone par background thoda dhundla karne ke liye (Optional) */
+    .menu-overlay.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9998;
+    }
+}
+
+@media (max-width: 992px) {
+    .header__nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        /* Default hidden */
+        width: 250px;
+        height: 100vh;
+        background: #fff;
+        z-index: 10000;
+        /* Isse menu sabse upar rahega */
+        transition: 0.4s ease;
+        display: block !important;
+        /* Ensure hidden na ho */
+    }
+
+    .header__nav.active {
+        left: 0;
+        /* Jab toggle ho toh screen par aa jaye */
+    }
+}
+
+/* 1. Desktop par mobile-login-item ko chhupao */
+.mobile-login-item {
+    display: none;
+}
+
+/* 2. Mobile View (@media query) ke andar ye styling add karein */
+@media (max-width: 992px) {
+    .mobile-login-item {
+        display: block;
+        /* Mobile par dikhao */
+        margin-top: 30px;
+        /* Menu links se thoda niche */
+        padding: 0 20px;
+        /* Side se spacing */
+    }
+
+    .mobile-login-btn {
+        display: block;
+        background-color: #333;
+        /* Dark color button */
+        color: #fff !important;
+        text-align: center;
+        padding: 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        border: 1px solid #333;
+        transition: 0.3s;
+    }
+
+    .mobile-login-btn:hover {
+        background-color: #fff;
+        color: #333 !important;
+    }
+
+    /* Optional: Agar aap upar wala Login button (jo icons ke sath hai) 
+       mobile par chhupana chahte hain toh use bhi hide kar sakte hain */
+    .header__actions .btn-login {
+        display: none;
+    }
+}
 
 /* RESET BUTTON DEFAULT STYLE */
 button {
@@ -785,25 +1175,57 @@ button {
 }
 
 
+/* 1. Large Laptops / Screens (Jab margin-right aur left ki wajah se content katne lage) */
+@media (max-width: 1300px) {
+    .hero-text-col {
+        left: 0;
+        /* Left position kam kar di */
+        margin-right: 50px;
+        /* Margin kam kar diya taaki screen mein fit ho sake */
+    }
+}
+
+/* 2. Tablets (992px and below) */
 @media (max-width: 992px) {
-    .hero-hygiene__container {
+    .hero-hygiene__content {
         flex-direction: column;
+        /* Tablet par Title aur Button ek ke niche ek */
         text-align: center;
+        gap: 20px;
     }
 
-    .hero-hygiene__image-wrapper {
-        justify-content: center;
-        order: -1;
-        /* Image pehle dikhegi mobile par */
-        margin-bottom: 30px;
+    .hero-text-col {
+        margin-right: 0;
+        left: 0;
+        flex: 0 0 100%;
+    }
+
+    .hero-hygiene__description {
+        white-space: normal;
+        /* Tablet par text wrap hoga taaki screen se bahar na jaye */
+        margin: 0 auto 15px;
+    }
+
+    .hero-hygiene__img {
+        width: 100%;
+        /* Image screen size ke hisab se fit hogi */
+    }
+}
+
+/* 3. Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+    .hero-hygiene {
+        padding: 40px 0;
     }
 
     .hero-hygiene__title {
-        font-size: 32px;
+        font-size: 20px;
+        /* Choti screen par font thoda chota */
     }
 
-    .hero-hygiene__tag {
-        margin: 0 auto 15px;
+    .hero-hygiene__img {
+        border-radius: 20px;
+        /* Chote mobile par zyada rounded theek lagega */
     }
 }
 
@@ -814,21 +1236,16 @@ button {
 .product-card {
     /* background: #fff; */
     background-color: #f8f8f8;
-    border-radius: 15px;
-    /* Thoda zyada rounded */
+    border-radius: 15px; /* Thoda zyada rounded */
     padding: 15px;
     text-align: center;
     position: relative;
-    border: 1px solid #e0e0e0;
-    /* Light grey border */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    /* Soft shadow */
+    border: 1px solid #e0e0e0; /* Light grey border */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Soft shadow */
     transition: transform 0.3s ease;
-    max-width: 300px;
-    /* Optional: adjust as per grid */
+    max-width: 300px; /* Optional: adjust as per grid */
     display: flex;
-    flex-direction: column;
-    /* Content ko upar se niche set karne ke liye */
+    flex-direction: column; /* Content ko upar se niche set karne ke liye */
     height: 100%;
 }
 
@@ -856,29 +1273,24 @@ button {
     position: absolute;
     top: 15px;
     right: 15px;
-    font-size: 22px;
-    /* Thoda bada icon */
+    font-size: 22px; /* Thoda bada icon */
     color: #333;
     cursor: pointer;
     z-index: 10;
     transition: all 0.3s ease;
     display: inline-block;
 }
-
 .wishlist i:hover {
     /* color: #ff0000; Red color on hover */
     /* transform: scale(1.3); Zoom effect (30% bada ho jayega) */
-    color: #ff0000;
-    /* Pura icon red ho jayega */
-    transform: scale(1.3);
-    /* Zoom effect */
-    font-weight: 900;
+    color: #ff0000;         /* Pura icon red ho jayega */
+    transform: scale(1.3);  /* Zoom effect */
+    font-weight: 900;    
 }
 
 /* Title Styling */
-.product-info .product-title {
-    font-size: 16px;
-    /* Target image mein bada hai */
+.product-title {
+    font-size: 16px; /* Target image mein bada hai */
     font-weight: 500;
     color: #000;
     margin-bottom: 15px;
@@ -896,27 +1308,16 @@ button {
 }
 
 .dot {
-    width: 13px;
-    /* Size increased to match target */
+    width: 13px; /* Size increased to match target */
     height: 13px;
     border-radius: 50%;
 }
-
-.blue {
-    background-color: #1e60d5;
-}
-
-/* Target blue color */
-.pink {
-    background-color: #e91e63;
-}
-
-/* Target pink color */
+.blue { background-color: #1e60d5; } /* Target blue color */
+.pink { background-color: #e91e63; } /* Target pink color */
 
 /* Price Styling */
 .price {
-    font-size: 22px;
-    /* Big and Bold price */
+    font-size: 22px; /* Big and Bold price */
     font-weight: 600;
     color: #000;
     margin-bottom: 30px;
@@ -924,8 +1325,7 @@ button {
 
 /* Buy Button Styling */
 .buy-btn {
-    background: #1c191a;
-    /* Very dark gray/black */
+    background: #1c191a; /* Very dark gray/black */
     color: white;
     border: none;
     width: 100%;
@@ -934,8 +1334,7 @@ button {
     font-weight: 700;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    /* Button shadow */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Button shadow */
     transition: 0.3s;
 }
 
@@ -952,9 +1351,8 @@ button {
     margin-top: 10px;
     padding: 20px 100px;
     background-color: white;
-
+    
 }
-
 /* Tab Styles - Exact match to your image */
 .tabs-container {
     display: flex;
@@ -963,15 +1361,13 @@ button {
     padding-left: 10px;
     /* background-color: #ff0099; */
 }
-
 /* .tabs-content-wrap{ */
-/* margin-top: 100px;             extra top space remove */
+  /* margin-top: 100px;             extra top space remove */
 /* } */
 .tab {
     font-size: 22px;
     font-weight: 500;
-    color: #777;
-    /* Default gray color */
+    color: #777; /* Default gray color */
     cursor: pointer;
     text-decoration: none;
     transition: 0.2s;
@@ -980,12 +1376,9 @@ button {
 }
 
 .tab.active {
-    color: #000;
-    /* Black for active */
-    font-weight: 700;
-    /* Bold as per image */
-    border-bottom: 2px solid #000;
-    /* Underline as per image */
+    color: #000; /* Black for active */
+    font-weight: 700; /* Bold as per image */
+    border-bottom: 2px solid #000; /* Underline as per image */
 }
 
 /* Hide/Show Logic */
@@ -1008,8 +1401,7 @@ button {
 
 
 .product-card.highlighted {
-    border: 3px solid #00a2ff;
-    /* Blue border like image */
+    border: 3px solid #00a2ff; /* Blue border like image */
 }
 
 
@@ -1040,8 +1432,7 @@ button {
 .buy-btn:hover {
     background: #000;
 }
-
-.buy-btn:hover {
+.buy-btn:hover{
     background-color: #333;
     padding-inline-start: 0cap;
     margin-inline-start: 0cqmax;
@@ -1049,9 +1440,7 @@ button {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* grid4 section */
@@ -1065,22 +1454,21 @@ button {
 
 .card-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* 4 Columns */
+    grid-template-columns: repeat(4, 1fr); /* 4 Columns */
     gap: 20px;
 }
 
 /* .item-card { */
-/* background: #fff; */
-/* border: 0.5px solid #353434; */
-/* box-shadow: 0 2px 4px rgba(0,0,0,0.05); */
-/* display: flex; */
-/* flex-direction: column; */
+    /* background: #fff; */
+    /* border: 0.5px solid #353434; */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.05); */
+    /* display: flex; */
+    /* flex-direction: column; */
 /* } */
 .item-card {
     background: #fff;
-    border: 1px solid #d1d1d1;
-    border-radius: 8px;
+    border: 1px solid #d1d1d1; 
+    border-radius: 8px; 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.05);
     padding: 20px;
     display: flex;
@@ -1096,8 +1484,7 @@ button {
 }
 
 .item-img-bg {
-    background-color: #d9d9d9;
-    /* Grey background for image as per reference */
+    background-color: #d9d9d9; /* Grey background for image as per reference */
     height: 200px;
     display: flex;
     align-items: center;
@@ -1139,8 +1526,7 @@ button {
     line-height: 1.5;
     margin-bottom: 20px;
     text-align: left;
-    flex-grow: 1;
-    /* Pushes button to bottom */
+    flex-grow: 1; /* Pushes button to bottom */
 }
 
 /* Shop Now Button styling */
@@ -1164,16 +1550,45 @@ button {
     color: #fff;
 }
 
-/* Responsive for Mobile/Tablet */
+/* ==========================================
+   SIRF RESPONSIVE CODE (Paste this at the end)
+   ========================================== */
+
 @media (max-width: 1024px) {
-    .card-container {
-        grid-template-columns: repeat(2, 1fr);
+    /* Tablet aur Small Laptop ke liye 2-column grid */
+    .product-grid, .card-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .containerab {
+        padding-left: 40px !important;  /* Side space thodi kam ki */
+        padding-right: 40px !important;
     }
 }
 
 @media (max-width: 600px) {
-    .card-container {
-        grid-template-columns: 1fr;
+    /* Mobile ke liye 1-column grid (Ek ke niche ek) */
+    .product-grid, .card-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Side ki extra space mobile par khatam karne ke liye */
+    .containerab {
+        padding-left: 15px !important; 
+        padding-right: 15px !important;
+    }
+
+    /* Card ko mobile width par set karne ke liye */
+    .product-card {
+        max-width: 100% !important;
+        margin-bottom: 20px; /* Do cards ke beech ka gap */
+    }
+
+    /* Tabs ko scrollable banane ke liye agar wo screen se bahar jayein */
+    .tabs-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 20px !important;
     }
 }
 
@@ -1183,24 +1598,33 @@ button {
 .footer {
     background-color: #2b2b2b;
     color: white;
-    padding-top: 60px;
-
+    padding: 60px 0 0 0;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    
 }
-
+/* Horizontal Layout Container */
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex; /* Sab kuch ek line mein lane ke liye */
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 40px 40px 40px;
+}
 .container {
     max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    padding: 0 40px;
-    align-items: flex-start;
+    /* padding: 0 40px; */
+    align-items: flex-start; 
+    padding: 0 40px 40px 40px;
 }
-
 .content-col {
     flex: 1;
     padding: 0 15px;
 }
-
 .footer-col {
     flex: 1;
     padding: 0 15px;
@@ -1208,54 +1632,44 @@ button {
 
 /* 1) Logo Section Updates */
 .logo-section {
-    flex: 1;
-    /* Logo section ko thoda zyada space diya */
+    flex: 1; /* Logo section ko thoda zyada space diya */
     min-width: 200px;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
-    align-items: flex-end;
-    /* Sab kuch horizontal center karne ke liye */
+    align-items: flex-start; /* Sab kuch horizontal center karne ke liye */
     text-align: center;
     margin-top: -60px;
     padding-left: 0;
 }
 
 .logo img {
-    width: 220px;
-    /* Logo ka size bada kiya */
+    width: 220px; /* Logo ka size bada kiya */
     height: auto;
-    margin-bottom: 10px;
-    /* Image ke niche gap zero */
-    margin-left: -80px;
-
+    margin-bottom: 10px; /* Image ke niche gap zero */
+    margin-left: -30px;
+   
+    
 }
-
 /* Social Links styling */
 .social-links {
     width: 100%;
-    position: relative;
-    left: -10px;
-    /* Ye zyadatar cases mein perfect kaam karta hai */
+    /*  position: relative; */
+     left: -60px; 
+    /* Ye zyadatar cases mein perfect kaam karta hai */ 
 }
-
 .social-links p {
     font-weight: bold;
-    margin-bottom: 13px;
-    /* Follow us text aur icons ka gap kam kiya */
+    margin-bottom: 13px; /* Follow us text aur icons ka gap kam kiya */
     font-size: 14px;
     margin-top: -30px;
     color: #fff;
-
+    
 }
-
 .icons {
     display: flex;
-    justify-content: center;
-    /* Icons ko center lane ke liye */
-    gap: 5px;
-    /* Icons ke beech ka gap */
+    justify-content: center; /* Icons ko center lane ke liye */
+    gap: 5px; /* Icons ke beech ka gap */
 }
-
 .icons a {
     color: white;
     font-size: 24px;
@@ -1264,28 +1678,23 @@ button {
     transition: 0.3s;
     display: inline-block;
 }
-
 .icons a:hover {
     color: #ffcc00;
     transform: scale(1.3);
 }
-
 /* 2 & 3) Dividers: Height kam aur Left shift */
 .divider {
     position: relative;
-    padding-left: 50px;
+    padding-left: 50px; 
 }
 
 /* Yeh pseudo-element vertical line banayega */
 .divider::before {
     content: "";
     position: absolute;
-    left: -1px;
-    /* Line ko thoda left shift kiya */
-    top: 45px;
-    /* Top se thoda niche se start hogi */
-    height: 225px;
-    /* Line ki height kam kar di */
+    left: -1px; /* Line ko thoda left shift kiya */
+    top: 45px;    /* Top se thoda niche se start hogi */
+    height: 225px; /* Line ki height kam kar di */
     width: 1px;
     background-color: #f4f3f3;
 }
@@ -1293,8 +1702,7 @@ button {
 /* Content Styling */
 .footer-col h3 {
     font-size: 18px;
-    margin-bottom: 35px;
-    /* Heading ke niche ka gap */
+    margin-bottom: 35px; /* Heading ke niche ka gap */
     font-weight: 400;
     line-height: 2;
     color: white;
@@ -1313,18 +1721,13 @@ button {
     font-size: 12px;
     bottom: 20px;
     white-space: nowrap;
-    margin-bottom: 28px;
+     margin-bottom: 28px;
 }
-
 .footer-col ul li:hover {
-    transform: scale(1.1);
-    /* Font ko 10% zoom karne ke liye */
-    color: #ffcc00;
-    /* Text ka color yellow karne ke liye */
-    cursor: pointer;
-    /* Cursor ko hand icon banane ke liye */
+    transform: scale(1.1); /* Font ko 10% zoom karne ke liye */
+    color: #ffcc00;        /* Text ka color yellow karne ke liye */
+    cursor: pointer;       /* Cursor ko hand icon banane ke liye */
 }
-
 .footer-col ul li::before {
     content: "•";
     position: absolute;
@@ -1336,16 +1739,13 @@ button {
     color: #efefef;
     text-decoration: none;
 }
-
 .footer-col ul li a:hover {
     color: #ffcc00;
 }
-
 .no-heading {
-    margin-top: 70px;
-    /* 75px se badal kar 44px kiya */
-    flex: 2;
-
+    margin-top: 70px; /* 75px se badal kar 44px kiya */
+     flex: 2;
+    
 }
 
 /* Yellow Bottom Bar */
@@ -1371,32 +1771,185 @@ button {
     text-decoration: none;
     margin-right: 35px;
 }
-
 .bottom-links a:hover {
-    text-decoration: underline;
-    /* Isse niche line aa jayegi */
-    color: #333;
-    /* Optional: halka sa color change karne ke liye */
+    text-decoration: underline; /* Isse niche line aa jayegi */
+    color: #333; /* Optional: halka sa color change karne ke liye */
 }
 
 .copyright {
     text-align: right;
 }
 
-/* Responsive fixes */
-@media (max-width: 1024px) {
+/* ==========================================
+   FOOTER RESPONSIVE FIX (Paste at the end)
+   ========================================== */
+
+@media (max-width: 992px) {
     .container {
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Columns ko niche lane ke liye */
+        padding: 40px 20px;
     }
 
     .footer-col {
-        min-width: 45%;
+        flex: 1 1 45%; /* Ek line mein 2 columns */
+        min-width: 200px;
+        margin-bottom: 40px;
+        padding: 0 10px;
+    }
+
+    /* Vertical Dividers hata diye taaki stacking gandi na dikhe */
+    .divider::before {
+        display: none !important;
+    }
+
+    .divider {
+        padding-left: 15px; /* Original 50px ko kam kiya */
+    }
+
+    /* Nowrap ko hatana sabse zaroori hai */
+    .footer-col h3, 
+    .footer-col ul li {
+        white-space: normal !important; /* Text ab agli line mein aa jayega */
+        line-height: 1.4;
+    }
+
+    /* Logo aur Social Links ke negative margins reset karein */
+    .logo-section {
+        margin-top: 0;
+        text-align: left;
+    }
+
+    .logo img {
+        margin-left: 0 !important;
+        width: 180px;
+    }
+
+    .social-links {
+        left: 0 !important;
+    }
+
+    .icons {
+        justify-content: flex-start; /* Icons ko left align kiya */
+    }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        padding-top: 30px;
+    }
+
+    .footer-col {
+        flex: 1 1 100%; /* Mobile par ek ke niche ek column */
         margin-bottom: 30px;
     }
 
-    .divider::before {
-        display: none;
-        /* Mobile pe lines hata di taki clean dikhe */
+    .no-heading {
+        margin-top: 0; /* Extra gap hataya */
+    }
+
+    .footer-col h3 {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #444; /* Mobile par thoda separation */
+        padding-bottom: 5px;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 15px;
+        bottom: 0; /* Original bottom: 20px ko reset kiya */
+    }
+
+    /* Yellow Bottom Bar Fix */
+    .bottom-container {
+        flex-direction: column; /* Links aur Copyright ek ke niche ek */
+        text-align: center;
+        gap: 15px;
+    }
+
+    .bottom-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .bottom-links a {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+}
+
+/* ==========================================
+   YELLOW BOTTOM BAR - RESPONSIVE CODE
+   ========================================== */
+
+/* 1. For Tablets (Links ko wrap karne ke liye) */
+@media (max-width: 1024px) {
+    .bottom-container {
+        padding: 15px 20px;
+        flex-wrap: wrap; /* Agar jagah kam ho toh links niche aa jayein */
+        justify-content: center; /* Sab kuch center mein */
+        gap: 15px;
+    }
+
+    .bottom-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px; /* Links ke beech barabar gap */
+    }
+
+    .bottom-links a {
+        margin-right: 0; /* Desktop wala margin hata kar gap use kiya */
+    }
+
+    .copyright {
+        text-align: center;
+        width: 100%; /* Copyright ko puri line di taaki wo niche center ho */
+    }
+}
+
+/* 2. For Mobile (768px and below) */
+@media (max-width: 768px) {
+    .footer-bottom {
+        padding: 20px 0;
+    }
+
+    .bottom-container {
+        flex-direction: column; /* Links upar aur copyright niche stack ho jayenge */
+        gap: 20px;
+    }
+
+    .bottom-links {
+        flex-direction: row; /* Links ko ek line mein wrap hone diya */
+        justify-content: center;
+        width: 100%;
+    }
+
+    .bottom-links a {
+        font-size: 11px; /* Mobile par font thoda chota */
+        margin: 5px 10px; /* Links ke beech touch-friendly gap */
+    }
+
+    .copyright {
+        font-size: 11px;
+        line-height: 1.5;
+        padding: 0 10px;
+    }
+}
+
+/* 3. Smallest Phones (400px and below) */
+@media (max-width: 400px) {
+    .bottom-links {
+        flex-direction: column; /* Bahut chote phones par links bhi ek ke niche ek */
+        gap: 8px;
+    }
+    
+    .bottom-links a {
+        margin: 0;
     }
 }
 
@@ -1404,11 +1957,11 @@ button {
 /* ======================================================== */
 
 
+/* --- Desktop: Wahi design jo aapne banaya tha --- */
 .image-grid-section {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
     background-color: #fff;
 }
@@ -1418,25 +1971,23 @@ button {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 250px 250px;
     gap: 1px;
-    background-color: #fff;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
+    width: 100%;
 }
 
 .grid-item {
     position: relative;
     overflow: hidden;
-    background-color: #eee;
 }
 
 .grid-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Desktop par box fill karne ke liye */
     display: block;
 }
 
+/* Desktop Positioning Spans */
 .grid-item:nth-child(1) {
     grid-column: 1 / 3;
     grid-row: 1 / 2;
@@ -1457,34 +2008,21 @@ button {
     grid-row: 1 / 3;
 }
 
+/* Desktop Text Position */
 .grid-overlay {
     position: absolute;
-    bottom: 50px;
-    left: 340px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 30px;
-    box-sizing: border-box;
+    bottom: 140px;
+    left: 370px;
     pointer-events: none;
+    z-index: 10;
 }
 
 .grid-overlaya {
     position: absolute;
-    bottom: 50px;
-    left: 220px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 40px;
-    box-sizing: border-box;
+    bottom: 140px;
+    left: 270px;
     pointer-events: none;
+    z-index: 10;
 }
 
 .stat-number,
@@ -1492,29 +2030,77 @@ button {
     color: #ffde00 !important;
     font-size: 36px;
     font-weight: 600;
-    margin: 0;
-    line-height: 1;
-    font-family: sans-serif;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+/* --- RESPONSIVE LOGIC (Aapki requirement ke hisab se) --- */
 
-@media (max-width: 992px) {
+/* 1. Tablets (Laptops se thoda chota) */
+@media (max-width: 1100px) {
+    .grid-overlay {
+        left: 50%;
+        bottom: 30%;
+    }
+
+    .grid-overlaya {
+        left: 40%;
+        bottom: 30%;
+    }
+}
+
+/* 2. Mobile (Stacking logic - Ek ke niche ek) */
+@media (max-width: 768px) {
     .grid-wrapper {
         grid-template-columns: 1fr;
+        /* Sirf 1 column - stacking ke liye */
         grid-template-rows: auto;
-        width: 100%;
-        gap: 2px;
+        /* Fixed height hata di taaki image na kate */
+        gap: 5px;
     }
 
     .grid-item {
-        height: 250px;
         grid-column: auto !important;
         grid-row: auto !important;
+        height: auto;
+        /* Auto height taaki poori image dikhe */
     }
 
+    .grid-item img {
+        height: auto;
+        object-fit: contain;
+        /* Isse image kabhi nahi kategi */
+    }
+
+    /* Mobile Text Positioning: Screenshot ke hisab se "Happy Clients" ke upar set karne ke liye */
+    .grid-overlay,
+    .grid-overlaya {
+        left: 65% !important;
+        /* Mobile ke hisab se center ke paas */
+        bottom: 55% !important;
+        /* Image ke beech mein */
+        width: 100%;
+        text-align: left;
+        /* font-size: 14px; */
+    }
+
+    .stat-number,
+    .stat-numbera {
+        font-size: 28px;
+        /* Mobile par font chota kiya */
+    }
+}
+
+/* 3. Small Mobile (Screen width < 480px) */
+@media (max-width: 480px) {
     .grid-overlay {
-        padding-left: 20px;
+        left: 50% !important;
+        bottom: 48% !important;
+        font-size: 10px;
+    }
+
+    .stat-number,
+    .stat-numbera {
+        font-size: 22px;
     }
 }
 
@@ -1746,195 +2332,200 @@ button {
 
 /* ==================== HEADER USER MENU ==================== */
 .user-menu {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .user-profile-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 9px;
-  background: transparent;
-  border: 1px solid #ddd;
-  border-radius: 40px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 20px;
-  color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 9px;
+    background: transparent;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    color: #333;
 }
 
 .user-profile-btn:hover {
-  background: #f5f5f5;
-  border-color: #bbb;
+    background: #f5f5f5;
+    border-color: #bbb;
 }
 
 .user-profile-btn i {
-  font-size: 28px;
-  color: #666;
+    font-size: 28px;
+    color: #666;
 }
 
 .user-profile-btn span {
-  font-weight: 500;
-  max-width: 100px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    font-weight: 500;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .btn-logout {
-  padding: 8px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  font-size: 14px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 14px;
 }
 
 .btn-logout:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 /* ==================== LOADING STATES ==================== */
 .loading-spinner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    gap: 16px;
 }
 
 .loading-spinner i {
-  font-size: 48px;
-  color: #667eea;
+    font-size: 48px;
+    color: #667eea;
 }
 
 .loading-spinner p {
-  font-size: 16px;
-  color: #666;
-  font-weight: 500;
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
 }
 
 /* ==================== NO PRODUCTS STATE ==================== */
 .no-products {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 20px;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
 }
 
 .no-products p {
-  font-size: 18px;
-  color: #999;
-  font-weight: 500;
+    font-size: 18px;
+    color: #999;
+    font-weight: 500;
 }
 
 /* ==================== RESPONSIVE HEADER ==================== */
 @media (max-width: 768px) {
-  .user-menu {
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-  }
+    .user-menu {
+        flex-direction: row;
+        gap: 8px;
+        width: 100%;
+    }
 
-  .user-profile-btn,
-  .btn-logout {
-    width: 100%;
-    justify-content: center;
-  }
+    .user-profile-btn,
+    .btn-logout {
+        width: 100%;
+        justify-content: center;
+    }
 
-  .header__actions {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+    .header__actions {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
 
-  .action-icon {
-    padding: 8px;
-  }
+    .action-icon {
+        padding: 8px;
+    }
 }
 
 /* ==================== PRODUCT CARD HOVER EFFECTS ==================== */
 .product-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .product-card img {
-  transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .product-card:hover img {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 /* ==================== BUY NOW BUTTON ==================== */
 .buy-btn {
-  transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .buy-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* ==================== LOADING ANIMATION ==================== */
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .fa-spin {
-  animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
 }
 
 /* ==================== PRODUCT GRID RESPONSIVE ==================== */
 @media (max-width: 1200px) {
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
 }
 
 @media (max-width: 480px) {
-  .product-grid {
-    grid-template-columns: 1fr;
-  }
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ==================== WISHLIST ICON ANIMATION ==================== */
 .wishlist i {
-  transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .wishlist:hover i {
-  color: #e74c3c;
-  transform: scale(1.2);
+    color: #e74c3c;
+    transform: scale(1.2);
 }
 
 /* ==================== HEADER HIDE/SHOW CART ==================== */
 .header__actions .action-icon {
-  opacity: 1;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .header__actions .action-icon:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }

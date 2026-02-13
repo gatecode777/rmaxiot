@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { cartAPI } from '../services/api';
 import "../styles/cart.css";
+import defaultProduct from '../assets/default-product.png';
 
 const Cart = () => {
   const [cart, setCart] = useState(null);
@@ -198,11 +199,11 @@ const Cart = () => {
                         ? getImageUrl(item.product.images[0])
                         : item.product?.thumbnail
                         ? getImageUrl(item.product.thumbnail)
-                        : 'https://via.placeholder.com/150x150?text=No+Image'
+                        : defaultProduct
                     }
                     alt={item.product?.name || 'Product'}
                     onError={(e) => {
-                      e.target.src = 'https://via.placeholder.com/150x150?text=No+Image';
+                      e.target.src = defaultProduct;
                     }}
                   />
                 </div>

@@ -5,7 +5,8 @@
     width: 100%;
     gap: 40px;
     /* background-color: #000; */
-    margin-left: 100px;
+    /* margin-left: 100px; */
+    margin: 0 auto;
     /* padding: 0; */
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -206,7 +207,7 @@
 }
 
 /* Buttons */
-.action-buttons {
+.action-buttons-p {
     display: flex;
     gap: 15px;
     /* width: 100%; */
@@ -256,24 +257,71 @@
 }
 
 
-/* Responsive for Mobile */
-@media (max-width: 768px) {
+/* ==========================================================
+   BEST LEVEL RESPONSIVE (FOR ALL SCREENS)
+   ========================================================== */
+
+/* 1. Large Laptops (1024px to 1200px) */
+@media (max-width: 1200px) {
+    .product-container { gap: 30px; padding: 40px 20px; }
+    .main-image img { min-height: 350px; }
+}
+
+/* 2. Tablets & Small Laptops (992px) */
+@media (max-width: 992px) {
     .product-container {
-        flex-direction: column;
+        flex-direction: column; /* Image upar, Details niche */
+        align-items: center;
     }
-    .content-flex {
-        flex-direction: column;
-    }
-    .action-buttons {
-        flex-direction: column;
-    }
+    
     .image-section {
-        flex-direction: column-reverse;
+        width: 100%;
+        position: static; /* Sticky hata diya */
     }
+
+    .details-section { width: 100%; margin-top: 30px; }
+}
+
+/* 3. Mobile Phones (768px and below) */
+@media (max-width: 768px) {
+    .image-section {
+        flex-direction: column-reverse; /* Thumbnails image ke niche aayenge */
+    }
+
     .thumbnails {
-        flex-direction: row;
+        flex-direction: row; /* Mobile par thumbnails line mein honge */
+        justify-content: center;
         overflow-x: auto;
+        padding: 5px 0;
     }
+
+    .thumbnails img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .main-image img { min-height: 300px; }
+
+    .content-flex {
+        flex-direction: column; /* Features aur Info Box ek ke niche ek */
+    }
+
+    .action-buttons-p {
+        flex-direction: column; /* Buttons stack ho jayenge */
+    }
+
+    .btn {
+        max-width: 100% !important; /* Mobile par buttons poori width lenge */
+    }
+
+    .final-price { font-size: 28px; }
+}
+
+/* 4. Small Mobile (480px) */
+@media (max-width: 480px) {
+    .product-title { font-size: 18px; }
+    .final-price { font-size: 24px; }
+    .main-image img { min-height: 250px; }
 }
 
 
@@ -298,6 +346,40 @@
     color: #000;
     margin-bottom: 12px;
     text-align: justify;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+/* 1. Tablets (992px tak) */
+@media (max-width: 992px) {
+    .desc-content {
+        transform: translateY(0); /* Mobile/Tablet par overlap na ho isliye transform hata diya */
+        margin-top: 20px;
+    }
+    
+    .product-description-container {
+        padding-bottom: 30px;
+    }
+}
+
+/* 2. Mobile Phones (768px and below) */
+@media (max-width: 768px) {
+    .intro-text {
+        font-size: 14px;
+        text-align: left; /* Mobile par justify ganda dikhta hai (words ke beech zyada gap aa jata hai) */
+        line-height: 1.5;
+    }
+
+    .product-description-container {
+        padding: 10px 20px 40px 20px; /* Mobile ke hisab se side padding kam ki */
+    }
+}
+
+/* 3. Small Mobile (480px) */
+@media (max-width: 480px) {
+    .intro-text {
+        font-size: 13px;
+    }
 }
 
 .info-block {
@@ -532,16 +614,90 @@
             opacity: 1;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            .card {
-                transform: scale(1) !important;
-                margin-bottom: 20px;
-            }
-        }
+        /* ==========================================================
+   ZOOM CONTAINER - BEST LEVEL RESPONSIVE
+   ========================================================== */
+
+/* 1. Large Laptops (1024px to 1300px) */
+@media (max-width: 1300px) {
+    .card {
+        width: 300px; /* Width thodi kam ki taaki screen mein fit ho sakein */
+    }
+    .container-zoom {
+        padding: 40px 20px;
+        gap: 15px;
+    }
+}
+
+/* 2. Tablets (768px to 1024px) */
+@media (max-width: 1024px) {
+    .container-zoom {
+        gap: 10px;
+        padding: 30px 10px;
+    }
+
+    .card {
+        width: 280px; /* Tablet par aur chota */
+        transform: scale(0.95); /* Zoom effect ko thoda kam kiya taaki overlap na ho */
+    }
+
+    .card.active {
+        transform: scale(1.05); /* Active card ka zoom bhi thoda control kiya */
+    }
+}
+
+/* 3. Mobile Phones (768px and below) */
+@media (max-width: 768px) {
+    .zoom-container-bar {
+        padding: 40px 0;
+        height: auto; /* Fixed height hata di */
+        min-height: auto;
+    }
+
+    .container-zoom {
+        flex-direction: column; /* Cards ek ke niche ek aayenge */
+        padding: 20px;
+        gap: 30px; /* Vertical gap badhaya */
+        perspective: none; /* Perspective hata di taaki tilting na ho */
+    }
+
+    .card {
+        width: 100%; /* Mobile par full width */
+        max-width: 350px; /* Lekin bahut zyada wide na ho */
+        transform: scale(1) !important; /* Mobile par zoom effect hata diya (standard UX) */
+        opacity: 1 !important; /* Sab cards barabar dikhenge */
+        margin-bottom: 0;
+    }
+
+    /* Mobile par hover effect ki zaroorat nahi hoti isliye ise disable kiya taaki UI jump na kare */
+    .container-zoom:hover .card,
+    .container-zoom .card:hover {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+    }
+
+    .card img {
+        padding: 20px 20px 10px; /* Mobile par padding adjust ki */
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+}
+
+/* 4. Small Mobile (480px) */
+@media (max-width: 480px) {
+    .container-zoom {
+        padding: 15px;
+    }
+    .card {
+        border-radius: 15px;
+    }
+    .buy-btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
 
 
 /* Add. Info */
@@ -663,25 +819,263 @@
     z-index: 5;
 }
 
-/* Responsive Design for Mobile */
-@media (max-width: 992px) {
-    .product-container {
-        flex-direction: column;
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* 1. Large Laptops (1024px to 1300px) */
+@media (max-width: 1300px) {
+    .woman-image {
+        right: -50px; /* Woman ko thoda andar kiya taaki screen se bahar na jaye */
+        height: 100%;
+    }
+    .info-card {
+        width: 100%; /* vw se % par shift kiya stability ke liye */
+    }
+}
+
+/* 2. Tablets & Small Laptops (1024px tak) */
+@media (max-width: 1024px) {
+    .product-containerab {
+        flex-direction: column; /* Details upar, Info card niche */
+        gap: 50px;
+        min-height: auto;
+    }
+
+    .details-column, .info-box-wrapper {
+        width: 100%;
+        flex: none;
+    }
+
+    .info-box-wrapper {
+        justify-content: center; /* Mobile par center alignment */
+    }
+
+    .info-card {
+        width: 90%; /* Side mein thodi jagah chodi */
+        border-radius: 50px; /* Tablet par thoda kam round */
+        padding: 40px 30px;
+    }
+
+    /* Dark Overlay Fix: Jo -170px tha use tablet par reset kiya */
+    .dark-overlay {
+        width: 100%;
+        margin-left: -30px; /* Padding ke hisab se adjust kiya */
         padding: 20px;
     }
-    
-    .info-box-wrapper {
-        width: 100%;
-        margin-top: 50px;
+
+    .dark-overlay p {
+        max-width: 100%;
+        margin: 0;
     }
 
     .woman-image {
-        height: 300px;
-        right: -20px;
+        height: 110%; /* Image thodi badi ki */
+        right: -30px;
+    }
+}
+
+/* 3. Mobile Phones (768px and below) */
+@media (max-width: 768px) {
+    .details-grid {
+        grid-template-columns: 1fr; /* Mobile par Label aur Value ek ke niche ek */
+        row-gap: 5px;
     }
 
+    .label {
+        font-weight: 600; /* Label ko bold kiya taaki separation dikhe */
+        color: #003380;
+    }
+
+    .value {
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eee; /* separation line */
+    }
+
+    .info-card {
+        width: 100%;
+        border-radius: 30px; /* Mobile par zyada professional lagta hai */
+        padding: 30px 20px;
+    }
+
+    /* Dark Overlay Reset: Mobile par -170px poora text gayab kar dega */
+    .dark-overlay {
+        margin-left: -20px !important;
+        width: calc(100% + 40px) !important;
+        padding: 15px 20px;
+    }
+
+    .dark-overlay p {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .info-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .woman-image {
+        height: 250px; /* Mobile par height control ki */
+        right: -10px; /* Bilkul edge par lock kiya */
+        position: relative; /* Card ke upar se hatakar side mein lane ke liye alternative */
+        margin-top: -100px; /* Card ke upar overlap effect ke liye */
+        align-self: flex-end;
+    }
+}
+
+/* 4. Small Mobile (480px) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 20px;
+    }
+    
+    .interest-btn {
+        width: 100%; /* Full width button on small mobile */
+        padding: 12px;
+    }
+
+    .woman-image {
+        height: 200px;
+        margin-top: -80px;
+    }
+}
+/* ==========================================================
+   FINAL MOBILE FIX - PRODUCT DETAILS SECTION
+   ========================================================== */
+
+@media (max-width: 768px) {
+    /* 1. Container ko center kiya aur column mein badla */
+    .product-containerab {
+        flex-direction: column !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 40px 15px !important;
+        height: auto !important;
+        min-height: auto !important;
+        overflow: hidden; /* Side scroll rokne ke liye */
+    }
+
+    .details-column {
+        width: 100%;
+        margin-bottom: 80px; /* Info card se doori */
+    }
+
+    /* 2. Info Card ko poori width di (Jo patla ho gaya tha wo theek ho jayega) */
+    .info-box-wrapper {
+        width: 100%;
+        margin-top: 20px;
+        display: block;
+        position: relative;
+    }
+
+    .info-card {
+        width: 100% !important; /* Squished card theek karne ke liye */
+        max-width: 100%;
+        border-radius: 40px !important;
+        padding: 50px 25px !important;
+        left: 0 !important;
+    }
+
+    /* 3. Dark Overlay Fix (Jo -170px text ko bahar phenk raha tha) */
+    .dark-overlay {
+        margin-left: -25px !important; /* Card ki padding ke barabar negative */
+        width: calc(100% + 50px) !important; /* Full width band */
+        padding: 15px 25px !important;
+        text-align: left;
+    }
+
+    .dark-overlay p {
+        font-size: 14px;
+        max-width: 100%;
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    /* 4. Woman Image Fix (Jo text ke upar chadh gayi thi) */
+    .woman-image {
+        position: absolute;
+        height: 250px !important; /* Image ka size chota kiya */
+        width: auto;
+        right: -10px !important; /* Screen ke andar laya */
+        bottom: -30px !important;
+        z-index: 10;
+        pointer-events: none; /* Taaki button click karne mein dikkat na ho */
+    }
+
+    /* 5. Grid Adjustment for mobile labels */
     .details-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 8px;
+    }
+
+    .label {
+        font-weight: 700;
+        color: #c47c43; /* Main theme color for mobile labels */
+        margin-top: 10px;
+    }
+
+    .value {
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eee;
+    }
+}
+
+/* Chote Mobile Phones ke liye */
+@media (max-width: 480px) {
+    .info-card {
+        padding: 40px 20px !important;
+    }
+    .woman-image {
+        height: 200px !important;
+    }
+    .info-title {
+        font-size: 18px;
+    }
+}
+/* ==========================================================
+   MOBILE VIEW: HIDING WOMAN IMAGE & CLEANING CARD
+   ========================================================== */
+
+@media (max-width: 768px) {
+    /* 1. Woman image ko mobile par poori tarah hatane ke liye */
+    .woman-image {
+        display: none !important;
+    }
+
+    /* 2. Card ko thoda clean dikhane ke liye adjustments */
+    .info-card {
+        width: 100% !important;
+        max-width: 100%;
+        border-radius: 30px !important; /* Mobile par rounded corners kam kiye */
+        padding: 40px 20px !important;
+        text-align: center !important; /* Image hatne ke baad center text zyada accha lagega */
+    }
+
+    .info-title {
+        font-size: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 3. Dark overlay ko mobile par sahi se dikhane ke liye */
+    .dark-overlay {
+        margin-left: -20px !important; /* Padding ke hisab se reset kiya */
+        width: calc(100% + 40px) !important;
+        padding: 20px !important;
+        text-align: center !important;
+    }
+
+    .dark-overlay p {
+        font-size: 14px !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* 4. Button ko center aur full width karne ke liye */
+    .interest-btn {
+        width: 100% !important;
+        max-width: 250px;
+        margin: 0 auto !important;
+        display: block;
     }
 }
 
@@ -919,10 +1313,182 @@
     margin-top: 5px;
 }
 
-/* Mobile Responsive */
+/* ==========================================================
+   RATINGS & REVIEWS SECTION - RESPONSIVE CODE
+   ========================================================== */
+
+/* 1. Large Laptops Adjustment */
+@media (max-width: 1200px) {
+    .reviews-container {
+        gap: 20px;
+    }
+    .progress-bga {
+        margin: 0 20px; /* 50px se kam kiya taaki bars squeeze na hon */
+    }
+}
+
+/* 2. Tablets (992px and below) */
 @media (max-width: 992px) {
-    .reviews-container { flex-direction: column; gap: 40px; }
-    .satisfaction-section { border-left: none; padding-left: 0; }
+    .reviews-section {
+        padding: 40px 20px;
+    }
+
+    .reviews-container {
+        flex-direction: column; /* Stack vertically */
+        align-items: center;
+        gap: 50px;
+    }
+
+    .overall-rating {
+        width: 100%;
+        text-align: center;
+        flex: none;
+    }
+
+    .rating-number {
+        justify-content: center;
+    }
+
+    .view-reviews-btn {
+        width: 100%;
+        max-width: 320px; /* Mobile par button readable aur full width */
+        padding: 14px 40px; 
+    }
+
+    .rating-progress, .satisfaction-section {
+        width: 100%;
+        max-width: 500px; /* Tablet par zyada failne se roka */
+        flex: none;
+    }
+
+    .satisfaction-section {
+        border-left: none; /* Vertical line hata di */
+        padding-left: 0;
+        height: auto; /* Fixed 220px height hata di taaki content fit ho */
+        margin-top: 20px;
+        border-top: 1px solid #ccc; /* Mobile par horizontal separator */
+        padding-top: 40px;
+    }
+}
+
+/* 3. Mobile Phones (768px and below) */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .rating-number h3 {
+        font-size: 20px;
+        white-space: normal; /* Mobile par text wrap hone diya */
+    }
+
+    .review-count {
+        font-size: 16px;
+    }
+
+    .bar-item {
+        font-size: 15px; /* Thoda chota font bars ke liye */
+    }
+
+    .progress-bg, .progress-bga {
+        margin: 0 10px; /* Bars ki width badhane ke liye margin kam kiya */
+    }
+
+    .bar-item .label {
+        width: 90px; /* Label width kam ki mobile ke liye */
+    }
+
+    .bar-item .percent, .bar-item .percenta {
+        font-size: 14px;
+        width: 35px;
+        margin-left: 5px;
+    }
+
+    .satisfaction-header h4 {
+        font-size: 20px;
+    }
+}
+
+/* 4. Small Mobile (480px) */
+@media (max-width: 480px) {
+    .rating-number {
+        flex-direction: column; /* Number aur Stars mobile par ek ke niche ek */
+        gap: 5px;
+    }
+
+    .bar-item span:first-child {
+        width: 35px; /* Star column aur chota kiya */
+    }
+    
+    .bar-item .label {
+        width: 75px;
+    }
+}
+/* ==========================================================
+   USER SATISFACTION OVERLAP FIX (Mobile)
+   ========================================================== */
+
+@media (max-width: 768px) {
+    /* Satisfaction container ko center aur full width kiya */
+    .satisfaction-section {
+        width: 100% !important;
+        padding: 40px 10px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Har ek row (label + bar + %) ki styling */
+    .bar-item {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        gap: 5px !important; /* Items ke beech thoda gap */
+        margin-bottom: 20px !important;
+    }
+
+    /* Labels (Response, Quality, Delivery) ka overlap hataya */
+    .bar-item .label {
+        width: 85px !important; /* Fixed width taaki bars ek hi line se shuru hon */
+        text-align: left !important;
+        font-size: 14px !important;
+        flex-shrink: 0 !important; /* Label ko dabne se roka */
+        margin-right: 0 !important;
+    }
+
+    /* Progress Bar ka gap theek kiya (Jo overlap kar raha tha) */
+    .progress-bga {
+        margin: 0 10px !important; /* 50px margin ko 10px kiya taaki overlap khatam ho */
+        flex: 1 !important; /* Bar bachi hui saari jagah le lega */
+        height: 10px !important;
+    }
+
+    /* Percentage (46%, 42%) ki alignment */
+    .bar-item .percenta {
+        width: 40px !important;
+        text-align: right !important;
+        font-size: 14px !important;
+        margin-left: 0 !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Header text aur icons ko mobile par bada aur saaf kiya */
+    .satisfaction-header h4 {
+        font-size: 22px !important;
+    }
+}
+
+/* Bahut chhote phones (iPhone SE etc.) ke liye */
+@media (max-width: 400px) {
+    .bar-item .label {
+        width: 75px !important;
+        font-size: 13px !important;
+    }
+    .progress-bga {
+        margin: 0 5px !important;
+    }
 }
 
 .newsletter-bar {
@@ -1006,18 +1572,77 @@
     transform: translateY(-2px);
 }
 
-/* Responsive for Mobile */
-@media (max-width: 992px) {
+/* ==========================================================
+   NEWSLETTER BAR - BEST LEVEL RESPONSIVE
+   ========================================================== */
+
+/* 1. Large Tablets (1024px tak) */
+@media (max-width: 1100px) {
     .newsletter-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 25px;
+        gap: 15px;
+        padding: 0 20px;
     }
-    .newsletter-action {
-        flex-direction: column;
+    .news-input {
+        width: 180px; /* Thoda chota laptop screens ke liye */
     }
 }
 
+/* 2. Tablets & Mobile (992px and below) */
+@media (max-width: 992px) {
+    .newsletter-bar {
+        padding: 40px 20px;
+    }
+
+    .newsletter-container {
+        flex-direction: column; /* Sab kuch ek ke niche ek */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .newsletter-form {
+        width: 100%;
+        max-width: 500px;
+        flex-direction: column; /* Inputs ek ke niche ek */
+        gap: 15px;
+    }
+
+    .news-input {
+        width: 100% !important; /* Mobile par full width input */
+        max-width: 100%;
+    }
+
+    .newsletter-action {
+        flex-direction: column; /* Terms upar, Button niche */
+        gap: 20px;
+    }
+
+    .terms-text {
+        max-width: 100%; /* Text ko poori width di */
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .register-btn {
+        width: 100%;
+        max-width: 300px; /* Button ko mobile par bada aur center kiya */
+    }
+}
+
+/* 3. Small Mobile (480px) */
+@media (max-width: 480px) {
+    .newsletter-text p {
+        font-size: 16px; /* Heading thodi badi mobile par readable banane ke liye */
+        line-height: 1.4;
+    }
+
+    .newsletter-bar {
+        padding: 30px 15px;
+    }
+
+    .register-btn {
+        padding: 14px; /* Touch friendly button */
+    }
+}
 
 /* 1. Modal Overlay (Background light/dark effect) */
 .modal-overlay {
@@ -1169,18 +1794,3 @@
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 69, 165, 0.3);
 }
-
-
-        
-
-        
-
-        
-
-       
-
-        
-
-        
-
-        

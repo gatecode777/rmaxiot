@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { productAPI, categoryAPI, wishlistAPI } from '../services/api';
 import '../styles/ourproduct.css';
+import defaultProduct from '../assets/default-product.png';
 
 const OurProducts = () => {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ const OurProducts = () => {
     try {
       const response = await categoryAPI.getAll({ isActive: true });
 
-      console.log(response.data.categories); // Log the categories data for debugging
+      // console.log(response.data.categories); // Log the categories data for debugging
       
       if (response.data.success) {
         // Only show main categories (no parent) and sort by order
@@ -196,7 +197,7 @@ const OurProducts = () => {
       const apiUrl = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5000';
       return `${apiUrl}/uploads/products/${product.images[0]}`;
     }
-    return 'https://via.placeholder.com/300x300?text=Product';
+    return defaultProduct;
   };
 
   const formatPrice = (price) => {
@@ -396,7 +397,7 @@ const OurProducts = () => {
                     src={getImageUrl(product)}
                     alt={product.name}
                     onError={(e) => {
-                      e.target.src = 'https://via.placeholder.com/300x300?text=Product';
+                      e.target.src = defaultProduct;
                     }}
                   />
                 </div>

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { wishlistAPI, cartAPI } from "../services/api";
 import "../styles/wishlist.css";
+import defaultProduct from '../assets/default-product.png';
 
 const Wishlist = () => {
   const navigate = useNavigate();
@@ -208,12 +209,12 @@ const Wishlist = () => {
                       ? getImageUrl(item.product.images[0])
                       : item.product?.thumbnail
                       ? getImageUrl(item.product.thumbnail)
-                      : "https://via.placeholder.com/200x200?text=No+Image"
+                      : defaultProduct
                   }
                   alt={item.product?.name || "Product"}
                   onError={(e) => {
                     e.target.src =
-                      "https://via.placeholder.com/200x200?text=No+Image";
+                      defaultProduct;
                   }}
                 />
               </Link>
