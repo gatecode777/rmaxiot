@@ -932,7 +932,7 @@ const ProductForm = () => {
                 </div>
               </div>
 
-              <div className="form-row">
+              {/* <div className="form-row">
                 <div className="form-group full-width">
                   <label>Packaging Details</label>
                   <input
@@ -943,7 +943,7 @@ const ProductForm = () => {
                     placeholder="e.g., One Machine User Manual Power Cord"
                   />
                 </div>
-              </div>
+              </div> */}
 
               <h3 className="section-subtitle">Stock Management</h3>
 

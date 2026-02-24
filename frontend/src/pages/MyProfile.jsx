@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { userAuth } from "../services/api";
+import { userAuth, orderAPI, wishlistAPI } from "../services/api";
 import "../styles/profile.css";
+import defaultProduct from '../assets/default-product.png';
 
 const MyProfile = () => {
   const navigate = useNavigate();
@@ -10,8 +11,10 @@ const MyProfile = () => {
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [recentOrders, setRecentOrders] = useState([]);
   const [showEditModal, setShowEditModal] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [wishlistItems, setWishlistItems] = useState([]);
 
   // Edit form state
   const [formData, setFormData] = useState({
@@ -27,6 +30,18 @@ const MyProfile = () => {
     checkLoginAndFetchProfile();
   }, []);
 
+  const fetchWishlist = async () => {
+    try {
+      const response = await wishlistAPI.getWishlist();
+      if (response.data.success) {
+        // Get first 2 items for display
+        setWishlistItems(response.data.wishlist.items.slice(0, 2));
+      }
+    } catch (error) {
+      console.error("Error fetching wishlist:", error);
+    }
+  };
+
   const checkLoginAndFetchProfile = () => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -35,6 +50,8 @@ const MyProfile = () => {
       return;
     }
     fetchProfile();
+    fetchRecentOrders();
+    fetchWishlist();
   };
 
   const fetchProfile = async () => {
@@ -59,12 +76,29 @@ const MyProfile = () => {
     }
   };
 
+  const fetchRecentOrders = async () => {
+    try {
+      const response = await orderAPI.getMyOrders({ page: 1, limit: 5 });
+      if (response.data.success) {
+        setRecentOrders(response.data.orders);
+      }
+    } catch (error) {
+      console.error("Error fetching recent orders:", error);
+    }
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
+  };
+
+  const getProductImageUrl = (filename) => {
+    if (!filename) return defaultProduct;
+    const apiUrl = import.meta.env.VITE_API_URL?.replace("/api", "") || "http://localhost:3000";
+    return `${apiUrl}/uploads/products/${filename}`;
   };
 
   const handleImageChange = (e) => {
@@ -94,18 +128,16 @@ const MyProfile = () => {
     try {
       // Create FormData for multipart upload
       const formDataToSend = new FormData();
-      console.log("Form Data to Send:", formData);
       formDataToSend.append("firstName", formData.firstName);
       formDataToSend.append("lastName", formData.lastName);
       formDataToSend.append("phone", formData.phone);
 
       if (profileImage) {
-        console.log("Appending profile image:", profileImage);
         formDataToSend.append("profile", profileImage);
       }
 
       // Use fetch for FormData
-      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
       const token = localStorage.getItem("token");
 
       const response = await fetch(`${apiUrl}/users/profile`, {
@@ -161,6 +193,34 @@ const MyProfile = () => {
   const getInitials = () => {
     if (!user) return "";
     return `${user.firstName?.[0] || ""}${user.lastName?.[0] || ""}`.toUpperCase();
+  };
+
+  const getStatusBadge = (status) => {
+    const statusConfig = {
+      pending: { bg: '#fff3cd', color: '#ffc107', label: 'Pending' },
+      confirmed: { bg: '#e3f2fd', color: '#2196f3', label: 'Confirmed' },
+      processing: { bg: '#f3e5f5', color: '#9c27b0', label: 'Processing' },
+      shipped: { bg: '#fff3e0', color: '#ff9800', label: 'Shipped' },
+      out_for_delivery: { bg: '#e0f7fa', color: '#00bcd4', label: 'Out for Delivery' },
+      delivered: { bg: '#e8f5e9', color: '#4caf50', label: 'Delivered' },
+      cancelled: { bg: '#ffebee', color: '#f44336', label: 'Cancelled' },
+      refunded: { bg: '#f5f5f5', color: '#9e9e9e', label: 'Refunded' },
+    };
+
+    const config = statusConfig[status] || statusConfig.pending;
+
+    return (
+      <span style={{
+        padding: '4px 10px',
+        borderRadius: '12px',
+        fontSize: '11px',
+        fontWeight: '600',
+        backgroundColor: config.bg,
+        color: config.color,
+      }}>
+        {config.label}
+      </span>
+    );
   };
 
   if (loading) {
@@ -253,7 +313,7 @@ const MyProfile = () => {
 
           {/* Quick Links */}
           <div className="quick-links-grid">
-            <div className="q-card" onClick={() => navigate("/orders")}>
+            <div className="q-card" onClick={() => navigate("/my-orders")}>
               <img src="/myorders.png" alt="Orders" className="q-icon" />
               <div className="q-text">
                 <h4>My Orders</h4>
@@ -289,25 +349,52 @@ const MyProfile = () => {
 
         {/* Bottom Grid */}
         <div className="bottom-grid">
-          {/* Order History */}
+          {/* Order History - NOW DYNAMIC */}
           <div className="grid-column">
             <h3 className="column-title">Order History</h3>
             <div className="list-container">
-              <div className="list-item-my active-list">Recent Orders</div>
-              <div className="list-item-my">
-                #1025 In Process <span className="arrow">›</span>
-              </div>
-              <div className="list-item-my">
-                #1025 Delivered <span className="arrow">›</span>
-              </div>
-              <div className="list-item-my">
-                #1025 Completed <span className="arrow">›</span>
-              </div>
-              <div className="list-item-my">
-                #1025 Completed <span className="arrow">›</span>
-              </div>
+              {recentOrders.length > 0 ? (
+                <>
+                  <div className="list-item-my active-list">Recent Orders</div>
+                  {recentOrders.map((order) => (
+                    <div
+                      key={order._id}
+                      className="list-item-my"
+                      onClick={() => navigate(`/order-details/${order._id}`)}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                        <div>
+                          <strong>{order.orderNumber}</strong>
+                          <div style={{ fontSize: '12px', color: '#666', marginTop: '4px' }}>
+                            {getStatusBadge(order.status)}
+                          </div>
+                        </div>
+                        <span className="arrow">›</span>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <div style={{
+                  padding: '20px',
+                  textAlign: 'center',
+                  color: '#999',
+                  fontSize: '14px'
+                }}>
+                  <i className="fas fa-shopping-cart" style={{ fontSize: '32px', marginBottom: '12px', display: 'block' }}></i>
+                  No orders yet
+                </div>
+              )}
             </div>
-            <a href="#" className="view-all" onClick={() => navigate("/orders")}>
+            <a
+              href="#"
+              className="view-all"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/my-orders");
+              }}
+            >
               View All Orders ›
             </a>
           </div>
@@ -316,11 +403,62 @@ const MyProfile = () => {
           <div className="grid-column">
             <h3 className="column-title">Saved Items</h3>
             <div className="saved-items-container">
-              <div className="item-placeholder"></div>
-              <div className="item-placeholder"></div>
+              {wishlistItems.length > 0 ? (
+                wishlistItems.map((item) => (
+                  <div
+                    key={item._id}
+                    className="item-placeholder"
+                    onClick={() => navigate(`/products/${item.product.slug}`)}
+                    style={{
+                      cursor: 'pointer',
+                      position: 'relative',
+                      overflow: 'hidden',
+                      borderRadius: '8px',
+                      border: '1px solid #e0e0e0'
+                    }}
+                  >
+                    <img
+                      src={getProductImageUrl(item.product.images?.[0])}
+                      alt={item.product.name}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                      }}
+                      onError={(e) => {
+                        e.target.src = defaultProduct;
+                      }}
+                    />
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '0',
+                      left: '0',
+                      right: '0',
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
+                      padding: '24px 8px 8px 8px',
+                      color: 'white',
+                      fontSize: '11px',
+                      fontWeight: '600',
+                      textAlign: 'center',
+                    }}>
+                      {item.product.name.substring(0, 25)}
+                      {item.product.name.length > 25 && '...'}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <>
+                  <div className="item-placeholder" style={{ background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <i className="fas fa-heart" style={{ fontSize: '32px', color: '#ddd' }}></i>
+                  </div>
+                  <div className="item-placeholder" style={{ background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <i className="fas fa-heart" style={{ fontSize: '32px', color: '#ddd' }}></i>
+                  </div>
+                </>
+              )}
             </div>
             <button className="blue-action-btn" onClick={() => navigate("/wishlist")}>
-              View Wishlist
+              View Wishlist {wishlistItems.length > 0 && `(${wishlistItems.length})`}
             </button>
           </div>
 
@@ -329,11 +467,8 @@ const MyProfile = () => {
             <h3 className="column-title">Support Tickets</h3>
             <div className="list-container">
               <div className="list-item-my active-list">My Tickets</div>
-              <div className="list-item-my">
-                Installation Report Open <span className="arrow">›</span>
-              </div>
-              <div className="list-item-my">
-                Billing Issues Resolved <span className="arrow">›</span>
+              <div className="list-item-my" style={{ padding: '20px', textAlign: 'center', color: '#999', fontSize: '14px' }}>
+                No support tickets
               </div>
             </div>
             <button className="blue-action-btn contact-btn" onClick={() => navigate("/support")}>

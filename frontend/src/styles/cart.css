@@ -216,3 +216,122 @@
 .proceed-btn:hover {
     background-color: #002a5a;
 }
+
+/* ==========================================================
+   CART PAGE - BEST LEVEL RESPONSIVE
+   ========================================================== */
+
+/* 1. Large Screen Adjustments (1200px tak) */
+@media (max-width: 1200px) {
+    .rmax-cart-container {
+        width: 95%; /* Side space thodi kam ki */
+    }
+    .progress-bar {
+        width: 400px; /* Bar choti ki laptop ke liye */
+    }
+}
+
+/* 2. Tablets (992px tak) */
+@media (max-width: 992px) {
+    .cart-header h1 {
+        font-size: 24px;
+    }
+
+    .cart-card {
+        flex-direction: column; /* Tablet par price niche lane ke liye */
+        gap: 20px;
+    }
+
+    .card-right {
+        text-align: right;
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+    }
+
+    .progress-bar {
+        width: 300px;
+    }
+}
+
+/* 3. Mobile Phones (768px and below) */
+@media (max-width: 768px) {
+    .rmax-cart-section {
+        padding: 20px 0;
+    }
+
+    .cart-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .price-heading {
+        display: none; /* Mobile par price header ki zaroorat nahi */
+    }
+
+    /* Card Layout Change */
+    .card-left {
+        flex-direction: column; /* Checkbox, Image aur Info ek ke niche ek */
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .product-img img {
+        width: 120px; /* Image size mobile ke liye perfect */
+        margin: 0 auto;
+        display: block;
+    }
+
+    .product-info h3 {
+        font-size: 17px;
+    }
+
+    /* Links Wrapping Fix */
+    .links {
+        display: flex;
+        flex-wrap: wrap; /* Links ek ke niche ek wrap ho jayenge */
+        gap: 10px;
+        line-height: 1.5;
+    }
+
+    /* Summary Section Fix */
+    .cart-summary {
+        padding: 30px 20px;
+    }
+
+    .progress-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .progress-bar {
+        width: 100%; /* Bar full width taaki screen se bahar na jaye */
+        max-width: 100%;
+    }
+
+    .proceed-btn {
+        width: 100%; /* Mobile par button full width (Touch-friendly) */
+        padding: 12px 0;
+    }
+}
+
+/* 4. Smallest Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+    .cart-card {
+        padding: 15px;
+    }
+
+    .actions {
+        flex-direction: column; /* Qty box aur links stack ho jayenge */
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .qty-box {
+        width: 120px; /* Qty box thoda readable */
+    }
+
+    .subtotal-area h2 {
+        font-size: 18px;
+    }
+}

@@ -1,13 +1,15 @@
+// frontend/src/pages/Checkout-UPDATED.jsx
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { cartAPI, addressAPI } from "../services/api";
+import { cartAPI, addressAPI, orderAPI } from "../services/api";
 import "../styles/checkout.css";
 
 const Checkout = () => {
   const navigate = useNavigate();
   
   const [loading, setLoading] = useState(true);
+  const [placingOrder, setPlacingOrder] = useState(false);
   const [cart, setCart] = useState(null);
   const [checkoutItems, setCheckoutItems] = useState([]);
   const [addresses, setAddresses] = useState([]);
@@ -249,7 +251,7 @@ const Checkout = () => {
     return checkoutItems.reduce((total, item) => total + item.quantity, 0);
   };
 
-  const handlePlaceOrder = () => {
+  const handlePlaceOrder = async () => {
     if (!selectedAddress) {
       toast.error("Please select a delivery address");
       return;
@@ -260,11 +262,43 @@ const Checkout = () => {
       return;
     }
 
-    toast.success("Order placed successfully! (Demo)");
-    localStorage.removeItem("checkoutItems");
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+    try {
+      setPlacingOrder(true);
+
+      // Prepare order items
+      const items = checkoutItems.map(item => ({
+        productId: item.product._id,
+        quantity: item.quantity,
+        selectedColor: item.selectedColor?.name || null,
+      }));
+
+      // Create order
+      const response = await orderAPI.createOrder({
+        items,
+        addressId: selectedAddress,
+        paymentMethod: selectedPayment,
+      });
+
+      if (response.data.success) {
+        toast.success("Order placed successfully!");
+        
+        // Clear checkout items from localStorage
+        localStorage.removeItem("checkoutItems");
+        
+        // Update cart count
+        window.dispatchEvent(new Event('cartUpdated'));
+        
+        // Navigate to order confirmation
+        setTimeout(() => {
+          navigate(`/orders/${response.data.order._id}`);
+        }, 1500);
+      }
+    } catch (error) {
+      console.error("Error placing order:", error);
+      toast.error(error.response?.data?.message || "Failed to place order");
+    } finally {
+      setPlacingOrder(false);
+    }
   };
 
   if (loading) {
@@ -332,7 +366,7 @@ const Checkout = () => {
           </div>
 
           <div className="payment-section grey-box">
-            <h3 className="section-title" style={{ cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+            <h3 className="section-title-c" style={{ cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}
               onClick={() => setShowPayment(!showPayment)}>
               Payment Method
               <i className="fa-solid fa-chevron-down" style={{ transform: showPayment ? "rotate(180deg)" : "rotate(0deg)", transition: "0.3s" }}></i>
@@ -367,39 +401,33 @@ const Checkout = () => {
               </form>
             )}
           </div>
-
-          {/* <div className="payment-section grey-box" style={{ marginTop: "20px" }}>
-            <h3 className="section-title">Order Items ({getTotalItems()})</h3>
-            <div style={{ marginTop: "15px" }}>
-              {checkoutItems.map((item) => (
-                <div key={item._id} style={{ display: "flex", gap: "15px", padding: "15px", borderBottom: "1px solid #eee" }}>
-                  <img src={item.product?.images?.[0] ? getImageUrl(item.product.images[0]) : "https://via.placeholder.com/80x80?text=No+Image"}
-                    alt={item.product?.name} style={{ width: "80px", height: "80px", objectFit: "cover", borderRadius: "8px" }}
-                    onError={(e) => { e.target.src = "https://via.placeholder.com/80x80?text=No+Image"; }} />
-                  <div style={{ flex: 1 }}>
-                    <h4 style={{ margin: "0 0 5px 0" }}>{item.product?.name}</h4>
-                    {item.selectedColor && (<p style={{ fontSize: "12px", color: "#666", margin: "3px 0" }}>Color: {item.selectedColor.name}</p>)}
-                    <p style={{ fontSize: "12px", color: "#666", margin: "3px 0" }}>Quantity: {item.quantity}</p>
-                    <p style={{ fontWeight: "600", color: "#333", margin: "5px 0 0 0" }}>₹{formatPrice(item.priceAtAdd * item.quantity)}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div> */}
         </div>
 
         <div className="checkout-right">
           <div className="summary-card grey-box">
             <h3 style={{ marginTop: 0 }}>Order Summary</h3>
-            <div className="summary-line"><span>No. Of Items:</span><span className="line">{getTotalItems()}</span></div>
-            <div className="summary-line"><span>Subtotal:</span><span className="line">₹{formatPrice(subtotal)}</span></div>
-            <div className="summary-line"><span>Delivery Charges:</span><span className="line" style={{ color: deliveryCharges === 0 ? "green" : "#333" }}>
+            <div className="summary-line"><span>No. Of Items:</span><span className="line-c">{getTotalItems()}</span></div>
+            <div className="summary-line"><span>Subtotal:</span><span className="line-c">₹{formatPrice(subtotal)}</span></div>
+            <div className="summary-line"><span>Delivery Charges:</span><span className="line-c" style={{ color: deliveryCharges === 0 ? "green" : "#333" }}>
               {deliveryCharges === 0 ? "FREE" : `₹${formatPrice(deliveryCharges)}`}</span></div>
             <hr />
-            <div className="summary-line total"><span>Order Total:</span><span className="line" style={{ fontWeight: "bold" }}>₹{formatPrice(total)}</span></div>
-            <button className="deliver-here-btn" onClick={handlePlaceOrder} disabled={!selectedAddress || !selectedPayment}
-              style={{ opacity: !selectedAddress || !selectedPayment ? 0.6 : 1, cursor: !selectedAddress || !selectedPayment ? "not-allowed" : "pointer" }}>
-              Place Order
+            <div className="summary-line total"><span>Order Total:</span><span className="line-c" style={{ fontWeight: "bold" }}>₹{formatPrice(total)}</span></div>
+            <button 
+              className="deliver-here-btn" 
+              onClick={handlePlaceOrder} 
+              disabled={!selectedAddress || !selectedPayment || placingOrder}
+              style={{ 
+                opacity: !selectedAddress || !selectedPayment || placingOrder ? 0.6 : 1, 
+                cursor: !selectedAddress || !selectedPayment || placingOrder ? "not-allowed" : "pointer" 
+              }}
+            >
+              {placingOrder ? (
+                <>
+                  <i className="fas fa-spinner fa-spin"></i> Placing Order...
+                </>
+              ) : (
+                "Place Order"
+              )}
             </button>
             {(!selectedAddress || !selectedPayment) && (
               <p style={{ fontSize: "12px", color: "#ff4444", marginTop: "10px", textAlign: "center" }}>

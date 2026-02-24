@@ -1,0 +1,185 @@
+/* Container Wrapper - Purely Local Styles */
+.mo-page-main-container {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #f8f9fa;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mo-page-main-container *, 
+.mo-page-main-container *:before, 
+.mo-page-main-container *:after {
+    box-sizing: border-box; /* Sirf is section ke liye box-sizing */
+}
+
+/* Common Width Limiter */
+.mo-content-limit {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 25px;
+    width: 100%;
+}
+
+/* Header Styles */
+.mo-header-section {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    padding: 35px 0;
+}
+
+.mo-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.mo-main-heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 6px 0;
+}
+
+.mo-sub-heading {
+    font-size: 15px;
+    color: #777777;
+    margin: 0;
+}
+
+.mo-back-navigation-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #333333;
+    gap: 10px;
+    padding: 5px;
+    transition: opacity 0.2s;
+}
+
+.mo-back-navigation-btn:hover {
+    opacity: 0.7;
+}
+
+/* Empty State Styles */
+.mo-empty-content-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+.mo-empty-info-box {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.mo-empty-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 15px 0;
+}
+
+.mo-empty-desc {
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0 0 35px 0;
+}
+
+.mo-btn-view-products {
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+    padding: 14px 45px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.2);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.mo-btn-view-products:hover {
+    background-color: #004494;
+    transform: translateY(-1px);
+}
+
+/* Footer Badge Styles */
+.mo-trust-badges-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dddddd;
+    padding: 45px 0;
+}
+
+.mo-badges-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.mo-badge-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mo-badge-svg-icon {
+    width: 32px;
+    height: 32px;
+    fill: #0056b3;
+}
+
+.mo-badge-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #222222;
+}
+
+/* Responsive Logic */
+.mo-desktop-only {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .mo-header-flex {
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+    
+    .mo-back-navigation-btn {
+        margin-left: auto;
+    }
+
+    .mo-desktop-only {
+        display: none;
+    }
+
+    .mo-badges-flex {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .mo-main-heading { font-size: 24px; }
+    .mo-empty-title { font-size: 20px; }
+    
+    .mo-badges-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 20%;
+    }
+}

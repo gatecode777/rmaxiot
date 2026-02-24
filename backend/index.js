@@ -30,6 +30,8 @@ app.use('/api/cart', require('./routes/cartRoutes'));
 app.use('/api/addresses', require('./routes/addressRoutes'));
 app.use('/api/wishlist', require('./routes/wishlistRoutes'));
 app.use('/api/categories', require('./routes/categoryRoutes'));
+app.use('/api/orders', require('./routes/orderRoutes'));
+app.use('/api/admin/orders', require('./routes/adminOrderRoutes'));
 
 
 // Health check route

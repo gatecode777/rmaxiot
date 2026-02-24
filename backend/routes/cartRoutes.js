@@ -9,10 +9,10 @@ const {
   clearCart,
   getCartCount,
 } = require('../controllers/cartController');
-const { protect } = require('../middleware/userAuth'); // Use user auth, not admin auth
+const { userProtect } = require('../middleware/userAuth'); // Use user auth, not admin auth
 
 // All routes require authentication
-router.use(protect);
+router.use(userProtect);
 
 // Get cart
 router.get('/', getCart);

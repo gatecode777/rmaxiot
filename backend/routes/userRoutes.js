@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const userController = require("../controllers/userController");
-const { protect } = require("../middleware/userAuth");
+const { userProtect } = require("../middleware/userAuth");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
@@ -45,9 +45,9 @@ router.post("/login", userController.login);
 router.post("/logout", userController.logout);
 
 // PROTECTED ROUTES (require authentication)
-router.get("/profile", protect, userController.getProfile);
-router.put("/profile", protect, upload.single("profile"), userController.updateProfile);
-router.put("/change-password", protect, userController.changePassword);
-router.delete("/profile-image", protect, userController.deleteProfileImage);
+router.get("/profile", userProtect, userController.getProfile);
+router.put("/profile", userProtect, upload.single("profile"), userController.updateProfile);
+router.put("/change-password", userProtect, userController.changePassword);
+router.delete("/profile-image", userProtect, userController.deleteProfileImage);
 
 module.exports = router;

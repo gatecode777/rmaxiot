@@ -366,7 +366,7 @@
     max-height: 400px; /* Agar box isse bada ho toh scroll aa jaye */
     overflow-y: auto;
 }
-.section-title {
+.section-title-c {
     /* text-decoration: underline; */
     margin-bottom: 20px;
     font-size: 18px;
@@ -449,7 +449,7 @@
   display: block;
 }
 
-.section-title {
+.section-title-c {
     padding: 10px 0;
     border-bottom: 1px solid #eee;
     margin-bottom: 10px;

@@ -155,7 +155,7 @@ const Cart = () => {
             <button 
               className="proceed-btn" 
               style={{ marginTop: '20px' }}
-              onClick={() => navigate('/products')}
+              onClick={() => navigate('/our-products')}
             >
               Continue Shopping
             </button>

@@ -13,7 +13,7 @@ const ContactUs = () => {
               Have questions about our products? Our team is here to help.
             </p>
 
-            <div className="info-item">
+            <div className="info-item-c">
               <div className="icon-box">
                 <i className="fa-solid fa-users"></i>
               </div>
@@ -25,7 +25,7 @@ const ContactUs = () => {
               </div>
             </div>
 
-            <div className="info-item">
+            <div className="info-item-c">
               <div className="icon-box">
                 <i className="fa-solid fa-location-arrow"></i>
               </div>
@@ -38,7 +38,7 @@ const ContactUs = () => {
               </div>
             </div>
 
-            <div className="info-item">
+            <div className="info-item-c">
               <div className="icon-box">
                 <i className="fa-solid fa-phone"></i>
               </div>

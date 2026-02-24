@@ -223,13 +223,17 @@ export const wishlistAPI = {
 // ==================== ORDERS ====================
 export const orderAPI = {
   createOrder: (data) => api.post('/orders', data),
-  getMyOrders: () => api.get('/orders/my-orders'),
+  
+  // UPDATED: Now accepts params object for pagination
+  getMyOrders: (params = {}) => api.get('/orders/my-orders', { params }),
+  
   getOrderById: (id) => api.get(`/orders/${id}`),
-  cancelOrder: (id) => api.put(`/orders/${id}/cancel`),
+  cancelOrder: (id, data) => api.put(`/orders/${id}/cancel`, data),
 
   // Admin endpoints
   getAllOrders: (params) => api.get('/admin/orders', { params }),
-  updateOrderStatus: (id, status) => api.put(`/admin/orders/${id}/status`, { status }),
+  updateOrderStatus: (id, data) => api.put(`/admin/orders/${id}/status`, data),
+  getOrderStats: () => api.get('/admin/orders/stats'),
 };
 
 

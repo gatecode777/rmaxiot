@@ -10,10 +10,10 @@ const {
   getWishlistCount,
   moveToCart,
 } = require('../controllers/wishlistController');
-const { protect } = require('../middleware/userAuth');
+const { userProtect } = require('../middleware/userAuth');
 
 // All routes require authentication
-router.use(protect);
+router.use(userProtect);
 
 // Get wishlist
 router.get('/', getWishlist);

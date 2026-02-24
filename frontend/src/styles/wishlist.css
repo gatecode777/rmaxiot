@@ -1,176 +1,306 @@
 /* Global Reset */
 
-        .containerwish {
-            max-width: 1200px; /* Gap kam karne ke liye width badha di gayi hai */
-            margin: 0 auto;
-            padding: 60px 40px; /* Side gaps ko adjust kiya gaya hai */
-        }
+.containerwish {
+    max-width: 1200px;
+    /* Gap kam karne ke liye width badha di gayi hai */
+    margin: 0 auto;
+    padding: 60px 40px;
+    /* Side gaps ko adjust kiya gaya hai */
+}
 
-        /* Wishlist Header */
-        .wishlist-header {
-            color: #ff0000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 40px;
-            cursor: pointer;
-        }
+/* Wishlist Header */
+.wishlist-header {
+    color: #ff0000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
 
-        .wishlist-header span {
-            text-decoration: underline;
-        }
+.wishlist-header span {
+    text-decoration: underline;
+}
 
-        /* Wishlist Item Card */
-        .wishlist-item {
-            display: flex;
-            align-items: flex-start;
-            padding: 30px 0;
-            border-bottom: 1.5px solid #d1e3f5; /* Thicker line like image */
-            position: relative;
-        }
+/* Wishlist Item Card */
+.wishlist-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 30px 0;
+    border-bottom: 1.5px solid #d1e3f5;
+    /* Thicker line like image */
+    position: relative;
+}
 
-        /* Product Image Box */
-        .product-img-box {
-            background: white;
-            border-radius: 12px;
-            padding: 15px;
-            width: 140px;
-            height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 35px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+/* Product Image Box */
+.product-img-box {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 35px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
 
-        .product-img-box img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
+.product-img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
 
-        /* Product Details Area */
-        .product-details {
-            flex-grow: 1;
-        }
+/* Product Details Area */
+.product-details {
+    flex-grow: 1;
+}
 
-        .product-title {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
+.product-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
 
-        /* Rating Stars */
-        .rating {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 12px;
-        }
+/* Rating Stars */
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+}
 
-        .stars {
-            color: #ffc107;
-            font-size: 0.95rem;
-        }
+.stars {
+    color: #ffc107;
+    font-size: 0.95rem;
+}
 
-        .stars .gray {
-            color: #d1d1d1;
-        }
+.stars .gray {
+    color: #d1d1d1;
+}
 
-        .rating-text {
-            font-size: 0.85rem;
-            color: #555;
-            font-weight: 500;
-        }
+.rating-text {
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 500;
+}
 
-        /* Pricing Block */
-        .price-info {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
+/* Pricing Block */
+.price-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
-        .mrp-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.mrp-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        .mrp {
-            font-size: 0.85rem;
-            color: #777;
-            text-decoration: line-through;
-        }
+.mrp {
+    font-size: 0.85rem;
+    color: #777;
+    text-decoration: line-through;
+}
 
-        .discount-badge {
-            background-color: #ff4d4d;
-            color: white;
-            font-size: 0.75rem;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-weight: bold;
-        }
+.discount-badge {
+    background-color: #ff4d4d;
+    color: white;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+}
 
-        .final-price-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 5px;
-        }
+.final-price-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
 
-        .current-price {
-            color: #2874f0;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
+.current-price {
+    color: #2874f0;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
 
-        .tax-info {
-            font-size: 0.75rem;
-            color: #888;
-        }
+.tax-info {
+    font-size: 0.75rem;
+    color: #888;
+}
 
-        .stock-status {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-left: 40px; /* Exact gap like target image */
-        }
+.stock-status {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-left: 40px;
+    /* Exact gap like target image */
+}
 
-        /* Delete Icon */
-        .delete-btn {
-            color: #1a1a1a;
-            cursor: pointer;
-            font-size: 1.2rem;
-            position: absolute;
-            right: 10px;
-            top: 35px;
-        }
+/* Delete Icon */
+.delete-btn {
+    color: #1a1a1a;
+    cursor: pointer;
+    font-size: 1.2rem;
+    position: absolute;
+    right: 10px;
+    top: 35px;
+}
 
-        /* Footer Features Section */
-        .features-footer {
-            display: flex;
-            justify-content: space-between;
-            background-color: white;
-            padding: 25px 40px;
-            margin-top: 20px;
-            border-top: 1px solid #eee;
-        }
+/* Footer Features Section */
+.features-footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 25px 40px;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+}
 
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #1a1a1a;
-        }
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
 
-        .feature-item i {
-            font-size: 1.1rem;
-        }
+.feature-item i {
+    font-size: 1.1rem;
+}
 
-        .icon-green { color: #2ecc71; }
-        .icon-blue { color: #2874f0; }
+.icon-green {
+    color: #2ecc71;
+}
+
+.icon-blue {
+    color: #2874f0;
+}
+
+/* ==========================================================
+   WISHLIST PAGE - BEST LEVEL RESPONSIVE
+========================================================== */
+
+/* 1. Large Screen Adjustments (1200px tak) */
+@media (max-width: 1200px) {
+    .containerwish {
+        padding: 40px 20px;
+    }
+}
+
+/* 2. Tablets (992px tak) */
+@media (max-width: 992px) {
+    .features-footer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 4 ki jagah 2-2 ke rows */
+        gap: 20px;
+        padding: 25px 20px;
+    }
+}
+
+/* 3. Mobile Phones (768px and below) */
+@media (max-width: 768px) {
+    .containerwish {
+        padding: 30px 15px;
+    }
+
+    .wishlist-header {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    /* Card Layout change */
+    .wishlist-item {
+        flex-direction: row;
+        /* Choti screen par bhi row rakhenge par images choti karenge */
+        padding: 20px 0;
+        gap: 15px;
+    }
+
+    .product-img-box {
+        width: 100px;
+        /* Mobile par image box chota */
+        height: 100px;
+        margin-right: 0;
+        /* Extra margin hataya */
+        flex-shrink: 0;
+    }
+
+    .product-title {
+        font-size: 0.95rem;
+        line-height: 1.3;
+    }
+
+    /* Price aur Stock Status ko handle kiya */
+    .final-price-row {
+        flex-direction: column;
+        /* Price aur Stock ek ke niche ek */
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .stock-status {
+        margin-left: 0;
+        /* 40px margin hataya taaki overlap na ho */
+        font-size: 0.85rem;
+    }
+
+    .current-price {
+        font-size: 1.1rem;
+    }
+
+    /* Delete Button position */
+    .delete-btn {
+        top: 20px;
+        font-size: 1.1rem;
+    }
+}
+
+/* 4. Small Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+    .wishlist-item {
+        flex-direction: column;
+        /* Bahut chote phones par image upar details niche */
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-img-box {
+        width: 140px;
+        height: 140px;
+    }
+
+    .rating,
+    .mrp-row,
+    .final-price-row {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-details {
+        width: 100%;
+    }
+
+    .features-footer {
+        grid-template-columns: 1fr;
+        /* Mobile par features ek ke niche ek */
+        text-align: center;
+    }
+
+    .feature-item {
+        justify-content: center;
+    }
+
+    .delete-btn {
+        right: 0;
+        top: 10px;
+    }
+}

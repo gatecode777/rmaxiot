@@ -21,6 +21,8 @@ import OurProducts from './pages/OurProducts';
 import BookProductDemo from './pages/bookProductDemo';
 import SolutionAndApplication from './pages/SolutionAndApplication';
 import UserReviews from './pages/UserReviews';
+import MyOrders from './pages/MyOrders';
+import OrderDetailPage from './pages/OrderDetail';
 
 // Admin Pages
 import AdminLogin from './pages/admin/AdminLogin';
@@ -29,6 +31,7 @@ import AdminUsers from './pages/admin/AdminUsers';
 import AdminProducts from './pages/admin/AdminProducts';
 import ProductForm from './pages/admin/ProductForm';
 import AdminCategories from './pages/admin/AdminCategories';
+import AdminOrders from './pages/admin/AdminOrders';
 
 function App() {
 
@@ -92,6 +95,26 @@ function App() {
           <div className="app">
             <Header />
             <UserReviews />
+            <Footer />
+          </div>
+        }
+      />
+      <Route
+        path="/my-orders"
+        element={
+          <div className="app">
+            <Header />
+            <MyOrders />
+            <Footer />
+          </div>
+        }
+      />
+      <Route
+        path="/order-details/:orderId"
+        element={
+          <div className="app">
+            <Header />
+            <OrderDetailPage />
             <Footer />
           </div>
         }
@@ -224,6 +247,7 @@ function App() {
       <Route path="/admin/products/new" element={<ProductForm />} />
       <Route path="/admin/products/edit/:id" element={<ProductForm />} />
       <Route path="/admin/categories" element={<AdminCategories />} />
+      <Route path="/admin/orders" element={<AdminOrders />} />
     </Routes>
   );
 }

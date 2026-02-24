@@ -1,0 +1,216 @@
+/* UNIQUE WRAPPER - All styles are scoped inside .mo-orders-page */
+        .mo-orders-page {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5; /* Light grey background from image */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+        }
+
+        .mo-orders-page *, 
+        .mo-orders-page *:before, 
+        .mo-orders-page *:after {
+            box-sizing: border-box;
+        }
+
+        .mo-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* --- Header Section --- */
+        .mo-main-header {
+            background-color: #ffffff;
+            padding: 25px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .mo-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .mo-title-area h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            color: #000;
+        }
+
+        .mo-title-area p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .mo-back-btn {
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #000;
+            padding: 5px;
+        }
+
+        /* --- Orders List Area --- */
+        .mo-content-body {
+            flex-grow: 1;
+            padding: 30px 0;
+        }
+
+        .mo-order-card {
+            background: #ffffff;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+
+        /* Row styling to match image dividers */
+        .mo-card-row {
+            padding: 18px 25px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mo-card-row:last-child {
+            border-bottom: none;
+        }
+
+        /* Label in Blue */
+        .mo-lbl-blue {
+            color: #0056b3;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .mo-info-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Product Name specific styling */
+        .mo-product-info {
+            display: block;
+            width: 100%;
+        }
+
+        .mo-prod-title {
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        /* Status Badges */
+        .mo-status {
+            padding: 6px 20px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: capitalize;
+            min-width: 110px;
+            text-align: center;
+        }
+
+        .mo-status-processing { background-color: #ffcc00; color: #000; }
+        .mo-status-shipped { background-color: #0d47a1; color: #fff; }
+        .mo-status-delivered { background-color: #4caf50; color: #fff; }
+
+        /* View Details Button */
+        .mo-details-btn {
+            background-color: #1e5bb6;
+            color: #ffffff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .mo-details-btn:hover {
+            background-color: #15458c;
+        }
+
+        /* --- Footer Section --- */
+        .mo-footer-features {
+            background-color: #ffffff;
+            border-top: 1px solid #dcdcdc;
+            padding: 25px 0;
+        }
+
+        .mo-features-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .mo-feat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mo-feat-icon {
+            width: 28px;
+            height: 28px;
+            fill: #0056b3;
+        }
+
+        .mo-feat-text {
+            font-weight: 700;
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+
+        @media (max-width: 768px) {
+            .mo-header-flex {
+                flex-direction: column-reverse;
+                gap: 15px;
+            }
+            .mo-back-btn { align-self: flex-end; }
+            
+            .mo-features-grid {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .mo-card-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 15px 20px;
+            }
+            .mo-status {
+                align-self: flex-end;
+            }
+            .mo-details-btn {
+                width: 100%;
+                margin-top: 5px;
+            }
+            .mo-features-grid {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 20%;
+            }
+        }
+    
