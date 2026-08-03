@@ -1,5 +1,6 @@
 import './globals.css';
 import Script from 'next/script';
+import { Suspense } from 'react';
 
 export const metadata = {
   title: 'RMAX Solutions',
@@ -22,7 +23,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        {children}
+        <Suspense fallback={null}>
+          {children}
+        </Suspense>
       </body>
     </html>
   );
