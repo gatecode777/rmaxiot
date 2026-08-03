@@ -12,6 +12,7 @@ const Addresses = () => {
   const [editingAddress, setEditingAddress] = useState(null);
   const [showAddressMenu, setShowAddressMenu] = useState(null);
   const [showInstructions, setShowInstructions] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -83,9 +84,13 @@ const Addresses = () => {
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
+    let finalValue = type === "checkbox" ? checked : value;
+    if (name === "mobileNumber") {
+      finalValue = value.replace(/\D/g, "").slice(0, 10);
+    }
     setFormData({
       ...formData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: finalValue,
     });
   };
 
@@ -125,6 +130,7 @@ const Addresses = () => {
     }
 
     try {
+      setIsSubmitting(true);
       const addressData = {
         fullName: formData.fullName,
         mobileNumber: formData.mobileNumber,
@@ -156,6 +162,8 @@ const Addresses = () => {
     } catch (error) {
       console.error("Error saving address:", error);
       toast.error(error.response?.data?.message || "Failed to save address");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -427,7 +435,9 @@ const Addresses = () => {
                     </div>
                   )}
                 </div>
-                <button type="submit" className="save-btn">{editingAddress ? "UPDATE" : "SAVE"}</button>
+                <button type="submit" className="save-btn" disabled={isSubmitting}>
+                   {isSubmitting ? (editingAddress ? "UPDATING..." : "SAVING...") : (editingAddress ? "UPDATE" : "SAVE")}
+                 </button>
                 <div className="footer-note">By continuing, you agree to RMAX Solution's <a href="#">Conditions of Use</a> and <a href="#">Privacy Policy</a>.</div>
               </form>
             </div>
