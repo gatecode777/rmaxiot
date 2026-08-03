@@ -252,7 +252,7 @@ const Home = () => {
                         <div className="hero-btn-col">
                             <a href="#" className="hero-hygiene__btn" onClick={(e) => {
                                 e.preventDefault();
-                                navigate('/products');
+                                navigate('/our-products');
                             }}>
                                 Explore Our Products
                             </a>

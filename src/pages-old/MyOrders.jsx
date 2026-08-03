@@ -233,10 +233,10 @@ const MyOrders = () => {
                                     You haven't placed any orders yet.
                                 </p>
                                 <button 
-                                    className="mo-details-btn"
-                                    onClick={() => navigate('/products')}
-                                    style={{ padding: '12px 32px' }}
-                                >
+                                     className="mo-details-btn"
+                                     onClick={() => navigate('/our-products')}
+                                     style={{ padding: '12px 32px' }}
+                                 >
                                     Start Shopping
                                 </button>
                             </div>
