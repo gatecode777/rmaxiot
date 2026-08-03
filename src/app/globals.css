@@ -1,0 +1,31 @@
+/* src/app/globals.css */
+
+/* Import all public store styles */
+@import '../styles/style.css';
+@import '../styles/aboutus.css';
+@import '../styles/bookproductdemo.css';
+@import '../styles/cart.css';
+@import '../styles/checkout.css';
+@import '../styles/contactus.css';
+@import '../styles/myorder.css';
+@import '../styles/orderslist.css';
+@import '../styles/ourproduct.css';
+@import '../styles/privacypolicy.css';
+@import '../styles/product.css';
+@import '../styles/profile.css';
+@import '../styles/refundpolicy.css';
+@import '../styles/reviews.css';
+@import '../styles/shippingpolicy.css';
+@import '../styles/singleorder.css';
+@import '../styles/solutionandapplication.css';
+@import '../styles/termsandcondition.css';
+@import '../styles/wishlist.css';
+
+/* Import FontAwesome CDN style compatibility */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+
+/* Import Swiper CDN style compatibility */
+@import url('https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css');
+
+/* Import Toastify style compatibility */
+@import url('https://cdn.jsdelivr.net/npm/react-toastify@9.1.3/dist/ReactToastify.css');
