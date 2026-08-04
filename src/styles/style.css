@@ -209,7 +209,8 @@ body {
 /* 1. Tablet aur Small Laptops (1100px tak) */
 @media (max-width: 1100px) {
     .container-main {
-        grid-template-columns: 1fr; /* Image upar aur list niche aa jayegi */
+        grid-template-columns: 1fr;
+        /* Image upar aur list niche aa jayegi */
         gap: 50px;
         padding: 0 20px;
     }
@@ -219,24 +220,30 @@ body {
     }
 
     .image-stack {
-        align-items: center; /* Images center mein rahengi */
+        align-items: center;
+        /* Images center mein rahengi */
     }
 
     .img-box img {
-        width: 100%; /* Choti screen par image container ki full width legi */
-        max-width: 500px; /* Lekin bahut zyada badi nahi hogi */
-        height: auto; /* Aspect ratio maintain rahega */
+        width: 100%;
+        /* Choti screen par image container ki full width legi */
+        max-width: 500px;
+        /* Lekin bahut zyada badi nahi hogi */
+        height: auto;
+        /* Aspect ratio maintain rahega */
     }
 }
 
 /* 2. Mobile Phones (768px and below) */
 @media (max-width: 768px) {
     .why-partner-new {
-        padding: 50px 5%; /* Mobile par padding thodi kam */
+        padding: 50px 5%;
+        /* Mobile par padding thodi kam */
     }
 
     .header-text h1 {
-        font-size: 22px; /* Heading thodi choti */
+        font-size: 22px;
+        /* Heading thodi choti */
     }
 
     .header-text p {
@@ -246,13 +253,17 @@ body {
 
     /* List Items Fix: Mobile par fixed height UX kharab karti hai */
     .list-item {
-        height: auto !important; /* Content ke hisab se box bada hoga */
+        height: auto !important;
+        /* Content ke hisab se box bada hoga */
         min-height: 140px;
-        margin-bottom: 15px; /* Do boxes ke beech gap */
+        margin-bottom: 15px;
+        /* Do boxes ke beech gap */
     }
 
-    .number-box, .number-boxa {
-        width: 60px; /* Mobile par number box thoda patla */
+    .number-box,
+    .number-boxa {
+        width: 60px;
+        /* Mobile par number box thoda patla */
         font-size: 28px;
         flex-shrink: 0;
     }
@@ -266,16 +277,24 @@ body {
     }
 
     .content-box li {
-        font-size: 12px; /* List readable rahegi */
+        font-size: 12px;
+        /* List readable rahegi */
         line-height: 1.4;
     }
 
     /* Image Curves adjustment */
-    .curved-right img { border-radius: 0 80px 0 0; }
-    .curved-left img { border-radius: 80px 0 0 0; }
-    
-    .golden-bar, .golden-bara {
-        width: 20px; /* Golden bar thodi patli mobile par */
+    .curved-right img {
+        border-radius: 0 80px 0 0;
+    }
+
+    .curved-left img {
+        border-radius: 80px 0 0 0;
+    }
+
+    .golden-bar,
+    .golden-bara {
+        width: 20px;
+        /* Golden bar thodi patli mobile par */
     }
 }
 
@@ -284,7 +303,7 @@ body {
     .header-text h1 {
         font-size: 20px;
     }
-    
+
     .content-box h3 {
         font-size: 14px;
     }
@@ -400,24 +419,28 @@ body {
 /* 1. For Large Tablets & Small Laptops (1024px tak) */
 @media (max-width: 1024px) {
     .cta-heading {
-        font-size: 32px; /* Heading thodi choti taaki ek line mein fit ho */
+        font-size: 32px;
+        /* Heading thodi choti taaki ek line mein fit ho */
     }
-    
+
     .cta-description {
         font-size: 16px;
-        max-width: 100%; /* Text ko poori width di */
+        max-width: 100%;
+        /* Text ko poori width di */
     }
 }
 
 /* 2. For Tablets & Mobile (768px and below) */
 @media (max-width: 768px) {
     .cta-section {
-        height: auto !important; /* Mobile par fixed height UX kharab karti hai, isliye auto kiya */
+        height: auto !important;
+        /* Mobile par fixed height UX kharab karti hai, isliye auto kiya */
         padding: 50px 20px 0 20px;
     }
 
     .cta-container {
-        flex-direction: column; /* Content ek ke niche ek */
+        flex-direction: column;
+        /* Content ek ke niche ek */
         text-align: center;
         padding: 0;
     }
@@ -428,9 +451,9 @@ body {
     }
 
     /* HTML ke <br> tags ko mobile par hide karna padta hai taaki text natural dikhe */
-    .cta-heading br, 
+    .cta-heading br,
     .cta-description br {
-        display: none; 
+        display: none;
     }
 
     .cta-description {
@@ -440,15 +463,19 @@ body {
     }
 
     .cta-buttons {
-        justify-content: center; /* Buttons center mein */
+        justify-content: center;
+        /* Buttons center mein */
         gap: 15px;
         width: 100%;
     }
 
-    .btn-call, .btn-whatsapp {
-        padding: 12px 25px; /* Mobile par button size adjust */
+    .btn-call,
+    .btn-whatsapp {
+        padding: 12px 25px;
+        /* Mobile par button size adjust */
         font-size: 14px;
-        flex: 1; /* Dono buttons barabar width ke honge */
+        flex: 1;
+        /* Dono buttons barabar width ke honge */
         max-width: 160px;
     }
 
@@ -459,7 +486,8 @@ body {
     }
 
     .cta-image img {
-        max-width: 80%; /* Image mobile screen ke hisab se */
+        max-width: 80%;
+        /* Image mobile screen ke hisab se */
         margin: 0 auto;
     }
 }
@@ -471,11 +499,13 @@ body {
     }
 
     .cta-buttons {
-        flex-direction: column; /* Bahut chote phones par buttons bhi ek ke niche ek */
+        flex-direction: column;
+        /* Bahut chote phones par buttons bhi ek ke niche ek */
         align-items: center;
     }
 
-    .btn-call, .btn-whatsapp {
+    .btn-call,
+    .btn-whatsapp {
         width: 100%;
         max-width: 280px;
     }
@@ -509,11 +539,13 @@ body {
     scroll-behavior: smooth;
     padding: 10px;
 }
+
 .testimonial-container:not(.swiper-initialized) .swiper-wrapper {
     display: flex;
     gap: 20px;
     width: 100%;
 }
+
 .testimonial-container:not(.swiper-initialized) .testimonial-card {
     min-width: calc(33.33% - 20px);
 }
@@ -674,7 +706,8 @@ body {
 /* 2. For Mobile (768px and below) */
 @media (max-width: 768px) {
     .testimonial-section {
-        padding: 40px 15px; /* Side padding kam ki taaki slider ko jagah mile */
+        padding: 40px 15px;
+        /* Side padding kam ki taaki slider ko jagah mile */
     }
 
     .testimonial-header h2 {
@@ -688,6 +721,7 @@ body {
         border-right: none;
         padding: 15px;
     }
+
     .testimonial-card {
         border-right: none !important;
         padding: 15px;
@@ -695,21 +729,27 @@ body {
 
     /* Review text height fix: Mobile par text wrap hota hai toh height auto honi chahiye */
     .review {
-        height: auto !important; 
+        height: auto !important;
         min-height: 100px;
         font-size: 14px;
     }
 
     /* Arrows positioning for Mobile */
     /* Mobile par arrows ko thoda andar lana padta hai taaki screen se bahar na jayein */
-    .prev { left: -10px !important; }
-    .next { right: -10px !important; }
+    .prev {
+        left: -10px !important;
+    }
+
+    .next {
+        right: -10px !important;
+    }
 
     .slide-btn {
         width: 35px;
         height: 35px;
         font-size: 16px;
-        background: rgba(34, 34, 34, 0.8); /* Thoda transparent taaki content dikhe */
+        background: rgba(34, 34, 34, 0.8);
+        /* Thoda transparent taaki content dikhe */
     }
 
     .user-text {
@@ -726,21 +766,30 @@ body {
     /* Buttons ko card ke upar se hatakar touch friendly banane ke liye position adjust */
     .slide-btn {
         top: auto;
-        bottom: -50px; /* Arrows ko slider ke niche shift kiya (Optional UX) */
+        bottom: -50px;
+        /* Arrows ko slider ke niche shift kiya (Optional UX) */
         transform: none;
     }
-    
+
     /* Agar aapko arrows card ke upar hi chahiye toh niche wala part delete kar sakte hain */
-    .prev { left: 30% !important; }
-    .next { right: 30% !important; }
-    
+    .prev {
+        left: 30% !important;
+    }
+
+    .next {
+        right: 30% !important;
+    }
+
     .slider-wrapper {
-        margin-bottom: 40px; /* Space for arrows at bottom */
+        margin-bottom: 40px;
+        /* Space for arrows at bottom */
     }
 }
+
 @media (max-width: 768px) {
     .slider-wrapper {
-        padding: 0 40px; /* Side mein space banayi taaki buttons card ke bahar na nikle */
+        padding: 0 40px;
+        /* Side mein space banayi taaki buttons card ke bahar na nikle */
         position: relative;
     }
 
@@ -756,8 +805,10 @@ body {
 
     /* Buttons positioning for Mobile - Back to Center */
     .slide-btn {
-        top: 50% !important; /* Wapis center mein */
-        bottom: auto !important; /* Purana bottom rule hata diya */
+        top: 50% !important;
+        /* Wapis center mein */
+        bottom: auto !important;
+        /* Purana bottom rule hata diya */
         transform: translateY(-50%) !important;
         display: flex !important;
         align-items: center;
@@ -767,12 +818,14 @@ body {
         height: 35px;
     }
 
-    .prev { 
-        left: 0px !important; /* Card ke left edge par */
+    .prev {
+        left: 0px !important;
+        /* Card ke left edge par */
     }
 
-    .next { 
-        right: 0px !important; /* Card ke right edge par */
+    .next {
+        right: 0px !important;
+        /* Card ke right edge par */
     }
 
     /* Review text mobile par pura dikhe isliye height auto */
@@ -812,9 +865,11 @@ body {
     flex-shrink: 0;
     display: flex;
     align-items: center;
+    background: transparent;
 }
+
 .header__logo img {
-    height: 52px;
+    height: 68px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -943,7 +998,7 @@ body {
 .header-icon-btn:hover {
     background: #fff;
     color: #111;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-icon-btn:active {
@@ -954,10 +1009,11 @@ body {
 .header-icon-btn.wishlist-btn {
     color: #d9d9d9;
 }
+
 .header-icon-btn.wishlist-btn:hover {
     color: #e8274b;
     background: #fff5f7;
-    box-shadow: 0 1px 4px rgba(232,39,75,0.12);
+    box-shadow: 0 1px 4px rgba(232, 39, 75, 0.12);
 }
 
 /* Profile button */
@@ -969,12 +1025,14 @@ body {
     border-radius: 10px;
     transition: background 0.18s ease, transform 0.15s ease;
 }
+
 .header-icon-btn.profile-btn:hover {
     background: #e09400;
     transform: scale(1.06);
-    box-shadow: 0 3px 10px rgba(245,166,35,0.35);
+    box-shadow: 0 3px 10px rgba(245, 166, 35, 0.35);
     color: #fff;
 }
+
 .header-icon-btn.profile-btn svg {
     width: 20px;
     height: 20px;
@@ -1000,8 +1058,13 @@ body {
 }
 
 @keyframes badge-pop {
-    from { transform: scale(0); }
-    to   { transform: scale(1); }
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
 }
 
 .btn-login {
@@ -1391,16 +1454,21 @@ button {
 .product-card {
     /* background: #fff; */
     background-color: #f8f8f8;
-    border-radius: 15px; /* Thoda zyada rounded */
+    border-radius: 15px;
+    /* Thoda zyada rounded */
     padding: 15px;
     text-align: center;
     position: relative;
-    border: 1px solid #e0e0e0; /* Light grey border */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Soft shadow */
+    border: 1px solid #e0e0e0;
+    /* Light grey border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    /* Soft shadow */
     transition: transform 0.3s ease;
-    max-width: 300px; /* Optional: adjust as per grid */
+    max-width: 300px;
+    /* Optional: adjust as per grid */
     display: flex;
-    flex-direction: column; /* Content ko upar se niche set karne ke liye */
+    flex-direction: column;
+    /* Content ko upar se niche set karne ke liye */
     height: 100%;
 }
 
@@ -1428,24 +1496,29 @@ button {
     position: absolute;
     top: 15px;
     right: 15px;
-    font-size: 22px; /* Thoda bada icon */
+    font-size: 22px;
+    /* Thoda bada icon */
     color: #333;
     cursor: pointer;
     z-index: 10;
     transition: all 0.3s ease;
     display: inline-block;
 }
+
 .wishlist i:hover {
     /* color: #ff0000; Red color on hover */
     /* transform: scale(1.3); Zoom effect (30% bada ho jayega) */
-    color: #ff0000;         /* Pura icon red ho jayega */
-    transform: scale(1.3);  /* Zoom effect */
-    font-weight: 900;    
+    color: #ff0000;
+    /* Pura icon red ho jayega */
+    transform: scale(1.3);
+    /* Zoom effect */
+    font-weight: 900;
 }
 
 /* Title Styling */
 .product-title {
-    font-size: 16px; /* Target image mein bada hai */
+    font-size: 16px;
+    /* Target image mein bada hai */
     font-weight: 500;
     color: #000;
     margin-bottom: 15px;
@@ -1463,16 +1536,27 @@ button {
 }
 
 .dot {
-    width: 13px; /* Size increased to match target */
+    width: 13px;
+    /* Size increased to match target */
     height: 13px;
     border-radius: 50%;
 }
-.blue { background-color: #1e60d5; } /* Target blue color */
-.pink { background-color: #e91e63; } /* Target pink color */
+
+.blue {
+    background-color: #1e60d5;
+}
+
+/* Target blue color */
+.pink {
+    background-color: #e91e63;
+}
+
+/* Target pink color */
 
 /* Price Styling */
 .price {
-    font-size: 22px; /* Big and Bold price */
+    font-size: 22px;
+    /* Big and Bold price */
     font-weight: 600;
     color: #000;
     margin-bottom: 30px;
@@ -1480,7 +1564,8 @@ button {
 
 /* Buy Button Styling */
 .buy-btn {
-    background: #1c191a; /* Very dark gray/black */
+    background: #1c191a;
+    /* Very dark gray/black */
     color: white;
     border: none;
     width: 100%;
@@ -1489,7 +1574,8 @@ button {
     font-weight: 700;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Button shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Button shadow */
     transition: 0.3s;
 }
 
@@ -1518,6 +1604,7 @@ button {
 .containerab .product-card {
     max-width: 100%;
 }
+
 /* Tab Styles - Exact match to your image */
 .tabs-container {
     display: flex;
@@ -1526,13 +1613,15 @@ button {
     padding-left: 10px;
     /* background-color: #ff0099; */
 }
+
 /* .tabs-content-wrap{ */
-  /* margin-top: 100px;             extra top space remove */
+/* margin-top: 100px;             extra top space remove */
 /* } */
 .tab {
     font-size: 22px;
     font-weight: 500;
-    color: #777; /* Default gray color */
+    color: #777;
+    /* Default gray color */
     cursor: pointer;
     text-decoration: none;
     transition: 0.2s;
@@ -1541,9 +1630,12 @@ button {
 }
 
 .tab.active {
-    color: #000; /* Black for active */
-    font-weight: 700; /* Bold as per image */
-    border-bottom: 2px solid #000; /* Underline as per image */
+    color: #000;
+    /* Black for active */
+    font-weight: 700;
+    /* Bold as per image */
+    border-bottom: 2px solid #000;
+    /* Underline as per image */
 }
 
 /* Hide/Show Logic */
@@ -1566,7 +1658,8 @@ button {
 
 
 .product-card.highlighted {
-    border: 3px solid #00a2ff; /* Blue border like image */
+    border: 3px solid #00a2ff;
+    /* Blue border like image */
 }
 
 
@@ -1597,7 +1690,8 @@ button {
 .buy-btn:hover {
     background: #000;
 }
-.buy-btn:hover{
+
+.buy-btn:hover {
     background-color: #333;
     padding-inline-start: 0cap;
     margin-inline-start: 0cqmax;
@@ -1605,7 +1699,9 @@ button {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* grid4 section */
@@ -1619,21 +1715,22 @@ button {
 
 .card-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 Columns */
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 Columns */
     gap: 20px;
 }
 
 /* .item-card { */
-    /* background: #fff; */
-    /* border: 0.5px solid #353434; */
-    /* box-shadow: 0 2px 4px rgba(0,0,0,0.05); */
-    /* display: flex; */
-    /* flex-direction: column; */
+/* background: #fff; */
+/* border: 0.5px solid #353434; */
+/* box-shadow: 0 2px 4px rgba(0,0,0,0.05); */
+/* display: flex; */
+/* flex-direction: column; */
 /* } */
 .item-card {
     background: #fff;
-    border: 1px solid #d1d1d1; 
-    border-radius: 8px; 
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.05);
     padding: 20px;
     display: flex;
@@ -1649,7 +1746,8 @@ button {
 }
 
 .item-img-bg {
-    background-color: #d9d9d9; /* Grey background for image as per reference */
+    background-color: #d9d9d9;
+    /* Grey background for image as per reference */
     height: 200px;
     display: flex;
     align-items: center;
@@ -1691,7 +1789,8 @@ button {
     line-height: 1.5;
     margin-bottom: 20px;
     text-align: left;
-    flex-grow: 1; /* Pushes button to bottom */
+    flex-grow: 1;
+    /* Pushes button to bottom */
 }
 
 /* Shop Now Button styling */
@@ -1720,33 +1819,39 @@ button {
    ========================================== */
 
 @media (max-width: 1024px) {
+
     /* Tablet aur Small Laptop ke liye 2-column grid */
-    .product-grid, .card-container {
+    .product-grid,
+    .card-container {
         grid-template-columns: repeat(2, 1fr) !important;
     }
-    
+
     .containerab {
-        padding-left: 40px !important;  /* Side space thodi kam ki */
+        padding-left: 40px !important;
+        /* Side space thodi kam ki */
         padding-right: 40px !important;
     }
 }
 
 @media (max-width: 600px) {
+
     /* Mobile ke liye 1-column grid (Ek ke niche ek) */
-    .product-grid, .card-container {
+    .product-grid,
+    .card-container {
         grid-template-columns: 1fr !important;
     }
 
     /* Side ki extra space mobile par khatam karne ke liye */
     .containerab {
-        padding-left: 15px !important; 
+        padding-left: 15px !important;
         padding-right: 15px !important;
     }
 
     /* Card ko mobile width par set karne ke liye */
     .product-card {
         max-width: 100% !important;
-        margin-bottom: 20px; /* Do cards ke beech ka gap */
+        margin-bottom: 20px;
+        /* Do cards ke beech ka gap */
     }
 
     /* Tabs ko scrollable banane ke liye agar wo screen se bahar jayein */
@@ -1761,35 +1866,41 @@ button {
 /* ================================================================= */
 
 .footer {
-    background-color: #2b2b2b;
+    /* background-color: #1c1c1c; */
+    background-color: #2c2929;
     color: white;
     padding: 60px 0 0 0;
     font-family: 'Roboto', sans-serif;
     width: 100%;
-    
+
 }
+
 /* Horizontal Layout Container */
 .footer-container {
     max-width: 1400px;
     margin: 0 auto;
-    display: flex; /* Sab kuch ek line mein lane ke liye */
+    display: flex;
+    /* Sab kuch ek line mein lane ke liye */
     justify-content: space-between;
     align-items: flex-start;
     padding: 0 40px 40px 40px;
 }
+
 .container {
     max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     /* padding: 0 40px; */
-    align-items: flex-start; 
+    align-items: flex-start;
     padding: 0 40px 40px 40px;
 }
+
 .content-col {
     flex: 1;
     padding: 0 15px;
 }
+
 .footer-col {
     flex: 1;
     padding: 0 15px;
@@ -1797,44 +1908,55 @@ button {
 
 /* 1) Logo Section Updates */
 .logo-section {
-    flex: 1; /* Logo section ko thoda zyada space diya */
+    flex: 1;
     min-width: 200px;
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Sab kuch horizontal center karne ke liye */
+    align-items: flex-start;
     text-align: center;
-    margin-top: -60px;
+    margin-top: 0;
     padding-left: 0;
 }
 
-.logo img {
-    width: 220px; /* Logo ka size bada kiya */
-    height: auto;
-    margin-bottom: 10px; /* Image ke niche gap zero */
-    margin-left: -30px;
-   
-    
+.logo {
+    display: inline-block;
 }
+
+.logo img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+    margin-left: 0;
+    display: block;
+    mix-blend-mode: lighten;
+}
+
 /* Social Links styling */
 .social-links {
     width: 100%;
     /*  position: relative; */
-     left: -60px; 
-    /* Ye zyadatar cases mein perfect kaam karta hai */ 
+    left: -60px;
+    /* Ye zyadatar cases mein perfect kaam karta hai */
 }
+
 .social-links p {
     font-weight: bold;
-    margin-bottom: 13px; /* Follow us text aur icons ka gap kam kiya */
+    margin-bottom: 13px;
+    /* Follow us text aur icons ka gap kam kiya */
     font-size: 14px;
     margin-top: -30px;
     color: #fff;
-    
+
 }
+
 .icons {
     display: flex;
-    justify-content: center; /* Icons ko center lane ke liye */
-    gap: 5px; /* Icons ke beech ka gap */
+    justify-content: center;
+    /* Icons ko center lane ke liye */
+    gap: 5px;
+    /* Icons ke beech ka gap */
 }
+
 .icons a {
     color: white;
     font-size: 24px;
@@ -1843,10 +1965,12 @@ button {
     transition: 0.3s;
     display: inline-block;
 }
+
 .icons a:hover {
     color: #ffcc00;
     transform: scale(1.3);
 }
+
 /* 2 & 3) Dividers: Removed vertical lines and custom padding for a cleaner flat design */
 .divider {
     position: relative;
@@ -1860,7 +1984,8 @@ button {
 /* Content Styling */
 .footer-col h3 {
     font-size: 17px;
-    margin-bottom: 25px; /* Heading ke niche ka gap */
+    margin-bottom: 25px;
+    /* Heading ke niche ka gap */
     font-weight: 600;
     line-height: 1.5;
     color: white;
@@ -1901,6 +2026,7 @@ button {
 .footer-col ul li a:hover {
     color: #f5a623;
 }
+
 .no-heading {
     margin-top: 50px;
     flex: 2;
@@ -1929,9 +2055,12 @@ button {
     text-decoration: none;
     margin-right: 35px;
 }
+
 .bottom-links a:hover {
-    text-decoration: underline; /* Isse niche line aa jayegi */
-    color: #333; /* Optional: halka sa color change karne ke liye */
+    text-decoration: underline;
+    /* Isse niche line aa jayegi */
+    color: #333;
+    /* Optional: halka sa color change karne ke liye */
 }
 
 .copyright {
@@ -1944,12 +2073,14 @@ button {
 
 @media (max-width: 992px) {
     .container {
-        flex-wrap: wrap; /* Columns ko niche lane ke liye */
+        flex-wrap: wrap;
+        /* Columns ko niche lane ke liye */
         padding: 40px 20px;
     }
 
     .footer-col {
-        flex: 1 1 45%; /* Ek line mein 2 columns */
+        flex: 1 1 45%;
+        /* Ek line mein 2 columns */
         min-width: 200px;
         margin-bottom: 40px;
         padding: 0 10px;
@@ -1961,13 +2092,15 @@ button {
     }
 
     .divider {
-        padding-left: 15px; /* Original 50px ko kam kiya */
+        padding-left: 15px;
+        /* Original 50px ko kam kiya */
     }
 
     /* Nowrap ko hatana sabse zaroori hai */
-    .footer-col h3, 
+    .footer-col h3,
     .footer-col ul li {
-        white-space: normal !important; /* Text ab agli line mein aa jayega */
+        white-space: normal !important;
+        /* Text ab agli line mein aa jayega */
         line-height: 1.4;
     }
 
@@ -1987,7 +2120,8 @@ button {
     }
 
     .icons {
-        justify-content: flex-start; /* Icons ko left align kiya */
+        justify-content: flex-start;
+        /* Icons ko left align kiya */
     }
 }
 
@@ -1997,28 +2131,33 @@ button {
     }
 
     .footer-col {
-        flex: 1 1 100%; /* Mobile par ek ke niche ek column */
+        flex: 1 1 100%;
+        /* Mobile par ek ke niche ek column */
         margin-bottom: 30px;
     }
 
     .no-heading {
-        margin-top: 0; /* Extra gap hataya */
+        margin-top: 0;
+        /* Extra gap hataya */
     }
 
     .footer-col h3 {
         margin-bottom: 15px;
-        border-bottom: 1px solid #444; /* Mobile par thoda separation */
+        border-bottom: 1px solid #444;
+        /* Mobile par thoda separation */
         padding-bottom: 5px;
     }
 
     .footer-col ul li {
         margin-bottom: 15px;
-        bottom: 0; /* Original bottom: 20px ko reset kiya */
+        bottom: 0;
+        /* Original bottom: 20px ko reset kiya */
     }
 
     /* Yellow Bottom Bar Fix */
     .bottom-container {
-        flex-direction: column; /* Links aur Copyright ek ke niche ek */
+        flex-direction: column;
+        /* Links aur Copyright ek ke niche ek */
         text-align: center;
         gap: 15px;
     }
@@ -2048,8 +2187,10 @@ button {
 @media (max-width: 1024px) {
     .bottom-container {
         padding: 15px 20px;
-        flex-wrap: wrap; /* Agar jagah kam ho toh links niche aa jayein */
-        justify-content: center; /* Sab kuch center mein */
+        flex-wrap: wrap;
+        /* Agar jagah kam ho toh links niche aa jayein */
+        justify-content: center;
+        /* Sab kuch center mein */
         gap: 15px;
     }
 
@@ -2057,16 +2198,19 @@ button {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px; /* Links ke beech barabar gap */
+        gap: 15px;
+        /* Links ke beech barabar gap */
     }
 
     .bottom-links a {
-        margin-right: 0; /* Desktop wala margin hata kar gap use kiya */
+        margin-right: 0;
+        /* Desktop wala margin hata kar gap use kiya */
     }
 
     .copyright {
         text-align: center;
-        width: 100%; /* Copyright ko puri line di taaki wo niche center ho */
+        width: 100%;
+        /* Copyright ko puri line di taaki wo niche center ho */
     }
 }
 
@@ -2077,19 +2221,23 @@ button {
     }
 
     .bottom-container {
-        flex-direction: column; /* Links upar aur copyright niche stack ho jayenge */
+        flex-direction: column;
+        /* Links upar aur copyright niche stack ho jayenge */
         gap: 20px;
     }
 
     .bottom-links {
-        flex-direction: row; /* Links ko ek line mein wrap hone diya */
+        flex-direction: row;
+        /* Links ko ek line mein wrap hone diya */
         justify-content: center;
         width: 100%;
     }
 
     .bottom-links a {
-        font-size: 11px; /* Mobile par font thoda chota */
-        margin: 5px 10px; /* Links ke beech touch-friendly gap */
+        font-size: 11px;
+        /* Mobile par font thoda chota */
+        margin: 5px 10px;
+        /* Links ke beech touch-friendly gap */
     }
 
     .copyright {
@@ -2102,10 +2250,11 @@ button {
 /* 3. Smallest Phones (400px and below) */
 @media (max-width: 400px) {
     .bottom-links {
-        flex-direction: column; /* Bahut chote phones par links bhi ek ke niche ek */
+        flex-direction: column;
+        /* Bahut chote phones par links bhi ek ke niche ek */
         gap: 8px;
     }
-    
+
     .bottom-links a {
         margin: 0;
     }
@@ -2150,6 +2299,7 @@ button {
     grid-column: 1 / 3;
     grid-row: 1 / 2;
 }
+
 .grid-item:nth-child(1) img {
     object-position: right center;
 }
@@ -2158,6 +2308,7 @@ button {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
 }
+
 .grid-item:nth-child(2) img {
     object-position: right center;
 }
@@ -2166,6 +2317,7 @@ button {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
 }
+
 .grid-item:nth-child(3) img {
     object-position: right center;
 }
@@ -2174,6 +2326,7 @@ button {
     grid-column: 3 / 5;
     grid-row: 1 / 3;
 }
+
 .grid-item:nth-child(4) img {
     object-position: left center;
 }

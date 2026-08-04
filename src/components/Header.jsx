@@ -110,7 +110,7 @@ const Header = () => {
         {/* Logo — far left */}
         <div className="header__logo">
           <Link to="/">
-            <img src="/headerrmax.png" alt="RMAX Logo" />
+            <img src="/headerrmax.png" alt="RMAX Logo" style={{ background: '#ffffff' }} />
           </Link>
         </div>
 

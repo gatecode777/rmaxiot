@@ -1,4 +1,3 @@
-
 .product-container {
     display: flex;
     max-width: 1200px;
@@ -43,14 +42,18 @@
     /* background: #f9f9f9; */
     cursor: pointer;
     background: linear-gradient(135deg, #FAF9F9 0%, #C8CCD0 100%);
-    border: 2px solid transparent; 
+    border: 2px solid transparent;
     transition: border 0.3s ease;
     cursor: pointer;
 }
+
 .thumbnails img.active {
-    border: 2px solid #000000; /* Black color ka border */
-    border-radius: 4px;        /* Thoda round corner (optional) */
+    border: 2px solid #000000;
+    /* Black color ka border */
+    border-radius: 4px;
+    /* Thoda round corner (optional) */
 }
+
 .main-image {
     flex-grow: 1;
     background-color: #f1f1f1;
@@ -72,9 +75,9 @@
 /* Details Section Styling */
 .details-section {
     flex: 1.5;
-     padding: 0.5px;
-     /* background-color: #cbdcf0; */
-     
+    padding: 0.5px;
+    /* background-color: #cbdcf0; */
+
 }
 
 .product-title {
@@ -82,16 +85,19 @@
     font-weight: 500;
     padding: 0;
     display: flex;
-    flex-direction: column;   /* Content ko vertical rakhne ke liye */
-    justify-content: flex-end; /* Sara content niche (bottom) chala jayega */
+    flex-direction: column;
+    /* Content ko vertical rakhne ke liye */
+    justify-content: flex-end;
+    /* Sara content niche (bottom) chala jayega */
     padding-bottom: 8px;
     margin-bottom: 20px;
-    
+
 }
+
 /* .product-title h1{ */
-    /* margin-right: -10px; */
-    /* left: -10px; */
-    /* margin-left: -10px; */
+/* margin-right: -10px; */
+/* left: -10px; */
+/* margin-left: -10px; */
 /* } */
 .rating {
     /* margin-top: 20px; */
@@ -187,7 +193,7 @@
     align-self: flex-start;
     margin-top: 10px;
     min-height: 17vw;
-    
+
 }
 
 .info-row {
@@ -195,13 +201,15 @@
     border-bottom: 1px solid #cbdcf0;
     font-size: 14px;
     color: #333;
-    margin-bottom: 12px; /* Is value ko aap apne hisaab se kam ya zyada kar sakte hain */
+    margin-bottom: 12px;
+    /* Is value ko aap apne hisaab se kam ya zyada kar sakte hain */
     display: block;
 }
 
 .no-border {
     border-bottom: none;
 }
+
 .info-row.no-border {
     margin-bottom: 0;
 }
@@ -226,13 +234,15 @@
     cursor: pointer;
     transition: opacity 0.3s;
     padding: 12px 15px;
-    cursor: pointer; transition: 0.3s;
+    cursor: pointer;
+    transition: 0.3s;
     white-space: nowrap;
 }
 
 .btn:hover {
     /* opacity: 0.9; */
-    opacity: 0.9; transform: translateY(-2px);
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
 .buy-now {
@@ -263,33 +273,46 @@
 
 /* 1. Large Laptops (1024px to 1200px) */
 @media (max-width: 1200px) {
-    .product-container { gap: 30px; padding: 40px 20px; }
-    .main-image img { min-height: 350px; }
+    .product-container {
+        gap: 30px;
+        padding: 40px 20px;
+    }
+
+    .main-image img {
+        min-height: 350px;
+    }
 }
 
 /* 2. Tablets & Small Laptops (992px) */
 @media (max-width: 992px) {
     .product-container {
-        flex-direction: column; /* Image upar, Details niche */
+        flex-direction: column;
+        /* Image upar, Details niche */
         align-items: center;
     }
-    
+
     .image-section {
         width: 100%;
-        position: static; /* Sticky hata diya */
+        position: static;
+        /* Sticky hata diya */
     }
 
-    .details-section { width: 100%; margin-top: 30px; }
+    .details-section {
+        width: 100%;
+        margin-top: 30px;
+    }
 }
 
 /* 3. Mobile Phones (768px and below) */
 @media (max-width: 768px) {
     .image-section {
-        flex-direction: column-reverse; /* Thumbnails image ke niche aayenge */
+        flex-direction: column-reverse;
+        /* Thumbnails image ke niche aayenge */
     }
 
     .thumbnails {
-        flex-direction: row; /* Mobile par thumbnails line mein honge */
+        flex-direction: row;
+        /* Mobile par thumbnails line mein honge */
         justify-content: center;
         overflow-x: auto;
         padding: 5px 0;
@@ -300,28 +323,43 @@
         height: 60px;
     }
 
-    .main-image img { min-height: 300px; }
+    .main-image img {
+        min-height: 300px;
+    }
 
     .content-flex {
-        flex-direction: column; /* Features aur Info Box ek ke niche ek */
+        flex-direction: column;
+        /* Features aur Info Box ek ke niche ek */
     }
 
     .action-buttons-p {
-        flex-direction: column; /* Buttons stack ho jayenge */
+        flex-direction: column;
+        /* Buttons stack ho jayenge */
     }
 
     .btn {
-        max-width: 100% !important; /* Mobile par buttons poori width lenge */
+        max-width: 100% !important;
+        /* Mobile par buttons poori width lenge */
     }
 
-    .final-price { font-size: 28px; }
+    .final-price {
+        font-size: 28px;
+    }
 }
 
 /* 4. Small Mobile (480px) */
 @media (max-width: 480px) {
-    .product-title { font-size: 18px; }
-    .final-price { font-size: 24px; }
-    .main-image img { min-height: 250px; }
+    .product-title {
+        font-size: 18px;
+    }
+
+    .final-price {
+        font-size: 24px;
+    }
+
+    .main-image img {
+        min-height: 250px;
+    }
 }
 
 
@@ -331,7 +369,7 @@
     background-color: #ffffff;
     font-family: 'Poppins', sans-serif;
     line-height: 1.4;
-    
+
 }
 
 .desc-content {
@@ -353,10 +391,11 @@
 /* 1. Tablets (992px tak) */
 @media (max-width: 992px) {
     .desc-content {
-        transform: translateY(0); /* Mobile/Tablet par overlap na ho isliye transform hata diya */
+        transform: translateY(0);
+        /* Mobile/Tablet par overlap na ho isliye transform hata diya */
         margin-top: 20px;
     }
-    
+
     .product-description-container {
         padding-bottom: 30px;
     }
@@ -366,12 +405,14 @@
 @media (max-width: 768px) {
     .intro-text {
         font-size: 14px;
-        text-align: left; /* Mobile par justify ganda dikhta hai (words ke beech zyada gap aa jata hai) */
+        text-align: left;
+        /* Mobile par justify ganda dikhta hai (words ke beech zyada gap aa jata hai) */
         line-height: 1.5;
     }
 
     .product-description-container {
-        padding: 10px 20px 40px 20px; /* Mobile ke hisab se side padding kam ki */
+        padding: 10px 20px 40px 20px;
+        /* Mobile ke hisab se side padding kam ki */
     }
 }
 
@@ -383,7 +424,7 @@
 }
 
 .info-block {
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }
 
 .section-title1 {
@@ -432,9 +473,12 @@
     align-items: center;
     color: white;
     font-family: 'Poppins', sans-serif;
-    border-top: 1px solid rgba(255,255,255,0.1); /* Halka top border depth ke liye */
-    margin-top: -30px; /* Negative margin se div upar shift ho jayega */
-    position: relative; /* Negative margin ke sath ye smooth kaam karta hai */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Halka top border depth ke liye */
+    margin-top: -30px;
+    /* Negative margin se div upar shift ho jayega */
+    position: relative;
+    /* Negative margin ke sath ye smooth kaam karta hai */
     z-index: 5;
 }
 
@@ -446,33 +490,35 @@
 
 .info-icon i {
     font-size: 44px;
-    color: #ffcc00; /* Yellow icons as per image */
-    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3)); /* Halka shadow icon par */
+    color: #ffcc00;
+    /* Yellow icons as per image */
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
+    /* Halka shadow icon par */
 }
 
 .info-text h3 {
-    font-size: 14px; 
-    font-weight: 600; 
+    font-size: 14px;
+    font-weight: 600;
     /* Gap kam karne ke liye margin-bottom ko zero ya negative karein */
-    margin-bottom: -1px; 
-    color: #ffffff; 
+    margin-bottom: -1px;
+    color: #ffffff;
     text-decoration: underline;
-    text-decoration-thickness: 1px; 
-    text-underline-offset: 5px; 
-    letter-spacing: 0.5px; 
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+    letter-spacing: 0.5px;
 }
 
 .info-text {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
 }
 
 .info-text p {
     font-size: 14px;
     margin: 1px 0;
     line-height: 1.4;
-    font-weight: 400; 
+    font-weight: 400;
     color: #ffffff;
 }
 
@@ -483,6 +529,7 @@
         gap: 30px;
         text-align: center;
     }
+
     .info-item {
         flex-direction: column;
         gap: 10px;
@@ -490,139 +537,150 @@
 }
 
 /* ZOOM CONTAINER */
-.zoom-container-bar{
+.zoom-container-bar {
     background: linear-gradient(180deg, #e3edf7 0%, #9ca3af 100%);
     margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .container-zoom {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            width: 100%;
-            padding: 50px;
-            perspective: 1000px;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding: 50px;
+    perspective: 1000px;
+}
 
-        .card {
-            background: white;
-            width: 380px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-            transition: all 0.5s ease;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            z-index: 1;
-             min-height: 30vh;
-        }
+.card {
+    background: white;
+    width: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.5s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+    min-height: 30vh;
+}
 
-        /* Wishlist Heart Icon */
-        .wishlist {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333;
-        }
+/* Wishlist Heart Icon */
+.wishlist {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
 
-        .card img {
-            width: 100%;
-            height: auto;
-            padding: 40px 30px 20px;
-            object-fit: contain;
-        }
+.card img {
+    width: 100%;
+    height: auto;
+    padding: 40px 30px 20px;
+    object-fit: contain;
+}
 
-        .card-content {
-            padding: 10px 20px 20px;
-        }
+.card-content {
+    padding: 10px 20px 20px;
+}
 
-        .card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: #111;
-        }
+.card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #111;
+}
 
-        /* Color Dots */
-        .colors {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+/* Color Dots */
+.colors {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
-        .dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-        }
-        .blue { background-color: #1d4ed8; }
-        .pink { background-color: #db2777; }
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
 
-        /* Buy Now Button */
-        .buy-btn {
-            background-color: #0a2d81;
-            color: white;
-            padding: 15px;
-            border: none;
-            width: 100%;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+.blue {
+    background-color: #1d4ed8;
+}
 
-        .buy-btn:hover {
-            background-color: #061d54;
-        }
+.pink {
+    background-color: #db2777;
+}
 
-        /* ZOOM LOGIC */
-        
-        /* 1. Default scale for all cards */
-        .card {
-            transform: scale(0.9);
-            opacity: 0.8;
-        }
+/* Buy Now Button */
+.buy-btn {
+    background-color: #0a2d81;
+    color: white;
+    padding: 15px;
+    border: none;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
-        /* 2. Middle card stays zoomed by default */
-        .card.active {
-            transform: scale(1.1);
-            z-index: 10;
-            opacity: 1;
-        }
+.buy-btn:hover {
+    background-color: #061d54;
+}
 
-        /* 3. Hover logic using JS classes later, but here is the CSS part */
-        .container-zoom:hover .card {
-            transform: scale(0.85); /* zoom out others on hover */
-            opacity: 0.7;
-        }
+/* ZOOM LOGIC */
 
-        .container-zoom .card:hover {
-            transform: scale(1.1) !important; /* zoom in the hovered card */
-            z-index: 100;
-            opacity: 1;
-        }
+/* 1. Default scale for all cards */
+.card {
+    transform: scale(0.9);
+    opacity: 0.8;
+}
 
-        /* ==========================================================
+/* 2. Middle card stays zoomed by default */
+.card.active {
+    transform: scale(1.1);
+    z-index: 10;
+    opacity: 1;
+}
+
+/* 3. Hover logic using JS classes later, but here is the CSS part */
+.container-zoom:hover .card {
+    transform: scale(0.85);
+    /* zoom out others on hover */
+    opacity: 0.7;
+}
+
+.container-zoom .card:hover {
+    transform: scale(1.1) !important;
+    /* zoom in the hovered card */
+    z-index: 100;
+    opacity: 1;
+}
+
+/* ==========================================================
    ZOOM CONTAINER - BEST LEVEL RESPONSIVE
    ========================================================== */
 
 /* 1. Large Laptops (1024px to 1300px) */
 @media (max-width: 1300px) {
     .card {
-        width: 300px; /* Width thodi kam ki taaki screen mein fit ho sakein */
+        width: 300px;
+        /* Width thodi kam ki taaki screen mein fit ho sakein */
     }
+
     .container-zoom {
         padding: 40px 20px;
         gap: 15px;
@@ -637,12 +695,15 @@
     }
 
     .card {
-        width: 280px; /* Tablet par aur chota */
-        transform: scale(0.95); /* Zoom effect ko thoda kam kiya taaki overlap na ho */
+        width: 280px;
+        /* Tablet par aur chota */
+        transform: scale(0.95);
+        /* Zoom effect ko thoda kam kiya taaki overlap na ho */
     }
 
     .card.active {
-        transform: scale(1.05); /* Active card ka zoom bhi thoda control kiya */
+        transform: scale(1.05);
+        /* Active card ka zoom bhi thoda control kiya */
     }
 }
 
@@ -650,22 +711,30 @@
 @media (max-width: 768px) {
     .zoom-container-bar {
         padding: 40px 0;
-        height: auto; /* Fixed height hata di */
+        height: auto;
+        /* Fixed height hata di */
         min-height: auto;
     }
 
     .container-zoom {
-        flex-direction: column; /* Cards ek ke niche ek aayenge */
+        flex-direction: column;
+        /* Cards ek ke niche ek aayenge */
         padding: 20px;
-        gap: 30px; /* Vertical gap badhaya */
-        perspective: none; /* Perspective hata di taaki tilting na ho */
+        gap: 30px;
+        /* Vertical gap badhaya */
+        perspective: none;
+        /* Perspective hata di taaki tilting na ho */
     }
 
     .card {
-        width: 100%; /* Mobile par full width */
-        max-width: 350px; /* Lekin bahut zyada wide na ho */
-        transform: scale(1) !important; /* Mobile par zoom effect hata diya (standard UX) */
-        opacity: 1 !important; /* Sab cards barabar dikhenge */
+        width: 100%;
+        /* Mobile par full width */
+        max-width: 350px;
+        /* Lekin bahut zyada wide na ho */
+        transform: scale(1) !important;
+        /* Mobile par zoom effect hata diya (standard UX) */
+        opacity: 1 !important;
+        /* Sab cards barabar dikhenge */
         margin-bottom: 0;
     }
 
@@ -677,7 +746,8 @@
     }
 
     .card img {
-        padding: 20px 20px 10px; /* Mobile par padding adjust ki */
+        padding: 20px 20px 10px;
+        /* Mobile par padding adjust ki */
     }
 
     .card h3 {
@@ -690,9 +760,11 @@
     .container-zoom {
         padding: 15px;
     }
+
     .card {
         border-radius: 15px;
     }
+
     .buy-btn {
         padding: 12px;
         font-size: 1rem;
@@ -704,7 +776,7 @@
 .product-containerab {
     display: flex;
     width: 95%;
-    max-width: 1200px;
+    max-width: 1165px;
     /* background: white; */
     padding: 40px;
     align-items: center;
@@ -713,7 +785,7 @@
     /* padding: 0; */
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    background-color:white ;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -734,7 +806,8 @@
 
 .details-grid {
     display: grid;
-    grid-template-columns: 200px 1fr; /* Fixed width for labels */
+    grid-template-columns: 200px 1fr;
+    /* Fixed width for labels */
     row-gap: 12px;
 }
 
@@ -756,19 +829,21 @@
     display: flex;
     justify-content: flex-end;
     /* width: 100%; */
-    
+
 }
 
 .info-card {
-    background-color: #c47c43; /* Main orange-brown color */
+    background-color: #c47c43;
+    /* Main orange-brown color */
     width: 45vw;
-    border-radius: 80px; /* Highly rounded corners like in image */
+    border-radius: 80px;
+    /* Highly rounded corners like in image */
     padding: 60px 40px;
     text-align: left;
     color: white;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .info-title {
@@ -778,19 +853,21 @@
 }
 
 .dark-overlay {
-    background-color: rgba(0, 0, 0, 0.2); /* Dark band in middle */
-    padding: 20px 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Dark band in middle */
+    padding: 20px 40px; /* Aligns contents with card's padding */
     margin-bottom: 30px;
-    width: calc(100% + 90px); /* Span across padding */
-    margin-left: -170px;
+    width: calc(100% + 80px); /* Bleeds background to card edges */
+    margin-left: -40px; /* Aligns left edge of overlay to card boundary */
     text-align: left;
 }
 
 .dark-overlay p {
     font-size: 14px;
-    line-height: 1.1;
-    max-width: 350px;
-    margin: 0 auto;
+    line-height: 1.4;
+    max-width: 80%; /* Leaves room for the woman image on the right */
+    margin: 0;
+    text-align: left;
 }
 
 .interest-btn {
@@ -802,7 +879,7 @@
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
 }
 
@@ -813,9 +890,11 @@
 /* --- Image Positioning --- */
 .woman-image {
     position: absolute;
-    right: -115px; /* Positioning woman to hang off the edge */
+    right: -115px;
+    /* Positioning woman to hang off the edge */
     bottom: 0px;
-    height: 107%; /* Makes her taller than the box */
+    height: 107%;
+    /* Makes her taller than the box */
     z-index: 5;
 }
 
@@ -824,41 +903,50 @@
 /* 1. Large Laptops (1024px to 1300px) */
 @media (max-width: 1300px) {
     .woman-image {
-        right: -50px; /* Woman ko thoda andar kiya taaki screen se bahar na jaye */
+        right: -50px;
+        /* Woman ko thoda andar kiya taaki screen se bahar na jaye */
         height: 100%;
     }
+
     .info-card {
-        width: 100%; /* vw se % par shift kiya stability ke liye */
+        width: 100%;
+        /* vw se % par shift kiya stability ke liye */
     }
 }
 
 /* 2. Tablets & Small Laptops (1024px tak) */
 @media (max-width: 1024px) {
     .product-containerab {
-        flex-direction: column; /* Details upar, Info card niche */
+        flex-direction: column;
+        /* Details upar, Info card niche */
         gap: 50px;
         min-height: auto;
     }
 
-    .details-column, .info-box-wrapper {
+    .details-column,
+    .info-box-wrapper {
         width: 100%;
         flex: none;
     }
 
     .info-box-wrapper {
-        justify-content: center; /* Mobile par center alignment */
+        justify-content: center;
+        /* Mobile par center alignment */
     }
 
     .info-card {
-        width: 90%; /* Side mein thodi jagah chodi */
-        border-radius: 50px; /* Tablet par thoda kam round */
+        width: 90%;
+        /* Side mein thodi jagah chodi */
+        border-radius: 50px;
+        /* Tablet par thoda kam round */
         padding: 40px 30px;
     }
 
     /* Dark Overlay Fix: Jo -170px tha use tablet par reset kiya */
     .dark-overlay {
         width: 100%;
-        margin-left: -30px; /* Padding ke hisab se adjust kiya */
+        margin-left: -30px;
+        /* Padding ke hisab se adjust kiya */
         padding: 20px;
     }
 
@@ -868,7 +956,8 @@
     }
 
     .woman-image {
-        height: 110%; /* Image thodi badi ki */
+        height: 110%;
+        /* Image thodi badi ki */
         right: -30px;
     }
 }
@@ -876,24 +965,28 @@
 /* 3. Mobile Phones (768px and below) */
 @media (max-width: 768px) {
     .details-grid {
-        grid-template-columns: 1fr; /* Mobile par Label aur Value ek ke niche ek */
+        grid-template-columns: 1fr;
+        /* Mobile par Label aur Value ek ke niche ek */
         row-gap: 5px;
     }
 
     .label {
-        font-weight: 600; /* Label ko bold kiya taaki separation dikhe */
+        font-weight: 600;
+        /* Label ko bold kiya taaki separation dikhe */
         color: #003380;
     }
 
     .value {
         margin-bottom: 10px;
         padding-bottom: 5px;
-        border-bottom: 1px solid #eee; /* separation line */
+        border-bottom: 1px solid #eee;
+        /* separation line */
     }
 
     .info-card {
         width: 100%;
-        border-radius: 30px; /* Mobile par zyada professional lagta hai */
+        border-radius: 30px;
+        /* Mobile par zyada professional lagta hai */
         padding: 30px 20px;
     }
 
@@ -915,10 +1008,14 @@
     }
 
     .woman-image {
-        height: 250px; /* Mobile par height control ki */
-        right: -10px; /* Bilkul edge par lock kiya */
-        position: relative; /* Card ke upar se hatakar side mein lane ke liye alternative */
-        margin-top: -100px; /* Card ke upar overlap effect ke liye */
+        height: 250px;
+        /* Mobile par height control ki */
+        right: -10px;
+        /* Bilkul edge par lock kiya */
+        position: relative;
+        /* Card ke upar se hatakar side mein lane ke liye alternative */
+        margin-top: -100px;
+        /* Card ke upar overlap effect ke liye */
         align-self: flex-end;
     }
 }
@@ -928,9 +1025,10 @@
     .title {
         font-size: 20px;
     }
-    
+
     .interest-btn {
-        width: 100%; /* Full width button on small mobile */
+        width: 100%;
+        /* Full width button on small mobile */
         padding: 12px;
     }
 
@@ -939,11 +1037,13 @@
         margin-top: -80px;
     }
 }
+
 /* ==========================================================
    FINAL MOBILE FIX - PRODUCT DETAILS SECTION
    ========================================================== */
 
 @media (max-width: 768px) {
+
     /* 1. Container ko center kiya aur column mein badla */
     .product-containerab {
         flex-direction: column !important;
@@ -952,12 +1052,14 @@
         padding: 40px 15px !important;
         height: auto !important;
         min-height: auto !important;
-        overflow: hidden; /* Side scroll rokne ke liye */
+        overflow: hidden;
+        /* Side scroll rokne ke liye */
     }
 
     .details-column {
         width: 100%;
-        margin-bottom: 80px; /* Info card se doori */
+        margin-bottom: 80px;
+        /* Info card se doori */
     }
 
     /* 2. Info Card ko poori width di (Jo patla ho gaya tha wo theek ho jayega) */
@@ -969,7 +1071,8 @@
     }
 
     .info-card {
-        width: 100% !important; /* Squished card theek karne ke liye */
+        width: 100% !important;
+        /* Squished card theek karne ke liye */
         max-width: 100%;
         border-radius: 40px !important;
         padding: 50px 25px !important;
@@ -978,8 +1081,10 @@
 
     /* 3. Dark Overlay Fix (Jo -170px text ko bahar phenk raha tha) */
     .dark-overlay {
-        margin-left: -25px !important; /* Card ki padding ke barabar negative */
-        width: calc(100% + 50px) !important; /* Full width band */
+        margin-left: -25px !important;
+        /* Card ki padding ke barabar negative */
+        width: calc(100% + 50px) !important;
+        /* Full width band */
         padding: 15px 25px !important;
         text-align: left;
     }
@@ -994,12 +1099,15 @@
     /* 4. Woman Image Fix (Jo text ke upar chadh gayi thi) */
     .woman-image {
         position: absolute;
-        height: 250px !important; /* Image ka size chota kiya */
+        height: 250px !important;
+        /* Image ka size chota kiya */
         width: auto;
-        right: -10px !important; /* Screen ke andar laya */
+        right: -10px !important;
+        /* Screen ke andar laya */
         bottom: -30px !important;
         z-index: 10;
-        pointer-events: none; /* Taaki button click karne mein dikkat na ho */
+        pointer-events: none;
+        /* Taaki button click karne mein dikkat na ho */
     }
 
     /* 5. Grid Adjustment for mobile labels */
@@ -1010,7 +1118,8 @@
 
     .label {
         font-weight: 700;
-        color: #c47c43; /* Main theme color for mobile labels */
+        color: #c47c43;
+        /* Main theme color for mobile labels */
         margin-top: 10px;
     }
 
@@ -1025,18 +1134,22 @@
     .info-card {
         padding: 40px 20px !important;
     }
+
     .woman-image {
         height: 200px !important;
     }
+
     .info-title {
         font-size: 18px;
     }
 }
+
 /* ==========================================================
    MOBILE VIEW: HIDING WOMAN IMAGE & CLEANING CARD
    ========================================================== */
 
 @media (max-width: 768px) {
+
     /* 1. Woman image ko mobile par poori tarah hatane ke liye */
     .woman-image {
         display: none !important;
@@ -1046,9 +1159,11 @@
     .info-card {
         width: 100% !important;
         max-width: 100%;
-        border-radius: 30px !important; /* Mobile par rounded corners kam kiye */
+        border-radius: 30px !important;
+        /* Mobile par rounded corners kam kiye */
         padding: 40px 20px !important;
-        text-align: center !important; /* Image hatne ke baad center text zyada accha lagega */
+        text-align: center !important;
+        /* Image hatne ke baad center text zyada accha lagega */
     }
 
     .info-title {
@@ -1058,7 +1173,8 @@
 
     /* 3. Dark overlay ko mobile par sahi se dikhane ke liye */
     .dark-overlay {
-        margin-left: -20px !important; /* Padding ke hisab se reset kiya */
+        margin-left: -20px !important;
+        /* Padding ke hisab se reset kiya */
         width: calc(100% + 40px) !important;
         padding: 20px !important;
         text-align: center !important;
@@ -1081,7 +1197,8 @@
 
 /* utube section */
 .featured-section {
-    background-color: #dbeafe; /* Light blue background */
+    background-color: #dbeafe;
+    /* Light blue background */
     padding: 80px 20px;
     text-align: center;
 }
@@ -1119,17 +1236,20 @@
 .video-card {
     background: white;
     width: 360px;
-    border-radius: 4px; /* Slight rounding like image */
+    border-radius: 4px;
+    /* Slight rounding like image */
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease; /* Hover transition */
+    transition: all 0.4s ease;
+    /* Hover transition */
     cursor: pointer;
 }
 
 /* Video Responsive Wrapper (16:9) */
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
     background: #000;
@@ -1164,8 +1284,10 @@
 
 /* --- HOVER EFFECT --- */
 .video-card:hover {
-    transform: translateY(-10px) scale(1.02); /* Card thoda upar jayega aur bada hoga */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Shadow dark ho jayegi */
+    transform: translateY(-10px) scale(1.02);
+    /* Card thoda upar jayega aur bada hoga */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    /* Shadow dark ho jayegi */
 }
 
 /* Responsive for Mobile */
@@ -1174,6 +1296,7 @@
         flex-direction: column;
         align-items: center;
     }
+
     .video-card {
         width: 100%;
         max-width: 400px;
@@ -1189,10 +1312,11 @@
     background-color: #F6F3F0;
 }
 
-.section-title { 
-    font-size: 27px; 
+.section-title {
+    font-size: 27px;
     /* margin-bottom: 20px;  */
-    font-weight: 500; }
+    font-weight: 500;
+}
 
 .reviews-container {
     display: flex;
@@ -1202,31 +1326,53 @@
 }
 
 /* Overall Rating Part */
-.overall-rating { flex: 1; font-size: 22px; width: 300px; }
-.rating-number h3 { font-size: 22px; white-space: nowrap;font-weight: 500;margin-top: 15px;}
-.stars { 
-    color: #001529; 
-    font-size: 20px; 
-    display: flex;       /* Stars ko bhi ek line mein rakhne ke liye */
+.overall-rating {
+    flex: 1;
+    font-size: 22px;
+    width: 300px;
+}
+
+.rating-number h3 {
+    font-size: 22px;
+    white-space: nowrap;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.stars {
+    color: #001529;
+    font-size: 20px;
+    display: flex;
+    /* Stars ko bhi ek line mein rakhne ke liye */
     gap: 5px;
     margin-bottom: 10px;
     margin-top: 15px;
- }
-.review-count { color: #000; font-size: 19px;margin-top: 15px; }
-.rating-number{
-    display: flex;       /* Items ko row mein lane ke liye */
-    align-items: center; /* Text aur stars ko vertically center karne ke liye */
+}
+
+.review-count {
+    color: #000;
+    font-size: 19px;
+    margin-top: 15px;
+}
+
+.rating-number {
+    display: flex;
+    /* Items ko row mein lane ke liye */
+    align-items: center;
+    /* Text aur stars ko vertically center karne ke liye */
     gap: 20px;
 }
+
 .view-reviews-btn {
-    background-color: #001529; /* Dark Navy as per image */
+    background-color: #001529;
+    /* Dark Navy as per image */
     color: white;
     padding: 14px 89px;
     border-radius: 30px;
     border: none;
     cursor: pointer;
     font-size: 14px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     margin-top: 15px;
 }
 
@@ -1239,6 +1385,7 @@
     overflow: hidden;
     margin: 0 15px;
 }
+
 .progress-bga {
     flex: 1;
     height: 12px;
@@ -1246,16 +1393,21 @@
     border-radius: 10px;
     overflow: hidden;
     margin: 0 50px;
-    
+
 }
+
 .progress-fill {
     height: 100%;
-    background-color: #001529; /* Navy Blue fill */
+    background-color: #001529;
+    /* Navy Blue fill */
     border-radius: 10px;
 }
 
 /* Star Progress Column */
-.rating-progress { flex: 1.5; }
+.rating-progress {
+    flex: 1.5;
+}
+
 .bar-item {
     display: flex;
     align-items: center;
@@ -1264,6 +1416,7 @@
     font-weight: 600;
     width: 100%;
 }
+
 .bar-item .percent {
     width: 30px;
     text-align: right;
@@ -1271,6 +1424,7 @@
     font-size: 18px;
     font-weight: 600;
 }
+
 .bar-item .percenta {
     width: 30px;
     text-align: right;
@@ -1278,35 +1432,56 @@
     font-size: 18px;
     font-weight: 600;
 }
-.bar-item .label { 
-    width: 120px;       /* Isse bars ek hi alignment mein rahengi */
+
+.bar-item .label {
+    width: 120px;
+    /* Isse bars ek hi alignment mein rahengi */
     text-align: left;
     margin-right: 10px;
 }
-.bar-item span:first-child { 
-    display: inline-flex; /* Number aur Icon ko ek line mein lane ke liye */
-    align-items: center;  /* Dono ko ek barabar level par lane ke liye */
+
+.bar-item span:first-child {
+    display: inline-flex;
+    /* Number aur Icon ko ek line mein lane ke liye */
+    align-items: center;
+    /* Dono ko ek barabar level par lane ke liye */
     justify-content: space-between;
-    width: 45px;          /* Fix width taaki bars ek hi line se shuru hon */
+    width: 45px;
+    /* Fix width taaki bars ek hi line se shuru hon */
     margin-right: 10px;
- }
- .bar-item span:first-child i {
-    font-size: 20px;      /* Star ko thoda chota rakha number ke hisaab se */
-    margin-top: 2px;      /* Agar star upar lage toh halka niche karne ke liye */
+}
+
+.bar-item span:first-child i {
+    font-size: 20px;
+    /* Star ko thoda chota rakha number ke hisaab se */
+    margin-top: 2px;
+    /* Agar star upar lage toh halka niche karne ke liye */
 }
 
 /* Satisfaction Column */
-.satisfaction-section { 
-    flex: 1.5; 
-    border-left: 1.4px solid #646363; /* Vertical separator line */
-    padding-left: 40px; 
+.satisfaction-section {
+    flex: 1.5;
+    border-left: 1.4px solid #646363;
+    /* Vertical separator line */
+    padding-left: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 220px;
 }
-.satisfaction-header { text-align: center; margin-bottom: 25px; }
-.satisfaction-header i { font-size: 24px; color: #001529; display: block; margin-bottom: 5px; }
+
+.satisfaction-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.satisfaction-header i {
+    font-size: 24px;
+    color: #001529;
+    display: block;
+    margin-bottom: 5px;
+}
+
 .satisfaction-header h4 {
     font-size: 24px;
     font-weight: 600;
@@ -1322,8 +1497,10 @@
     .reviews-container {
         gap: 20px;
     }
+
     .progress-bga {
-        margin: 0 20px; /* 50px se kam kiya taaki bars squeeze na hon */
+        margin: 0 20px;
+        /* 50px se kam kiya taaki bars squeeze na hon */
     }
 }
 
@@ -1334,7 +1511,8 @@
     }
 
     .reviews-container {
-        flex-direction: column; /* Stack vertically */
+        flex-direction: column;
+        /* Stack vertically */
         align-items: center;
         gap: 50px;
     }
@@ -1351,22 +1529,28 @@
 
     .view-reviews-btn {
         width: 100%;
-        max-width: 320px; /* Mobile par button readable aur full width */
-        padding: 14px 40px; 
+        max-width: 320px;
+        /* Mobile par button readable aur full width */
+        padding: 14px 40px;
     }
 
-    .rating-progress, .satisfaction-section {
+    .rating-progress,
+    .satisfaction-section {
         width: 100%;
-        max-width: 500px; /* Tablet par zyada failne se roka */
+        max-width: 500px;
+        /* Tablet par zyada failne se roka */
         flex: none;
     }
 
     .satisfaction-section {
-        border-left: none; /* Vertical line hata di */
+        border-left: none;
+        /* Vertical line hata di */
         padding-left: 0;
-        height: auto; /* Fixed 220px height hata di taaki content fit ho */
+        height: auto;
+        /* Fixed 220px height hata di taaki content fit ho */
         margin-top: 20px;
-        border-top: 1px solid #ccc; /* Mobile par horizontal separator */
+        border-top: 1px solid #ccc;
+        /* Mobile par horizontal separator */
         padding-top: 40px;
     }
 }
@@ -1380,7 +1564,8 @@
 
     .rating-number h3 {
         font-size: 20px;
-        white-space: normal; /* Mobile par text wrap hone diya */
+        white-space: normal;
+        /* Mobile par text wrap hone diya */
     }
 
     .review-count {
@@ -1388,18 +1573,23 @@
     }
 
     .bar-item {
-        font-size: 15px; /* Thoda chota font bars ke liye */
+        font-size: 15px;
+        /* Thoda chota font bars ke liye */
     }
 
-    .progress-bg, .progress-bga {
-        margin: 0 10px; /* Bars ki width badhane ke liye margin kam kiya */
+    .progress-bg,
+    .progress-bga {
+        margin: 0 10px;
+        /* Bars ki width badhane ke liye margin kam kiya */
     }
 
     .bar-item .label {
-        width: 90px; /* Label width kam ki mobile ke liye */
+        width: 90px;
+        /* Label width kam ki mobile ke liye */
     }
 
-    .bar-item .percent, .bar-item .percenta {
+    .bar-item .percent,
+    .bar-item .percenta {
         font-size: 14px;
         width: 35px;
         margin-left: 5px;
@@ -1413,23 +1603,27 @@
 /* 4. Small Mobile (480px) */
 @media (max-width: 480px) {
     .rating-number {
-        flex-direction: column; /* Number aur Stars mobile par ek ke niche ek */
+        flex-direction: column;
+        /* Number aur Stars mobile par ek ke niche ek */
         gap: 5px;
     }
 
     .bar-item span:first-child {
-        width: 35px; /* Star column aur chota kiya */
+        width: 35px;
+        /* Star column aur chota kiya */
     }
-    
+
     .bar-item .label {
         width: 75px;
     }
 }
+
 /* ==========================================================
    USER SATISFACTION OVERLAP FIX (Mobile)
    ========================================================== */
 
 @media (max-width: 768px) {
+
     /* Satisfaction container ko center aur full width kiya */
     .satisfaction-section {
         width: 100% !important;
@@ -1445,23 +1639,28 @@
         align-items: center !important;
         justify-content: space-between !important;
         width: 100% !important;
-        gap: 5px !important; /* Items ke beech thoda gap */
+        gap: 5px !important;
+        /* Items ke beech thoda gap */
         margin-bottom: 20px !important;
     }
 
     /* Labels (Response, Quality, Delivery) ka overlap hataya */
     .bar-item .label {
-        width: 85px !important; /* Fixed width taaki bars ek hi line se shuru hon */
+        width: 85px !important;
+        /* Fixed width taaki bars ek hi line se shuru hon */
         text-align: left !important;
         font-size: 14px !important;
-        flex-shrink: 0 !important; /* Label ko dabne se roka */
+        flex-shrink: 0 !important;
+        /* Label ko dabne se roka */
         margin-right: 0 !important;
     }
 
     /* Progress Bar ka gap theek kiya (Jo overlap kar raha tha) */
     .progress-bga {
-        margin: 0 10px !important; /* 50px margin ko 10px kiya taaki overlap khatam ho */
-        flex: 1 !important; /* Bar bachi hui saari jagah le lega */
+        margin: 0 10px !important;
+        /* 50px margin ko 10px kiya taaki overlap khatam ho */
+        flex: 1 !important;
+        /* Bar bachi hui saari jagah le lega */
         height: 10px !important;
     }
 
@@ -1486,16 +1685,19 @@
         width: 75px !important;
         font-size: 13px !important;
     }
+
     .progress-bga {
         margin: 0 5px !important;
     }
 }
 
 .newsletter-bar {
-    background-color: #cd7f32; /* Exact bronze-orange shade */
+    background-color: #cd7f32;
+    /* Exact bronze-orange shade */
     padding: 30px 3%;
     width: 100%;
-    margin-bottom: 0; /* Footer se chipka rahega */
+    margin-bottom: 0;
+    /* Footer se chipka rahega */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1516,7 +1718,7 @@
     font-size: 14px;
     font-weight: 600;
     margin: 0;
-    
+
 }
 
 .newsletter-form {
@@ -1531,7 +1733,8 @@
     border-radius: 5px;
     border: none;
     outline: none;
-    width: 220px; /* Input ki width exact match ki gayi */
+    width: 220px;
+    /* Input ki width exact match ki gayi */
     font-size: 14px;
 }
 
@@ -1543,19 +1746,22 @@
 
 .terms-text {
     color: white;
-    font-size: 11px; /* Small text as per image */
+    font-size: 11px;
+    /* Small text as per image */
     max-width: 200px;
     line-height: 1.3;
     margin: 0;
 }
 
 .terms-text a {
-    color: #001529; /* Navy blue links */
+    color: #001529;
+    /* Navy blue links */
     text-decoration: underline;
 }
 
 .register-btn {
-    background-color: #001529; /* Dark navy button */
+    background-color: #001529;
+    /* Dark navy button */
     color: white;
     padding: 12px 30px;
     border-radius: 5px;
@@ -1564,7 +1770,7 @@
     cursor: pointer;
     white-space: nowrap;
     transition: 0.3s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .register-btn:hover {
@@ -1582,8 +1788,10 @@
         gap: 15px;
         padding: 0 20px;
     }
+
     .news-input {
-        width: 180px; /* Thoda chota laptop screens ke liye */
+        width: 180px;
+        /* Thoda chota laptop screens ke liye */
     }
 }
 
@@ -1594,7 +1802,8 @@
     }
 
     .newsletter-container {
-        flex-direction: column; /* Sab kuch ek ke niche ek */
+        flex-direction: column;
+        /* Sab kuch ek ke niche ek */
         text-align: center;
         gap: 30px;
     }
@@ -1602,36 +1811,42 @@
     .newsletter-form {
         width: 100%;
         max-width: 500px;
-        flex-direction: column; /* Inputs ek ke niche ek */
+        flex-direction: column;
+        /* Inputs ek ke niche ek */
         gap: 15px;
     }
 
     .news-input {
-        width: 100% !important; /* Mobile par full width input */
+        width: 100% !important;
+        /* Mobile par full width input */
         max-width: 100%;
     }
 
     .newsletter-action {
-        flex-direction: column; /* Terms upar, Button niche */
+        flex-direction: column;
+        /* Terms upar, Button niche */
         gap: 20px;
     }
 
     .terms-text {
-        max-width: 100%; /* Text ko poori width di */
+        max-width: 100%;
+        /* Text ko poori width di */
         text-align: center;
         font-size: 12px;
     }
 
     .register-btn {
         width: 100%;
-        max-width: 300px; /* Button ko mobile par bada aur center kiya */
+        max-width: 300px;
+        /* Button ko mobile par bada aur center kiya */
     }
 }
 
 /* 3. Small Mobile (480px) */
 @media (max-width: 480px) {
     .newsletter-text p {
-        font-size: 16px; /* Heading thodi badi mobile par readable banane ke liye */
+        font-size: 16px;
+        /* Heading thodi badi mobile par readable banane ke liye */
         line-height: 1.4;
     }
 
@@ -1640,7 +1855,8 @@
     }
 
     .register-btn {
-        padding: 14px; /* Touch friendly button */
+        padding: 14px;
+        /* Touch friendly button */
     }
 }
 
@@ -1652,25 +1868,26 @@
     width: 90%;
     height: 90%;
     /* background: rgba(0, 0, 0, 0.5); Dim effect as per image */
-    display: none; /* Initially Hidden */
+    display: none;
+    /* Initially Hidden */
     justify-content: center;
     align-items: center;
     z-index: 10000;
     display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
 }
 
-        .modal-overlay.active {
-            display: flex;
-        }
+.modal-overlay.active {
+    display: flex;
+}
 
 /* 2. White Modal Box */
 .modal-container {
@@ -1682,13 +1899,13 @@
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     font-family: 'Poppins', sans-serif;
-     width: 90%;
-            max-width: 500px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 
@@ -1700,9 +1917,10 @@
     cursor: pointer;
     color: #333;
 }
+
 .close-modal:hover {
-            opacity: 0.8;
-        }
+    opacity: 0.8;
+}
 
 .modal-container h2 {
     font-size: 20px;
@@ -1724,6 +1942,7 @@
     gap: 12px;
     margin: 20px 0;
 }
+
 .color-dot {
     width: 24px;
     height: 24px;
@@ -1731,9 +1950,20 @@
     cursor: pointer;
     border: 2px solid transparent;
 }
-.color-dot.blue { background-color: #003399; }
-.color-dot.pink { background-color: #ff4d6d; }
-.color-dot.active { border-color: #000; outline: 2px solid white; outline-offset: -4px; }
+
+.color-dot.blue {
+    background-color: #003399;
+}
+
+.color-dot.pink {
+    background-color: #ff4d6d;
+}
+
+.color-dot.active {
+    border-color: #000;
+    outline: 2px solid white;
+    outline-offset: -4px;
+}
 
 /* Action Row */
 .modal-action-row {
@@ -1744,7 +1974,8 @@
 
 .quantity-selector {
     display: flex;
-    background: #0a192f; /* Dark Navy as per image */
+    background: #0a192f;
+    /* Dark Navy as per image */
     border-radius: 5px;
     overflow: hidden;
     flex: 1;
@@ -1770,7 +2001,8 @@
 }
 
 .back-to-product-btn {
-    background: #0a192f; /* Dark Navy */
+    background: #0a192f;
+    /* Dark Navy */
     color: white;
     border: none;
     border-radius: 5px;
@@ -1783,7 +2015,8 @@
 /* Final Buy Now Button */
 .confirm-buy-btn {
     width: 100%;
-    background: #0045a5; /* Bright Blue as per image */
+    background: #0045a5;
+    /* Bright Blue as per image */
     color: white;
     border: none;
     padding: 15px;

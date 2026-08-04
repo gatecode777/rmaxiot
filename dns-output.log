@@ -1,12 +1,5 @@
 [
   {
-    "name": "ac-9hpxhmp-shard-00-01.l7xeac9.mongodb.net",
-    "port": 27017,
-    "priority": 0,
-    "weight": 0,
-    "type": "SRV"
-  },
-  {
     "name": "ac-9hpxhmp-shard-00-00.l7xeac9.mongodb.net",
     "port": 27017,
     "priority": 0,
@@ -15,6 +8,13 @@
   },
   {
     "name": "ac-9hpxhmp-shard-00-02.l7xeac9.mongodb.net",
+    "port": 27017,
+    "priority": 0,
+    "weight": 0,
+    "type": "SRV"
+  },
+  {
+    "name": "ac-9hpxhmp-shard-00-01.l7xeac9.mongodb.net",
     "port": 27017,
     "priority": 0,
     "weight": 0,

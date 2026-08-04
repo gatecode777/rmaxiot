@@ -285,14 +285,16 @@ const OurProducts = ({ initialProducts, initialCategories } = {}) => {
             ) : (
               categories.map(category => (
                 <li key={category._id}>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={selectedCategories.includes(category._id)}
-                      onChange={() => handleCategoryChange(category._id)}
-                    />
-                    {category.name}
-                    <span>{category.productCount || 0}</span>
+                  <label className="category-label">
+                    <div className="category-info-wrap">
+                      <input
+                        type="checkbox"
+                        checked={selectedCategories.includes(category._id)}
+                        onChange={() => handleCategoryChange(category._id)}
+                      />
+                      <span className="category-name">{category.name}</span>
+                    </div>
+                    <span className="category-count">{category.productCount || 0}</span>
                   </label>
                 </li>
               ))
