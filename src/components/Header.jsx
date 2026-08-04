@@ -19,7 +19,12 @@ const Header = () => {
     });
   }, [location.pathname]);
 
-  const fetchCartCount = async () => {
+  const fetchCartCount = async (e) => {
+    // If the event carries the new count directly, use it instantly — no API call needed
+    if (e?.detail?.count !== undefined) {
+      setCartCount(e.detail.count);
+      return;
+    }
     try {
       const response = await cartAPI.getCartCount();
       if (response.data.success) {

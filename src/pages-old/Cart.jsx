@@ -25,14 +25,37 @@ const Cart = () => {
     fetchCart();
   };
 
-  const fetchCart = async () => {
+  const fetchCart = async (showLoader = true) => {
     try {
-      setLoading(true);
+      // Show cached cart immediately if fresh enough (< 60s old)
+      if (showLoader) {
+        const cached = sessionStorage.getItem('cartCache');
+        if (cached) {
+          try {
+            const { data, timestamp } = JSON.parse(cached);
+            if (Date.now() - timestamp < 60000 && data) {
+              setCart(data);
+              setSelectedItems(data.items?.map(item => item._id) || []);
+              setLoading(false);
+              showLoader = false; // Don't show spinner, fetch silently in bg
+            }
+          } catch (_) {}
+        }
+      }
+
+      if (showLoader) setLoading(true);
       const response = await cartAPI.getCart();
       
       if (response.data.success) {
         setCart(response.data.cart);
         setSelectedItems(response.data.cart.items.map(item => item._id));
+        // Update sessionStorage cache
+        try {
+          sessionStorage.setItem('cartCache', JSON.stringify({
+            data: response.data.cart,
+            timestamp: Date.now(),
+          }));
+        } catch (_) {}
       }
       
       setLoading(false);
@@ -59,7 +82,9 @@ const Cart = () => {
       if (response.data.success) {
         setCart(response.data.cart);
         toast.success('Quantity updated');
-        window.dispatchEvent(new Event('cartUpdated'));
+        const newCount = response.data.cart?.items?.reduce((sum, i) => sum + (i.quantity || 1), 0) || 0;
+        window.dispatchEvent(new CustomEvent('cartUpdated', { detail: { count: newCount } }));
+        try { sessionStorage.setItem('cartCache', JSON.stringify({ data: response.data.cart, timestamp: Date.now() })); } catch (_) {}
       }
     } catch (error) {
       console.error('Error updating quantity:', error);
@@ -75,7 +100,9 @@ const Cart = () => {
         setCart(response.data.cart);
         setSelectedItems(selectedItems.filter(id => id !== itemId));
         toast.success('Item removed from cart');
-        window.dispatchEvent(new Event('cartUpdated'));
+        const newCount = response.data.cart?.items?.reduce((sum, i) => sum + (i.quantity || 1), 0) || 0;
+        window.dispatchEvent(new CustomEvent('cartUpdated', { detail: { count: newCount } }));
+        try { sessionStorage.setItem('cartCache', JSON.stringify({ data: response.data.cart, timestamp: Date.now() })); } catch (_) {}
       }
     } catch (error) {
       console.error('Error removing item:', error);

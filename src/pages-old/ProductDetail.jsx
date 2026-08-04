@@ -157,9 +157,45 @@ const ProductDetail = ({ slugOverride, initialProduct } = {}) => {
       );
 
       if (response.data.success) {
-        toast.success('Item added to cart!');
-        // Refresh cart count in header
-        window.dispatchEvent(new Event('cartUpdated'));
+        // Calculate total item count from response cart
+        const newCount = response.data.cart?.items?.reduce((sum, i) => sum + (i.quantity || 1), 0) || 0;
+
+        // Update header badge instantly — no extra API call
+        window.dispatchEvent(new CustomEvent('cartUpdated', { detail: { count: newCount } }));
+
+        // Cache the latest cart in sessionStorage for instant Cart page load
+        try {
+          sessionStorage.setItem('cartCache', JSON.stringify({
+            data: response.data.cart,
+            timestamp: Date.now(),
+          }));
+        } catch (_) {}
+
+        // Rich "Added to Cart" popup — toastId prevents stacking on multiple clicks
+        const toastContent = (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            <strong style={{ fontSize: '14px' }}>✅ Added to Cart!</strong>
+            <span style={{ fontSize: '12px', color: '#555' }}>{product.name}</span>
+            <a
+              href="/cart"
+              style={{
+                fontSize: '12px',
+                fontWeight: '600',
+                color: '#1a3c7a',
+                textDecoration: 'underline',
+                marginTop: '2px',
+              }}
+            >
+              View Cart →
+            </a>
+          </div>
+        );
+
+        if (toast.isActive('add-to-cart')) {
+          toast.update('add-to-cart', { render: toastContent, autoClose: 3000 });
+        } else {
+          toast.success(toastContent, { toastId: 'add-to-cart', autoClose: 3000, icon: false });
+        }
       }
     } catch (error) {
       console.error('Error:', error);
