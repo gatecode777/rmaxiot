@@ -103,8 +103,8 @@ const connectDB = async () => {
     try {
       console.log("🔌 Attempting direct database connection...");
       await mongoose.connect(originalUri, {
-        serverSelectionTimeoutMS: 2000, // Short timeout for first attempt
-        connectTimeoutMS: 2000,
+        serverSelectionTimeoutMS: 500,  // Short timeout — fails fast on Vercel where SRV DNS is blocked
+        connectTimeoutMS: 500,
         socketTimeoutMS: 30000,
         family: 4,
       });

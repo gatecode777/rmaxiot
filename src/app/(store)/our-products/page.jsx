@@ -3,6 +3,9 @@ import Product from '@/server/models/Product';
 import Category from '@/server/models/Category';
 import OurProducts from '@/pages-old/OurProducts';
 
+// Cache the products listing page for 10 minutes
+export const revalidate = 600;
+
 export default async function Page() {
   try {
     // 1. Establish DB Connection
