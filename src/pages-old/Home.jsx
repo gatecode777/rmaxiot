@@ -1,3 +1,5 @@
+"use client";
+
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
@@ -6,13 +8,13 @@ import "../styles/style.css";
 import "../styles/product.css";
 const defaultProduct = '/default-product.png';
 
-const Home = () => {
+const Home = ({ initialBestSellers, initialNewArrivals, initialFeatured } = {}) => {
     const navigate = useNavigate();
 
-    const [bestSellerProducts, setBestSellerProducts] = useState([]);
-    const [newArrivalProducts, setNewArrivalProducts] = useState([]);
-    const [moreProducts, setMoreProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [bestSellerProducts, setBestSellerProducts] = useState(initialBestSellers || []);
+    const [newArrivalProducts, setNewArrivalProducts] = useState(initialNewArrivals || []);
+    const [moreProducts, setMoreProducts] = useState(initialFeatured || []);
+    const [loading, setLoading] = useState(initialBestSellers ? false : true);
     const [activeTab, setActiveTab] = useState('best-seller');
 
     // Wishlist tracking
@@ -20,7 +22,9 @@ const Home = () => {
 
     // Fetch products on component mount
     useEffect(() => {
-        fetchProducts();
+        if (!initialBestSellers || initialBestSellers.length === 0) {
+            fetchProducts();
+        }
         fetchWishlist();
     }, []);
 
@@ -28,32 +32,20 @@ const Home = () => {
         try {
             setLoading(true);
 
-            // Fetch best sellers
-            const bestSellersRes = await productAPI.getAll({
-                limit: 8,
-            });
+            // Fetch best sellers, new arrivals, and featured products in parallel
+            const [bestSellersRes, newArrivalsRes, featuredRes] = await Promise.all([
+                productAPI.getAll({ limit: 8, status: 'active' }),
+                productAPI.getAll({ isNewArrival: true, status: 'active', limit: 8 }),
+                productAPI.getAll({ isFeatured: true, status: 'active', limit: 4 })
+            ]);
 
             if (bestSellersRes.data.success) {
                 setBestSellerProducts(bestSellersRes.data.products);
             }
 
-            // Fetch new arrivals (isNewArrival = true)
-            const newArrivalsRes = await productAPI.getAll({
-                isNewArrival: true,
-                status: 'active',
-                limit: 8,
-            });
-
             if (newArrivalsRes.data.success) {
                 setNewArrivalProducts(newArrivalsRes.data.products);
             }
-
-            // Fetch featured products for "More Products" section
-            const featuredRes = await productAPI.getAll({
-                isFeatured: true,
-                status: 'active',
-                limit: 4,
-            });
 
             if (featuredRes.data.success) {
                 setMoreProducts(featuredRes.data.products);
@@ -446,46 +438,39 @@ const Home = () => {
             </section>
 
             {/* More Products Section */}
-            {(loading || moreProducts.length > 0) && (
+            {!loading && moreProducts.length > 0 && (
                 <section className="more-products">
                     <div className="card-container">
-                        {loading ? (
-                            <div className="loading-spinner">
-                                <i className="fas fa-spinner fa-spin"></i>
-                                <p>Loading products...</p>
-                            </div>
-                        ) : (
-                            moreProducts.map((product) => (
-                                <div className="item-card" key={product._id}>
-                                    <div className="item-img-bg">
-                                        <img
-                                            src={getImageUrl(product)}
-                                            alt={product.name}
-                                            onError={(e) => {
-                                                e.target.src = 'https://via.placeholder.com/300x300?text=Product';
-                                            }}
-                                        />
-                                    </div>
-                                    <div className="item-info">
-                                        <h3 className="item-name">{product.name}</h3>
-                                        <p className="item-price">{formatPrice(product.price)}</p>
-                                        <p className="item-desc">
-                                            {product.description?.short || product.description?.long?.substring(0, 150) + '...'}
-                                        </p>
-                                        <a
-                                            href="#"
-                                            className="shop-now-btn"
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                navigate(`/products/${product.slug || product._id}`);
-                                            }}
-                                        >
-                                            SHOP NOW
-                                        </a>
-                                    </div>
+                        {moreProducts.map((product) => (
+                            <div className="item-card" key={product._id}>
+                                <div className="item-img-bg">
+                                    <img
+                                        src={getImageUrl(product)}
+                                        alt={product.name}
+                                        onError={(e) => {
+                                            e.target.src = 'https://via.placeholder.com/300x300?text=Product';
+                                        }}
+                                    />
                                 </div>
-                            ))
-                        )}
+                                <div className="item-info">
+                                    <h3 className="item-name">{product.name}</h3>
+                                    <p className="item-price">{formatPrice(product.price)}</p>
+                                    <p className="item-desc">
+                                        {product.description?.short || product.description?.long?.substring(0, 150) + '...'}
+                                    </p>
+                                    <a
+                                        href="#"
+                                        className="shop-now-btn"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            navigate(`/products/${product.slug || product._id}`);
+                                        }}
+                                    >
+                                        SHOP NOW
+                                    </a>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </section>
             )}

@@ -1,7 +1,11 @@
+"use client";
+
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/aboutus.css";
 
 const AboutUs = () => {
+    const navigate = useNavigate();
     return (
         <>
             {/* Banner Section */}
@@ -10,7 +14,7 @@ const AboutUs = () => {
                     <h1>Send us a Quick Message</h1>
                     <p>Discuss more about your requirement by contacting us now</p>
                 </div>
-                <button className="contact-us-btn">Contact Us</button>
+                <button className="contact-us-btn" onClick={() => navigate("/contact-us")}>Contact Us</button>
             </section>
 
             <div className="about-container">

@@ -72,11 +72,9 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="bottom-container">
           <div className="bottom-links">
-            <Link to="#">Sitemap</Link>
             <Link to="/returns-refunds-policy">Refund Policy</Link>
             <Link to="/privacy-policy">Privacy Policy</Link>
             <Link to="/terms-and-condition">Terms & Conditions</Link>
-            <Link to="#">Careers</Link>
             <Link to="/contact-us">Contact Us</Link>
           </div>
 
