@@ -1,17 +1,20 @@
-import { useState, useEffect } from 'react';
+"use client";
+
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { productAPI, categoryAPI, wishlistAPI } from '../services/api';
 import '../styles/ourproduct.css';
 const defaultProduct = '/default-product.png';
 
-const OurProducts = () => {
+const OurProducts = ({ initialProducts, initialCategories } = {}) => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const isFirstRender = useRef(true);
 
-  const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState(initialCategories || []);
+  const [products, setProducts] = useState(initialProducts || []);
+  const [loading, setLoading] = useState(initialProducts ? false : true);
   const [loadingProducts, setLoadingProducts] = useState(false);
 
   // Filter states
@@ -29,7 +32,9 @@ const OurProducts = () => {
 
   // Load initial data
   useEffect(() => {
-    fetchCategories();
+    if (!initialCategories || initialCategories.length === 0) {
+      fetchCategories();
+    }
     fetchWishlist();
     
     // Get category from URL if present
@@ -41,6 +46,12 @@ const OurProducts = () => {
 
   // Fetch products when filters change
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      if (initialProducts && initialProducts.length > 0) {
+        return;
+      }
+    }
     fetchProducts();
   }, [selectedCategories, searchTerm, sortOption, currentPage]);
 

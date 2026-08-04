@@ -201,36 +201,36 @@ const Home = () => {
             img: "/jyoti.jpg",
         },
         {
-            name: "Jyoti Rajawat",
-            location: "Jaipur, Rajasthan",
-            date: "29 September 2025",
+            name: "Rajesh Kumar",
+            location: "New Delhi, Delhi",
+            date: "14 October 2025",
             review:
-                "Yes, this is a good platform for online business. We can make business easy by India mart...",
-            img: "/jyoti.jpg",
+                "Excellent quality sanitary vending machines. The delivery was fast and customer support guided us through the entire setup process. Sincere thanks to the RMAX team!",
+            img: "/rajesh.png",
         },
         {
-            name: "Jyoti Rajawat",
-            location: "Jaipur, Rajasthan",
-            date: "29 September 2025",
+            name: "Anjali Sharma",
+            location: "Mumbai, Maharashtra",
+            date: "05 November 2025",
             review:
-                "Yes, this is a good platform for online business. We can make business easy by India mart...",
-            img: "/jyoti.jpg",
+                "I ordered the automatic napkin incinerator for our corporate office. The build quality is top-notch, operations are fully automated, and it consumes very little power.",
+            img: "/anjali.png",
         },
         {
-            name: "Jyoti Rajawat",
-            location: "Jaipur, Rajasthan",
-            date: "29 September 2025",
+            name: "Vikram Singh",
+            location: "Bangalore, Karnataka",
+            date: "12 December 2025",
             review:
-                "Yes, this is a good platform for online business. We can make business easy by India mart...",
-            img: "/jyoti.jpg",
+                "The GPS devices we sourced from RMAX are highly accurate. Integrating their APIs with our tracking system was smooth. Looking forward to more orders.",
+            img: "/vikram.png",
         },
         {
-            name: "Jyoti Rajawat",
-            location: "Jaipur, Rajasthan",
-            date: "29 September 2025",
+            name: "Priya Patel",
+            location: "Ahmedabad, Gujarat",
+            date: "22 January 2026",
             review:
-                "Yes, this is a good platform for online business. We can make business easy by India mart...",
-            img: "/jyoti.jpg",
+                "We purchased a wholesale lot of coin-operated vending machines. Their performance has been outstanding with zero downtime so far. Extremely satisfied with this purchase!",
+            img: "/priya.png",
         },
     ];
 
@@ -446,51 +446,49 @@ const Home = () => {
             </section>
 
             {/* More Products Section */}
-            <section className="more-products">
-                <div className="card-container">
-                    {loading ? (
-                        <div className="loading-spinner">
-                            <i className="fas fa-spinner fa-spin"></i>
-                            <p>Loading products...</p>
-                        </div>
-                    ) : moreProducts.length > 0 ? (
-                        moreProducts.map((product) => (
-                            <div className="item-card" key={product._id}>
-                                <div className="item-img-bg">
-                                    <img
-                                        src={getImageUrl(product)}
-                                        alt={product.name}
-                                        onError={(e) => {
-                                            e.target.src = 'https://via.placeholder.com/300x300?text=Product';
-                                        }}
-                                    />
-                                </div>
-                                <div className="item-info">
-                                    <h3 className="item-name">{product.name}</h3>
-                                    <p className="item-price">{formatPrice(product.price)}</p>
-                                    <p className="item-desc">
-                                        {product.description?.short || product.description?.long?.substring(0, 150) + '...'}
-                                    </p>
-                                    <a
-                                        href="#"
-                                        className="shop-now-btn"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            navigate(`/products/${product.slug || product._id}`);
-                                        }}
-                                    >
-                                        SHOP NOW
-                                    </a>
-                                </div>
+            {(loading || moreProducts.length > 0) && (
+                <section className="more-products">
+                    <div className="card-container">
+                        {loading ? (
+                            <div className="loading-spinner">
+                                <i className="fas fa-spinner fa-spin"></i>
+                                <p>Loading products...</p>
                             </div>
-                        ))
-                    ) : (
-                        <div className="no-products">
-                            <p>No featured products available</p>
-                        </div>
-                    )}
-                </div>
-            </section>
+                        ) : (
+                            moreProducts.map((product) => (
+                                <div className="item-card" key={product._id}>
+                                    <div className="item-img-bg">
+                                        <img
+                                            src={getImageUrl(product)}
+                                            alt={product.name}
+                                            onError={(e) => {
+                                                e.target.src = 'https://via.placeholder.com/300x300?text=Product';
+                                            }}
+                                        />
+                                    </div>
+                                    <div className="item-info">
+                                        <h3 className="item-name">{product.name}</h3>
+                                        <p className="item-price">{formatPrice(product.price)}</p>
+                                        <p className="item-desc">
+                                            {product.description?.short || product.description?.long?.substring(0, 150) + '...'}
+                                        </p>
+                                        <a
+                                            href="#"
+                                            className="shop-now-btn"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                navigate(`/products/${product.slug || product._id}`);
+                                            }}
+                                        >
+                                            SHOP NOW
+                                        </a>
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </div>
+                </section>
+            )}
 
             {/* Why Partner Section */}
             <section className="why-partner-new">

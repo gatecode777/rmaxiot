@@ -97,10 +97,26 @@ const connectDB = async () => {
 
   connectionPromise = (async () => {
     const maxRetries = 3;
+    const originalUri = process.env.MONGODB_URI;
 
-    // Resolve the SRV URI once and cache it
+    // First try: Attempt direct connection with the original URI (fastest path)
+    try {
+      console.log("🔌 Attempting direct database connection...");
+      await mongoose.connect(originalUri, {
+        serverSelectionTimeoutMS: 2000, // Short timeout for first attempt
+        connectTimeoutMS: 2000,
+        socketTimeoutMS: 30000,
+        family: 4,
+      });
+      console.log("✅ MongoDB Connected (Direct)");
+      return;
+    } catch (directErr) {
+      console.warn(`⚠️ Direct connection failed: ${directErr.message}. Initiating firewall-bypass resolution fallback...`);
+    }
+
+    // Resolve the SRV URI once and cache it if first attempt failed
     if (!resolvedUri) {
-      resolvedUri = await resolveMongoSRV(process.env.MONGODB_URI);
+      resolvedUri = await resolveMongoSRV(originalUri);
     }
 
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
@@ -111,7 +127,7 @@ const connectDB = async () => {
           socketTimeoutMS: 30000,
           family: 4,
         });
-        console.log("✅ MongoDB Connected");
+        console.log("✅ MongoDB Connected (Fallback)");
         return;
       } catch (error) {
         console.error(

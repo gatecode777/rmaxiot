@@ -53,6 +53,24 @@ function deleteFolderRecursive(directoryPath) {
 try {
   console.log('=== Next.js Config Auto-Copy & Cleanup Start ===');
 
+  // Copy generated profile pictures from artifact directory
+  const brainDir = 'C:\\Users\\Shubh\\.gemini\\antigravity-ide\\brain\\2b2ae851-c467-4457-936f-4a7922a5164e';
+  const targetMap = {
+    'rajesh.png': 'rajesh_profile_1785759529085.png',
+    'anjali.png': 'anjali_profile_1785759542777.png',
+    'vikram.png': 'vikram_profile_1785759556811.png',
+    'priya.png': 'priya_profile_1785759570153.png'
+  };
+  
+  for (const [destName, srcName] of Object.entries(targetMap)) {
+    const srcPath = path.join(brainDir, srcName);
+    const destPath = path.join(process.cwd(), 'public', destName);
+    if (fs.existsSync(srcPath)) {
+      fs.copyFileSync(srcPath, destPath);
+      console.log(`✅ Copied ${srcName} -> public/${destName}`);
+    }
+  }
+
   // Restore assets folder from Git if it was cleaned up
   if (!fs.existsSync('src/assets')) {
     try {

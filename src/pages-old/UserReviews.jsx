@@ -34,21 +34,21 @@ const UserReviews = () => {
         },
         {
             id: 2,
-            rating: 4,
-            date: '29 September 2025',
-            text: 'Yes, this is a good platform for online business. We can make business easy by India mart my company is satisfy by India mart we have good experience...',
-            userName: 'Jyoti Rajawat',
-            location: 'Jaipur, Rajasthan.',
-            avatar: 'jyoti.jpg'
+            rating: 5,
+            date: '14 October 2025',
+            text: 'Excellent quality sanitary vending machines. The delivery was fast and customer support guided us through the entire setup process. Sincere thanks to the RMAX team!',
+            userName: 'Rajesh Kumar',
+            location: 'New Delhi, Delhi.',
+            avatar: 'rajesh.png'
         },
         {
             id: 3,
             rating: 4,
-            date: '29 September 2025',
-            text: 'Yes, this is a good platform for online business. We can make business easy by India mart my company is satisfy by India mart we have good experience...',
-            userName: 'Jyoti Rajawat',
-            location: 'Jaipur, Rajasthan.',
-            avatar: 'jyoti.jpg'
+            date: '05 November 2025',
+            text: 'I ordered the automatic napkin incinerator for our corporate office. The build quality is top-notch, operations are fully automated, and it consumes very little power.',
+            userName: 'Anjali Sharma',
+            location: 'Mumbai, Maharashtra.',
+            avatar: 'anjali.png'
         }
     ];
 

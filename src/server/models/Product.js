@@ -275,6 +275,7 @@ const productSchema = new mongoose.Schema(
 productSchema.index({ name: "text", description: "text" });
 productSchema.index({ category: 1, status: 1 });
 productSchema.index({ slug: 1 });
+productSchema.index({ status: 1, createdAt: -1 });
 
 // Pre-save middleware to generate slug
 productSchema.pre("save", function (next) {

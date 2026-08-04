@@ -1,16 +1,18 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { productAPI, cartAPI, wishlistAPI } from '../services/api';
 import { toast } from 'react-toastify';
 const defaultProduct = '/default-product.png';
 
-const ProductDetail = ({ slugOverride } = {}) => {
+const ProductDetail = ({ slugOverride, initialProduct } = {}) => {
   const params = useParams();
   const slug = slugOverride || params?.slug;
   const navigate = useNavigate();
 
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [product, setProduct] = useState(initialProduct || null);
+  const [loading, setLoading] = useState(initialProduct ? false : true);
   const [selectedImage, setSelectedImage] = useState(0);
   const [error, setError] = useState('');
 
@@ -20,6 +22,9 @@ const ProductDetail = ({ slugOverride } = {}) => {
   const [inWishlist, setInWishlist] = useState(false);
 
   useEffect(() => {
+    if (initialProduct && (initialProduct.slug === slug || initialProduct._id === slug)) {
+      return;
+    }
     fetchProduct();
   }, [slug]);
 

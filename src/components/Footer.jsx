@@ -12,7 +12,6 @@ const Footer = () => {
           </div>
 
           <div className="social-links">
-            <p>Follow us :</p>
             <div className="icons">
               <a href="#"><i className="fa-solid fa-envelope"></i></a>
               <a href="#"><i className="fa-brands fa-facebook-f"></i></a>
